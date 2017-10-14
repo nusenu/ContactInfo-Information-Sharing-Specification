@@ -38,8 +38,9 @@ This should be mitigated with the use of directory data compression and diffs av
 
 - ContactInfo size constraints
 According to the [manual](https://www.torproject.org/docs/tor-manual.html.en#ContactInfo) there is no explicit 
-ContactInfo size limit but there is a descriptor size limit. The [max. descriptor size](ttps://gitweb.torproject.org/torspec.git/tree/dir-spec.txt#n364) is 20000 bytes [3]. The 
-family size and exit policy are two other relevant inputs.
+ContactInfo size limit but there is a descriptor size limit. 
+The [max. descriptor size](https://gitweb.torproject.org/torspec.git/tree/dir-spec.txt#n364) is 20000 bytes. 
+The family size (number of listed fingerprints) and exit policy are two other relevant inputs.
 
 
 # Defined Fields 
