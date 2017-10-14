@@ -60,7 +60,7 @@ Specifically the email field SHOULD be the first field.
 ## example
 An example contactInfo string as defined by this document could look like this:
 
-```foo bar email:user[]example-operator.com hoster:https://example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10 virtualization:xen```
+```foo bar email:user[]example-operator.com hosterurl:https://example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10 virtualization:xen```
 
 
 ## contact information
@@ -75,7 +75,7 @@ International non-ASCII email addresses are NOT supported.
 example value:
 	user[]example.com
   
-### website
+### operatorurl
 The website of the operator
  example value:
 	https://www.torservers.net
@@ -115,7 +115,7 @@ ricochet handle
 
 ## hoster information
 
-### hoster
+### hosterurl
 hoster URL where this server has been ordered. This should help 
 other relay operators and future relay operators to find hosting providers. 
 If you are your own ISP (and are not offering a commercial service for others) this field is obsolete.
