@@ -56,8 +56,8 @@ keys and values MUST not contain spaces.
 The order of keys is not mandatory but SHOULD follow the order in which they appear in this specification.
 Specifically the email field SHOULD be the first field.
 
-## examples
-
+## example
+An example contactInfo string as defined by this document could look like this:
 
 ```foo bar email:user[]example-operator.com hoster:https://example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10 virtualization:xen```
 
