@@ -1,5 +1,5 @@
 
-#DRAFT
+# DRAFT
 please send your first feedback until 2017-10-27
 
 # Motivation
@@ -50,11 +50,17 @@ the contactInfo string.
 
 Information is provided in key-value pairs:
 
-key ":" value SP key ":" value ...
+```key ":" value SP key ":" value ...```
 
 keys and values MUST not contain spaces.
 The order of keys is not mandatory but SHOULD follow the order in which they appear in this specification.
 Specifically the email field SHOULD be the first field.
+
+## examples
+
+
+```foo bar email:user[]example-operator.com hoster:https://example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10 virtualization:xen```
+
 
 ## contact information
 ### email
