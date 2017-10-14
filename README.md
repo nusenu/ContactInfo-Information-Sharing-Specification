@@ -117,7 +117,8 @@ ricochet handle
 
 ### hoster
 hoster URL where this server has been ordered. This should help 
-other relay operators and future relay operators to find hosting providers.
+other relay operators and future relay operators to find hosting providers. 
+If you are your own ISP (and are not offering a commercial service for others) this field is obsolete.
 
 ### cost
 Monthly hosting costs this server is causing measured in US dollar. On servers with
