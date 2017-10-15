@@ -249,7 +249,7 @@ Character stating stating whether AES-NI is available and used ("y") or not avai
 ### autoupdate
 Single character stating whether automatic (unnattended) updates are enabled ("y") or not ("n").
 
-### configurationmgmt
+### confmgmt
 States what configuration managment system is used. 
 Set to "manual" for no configuration management.
 
