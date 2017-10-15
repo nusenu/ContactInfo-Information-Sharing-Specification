@@ -167,10 +167,19 @@ or "default" for no explicit configuration.
 ## OS Information
 
 ### os
-String stating which OS and version is used. OS and version is separated with a "/" sign.
+String stating which OS distribution and version is used. Distribution and version is separated with a "/" sign.
+On platforms where the file [/etc/os-release](https://www.freedesktop.org/software/systemd/man/os-release.html) is available os is created by taking the `ID` and `VERSION_ID` values.
+The string is case-insensitive.
 
- example:
-	OpenBSD/6.1
+ examples:
+``` 
+OpenBSD/6.1
+HardenedBSD/11
+ubuntu/16.04
+debian/9
+centos/7
+fedora/26
+```	
 
 ### ssl
 String stating which ssl-library is used. Possible values: openssl, libressl, TODO
