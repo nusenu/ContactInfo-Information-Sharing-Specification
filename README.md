@@ -138,12 +138,23 @@ example:
 ```https://example-hoster.com```
 
 ### cost
-Monthly hosting costs this server is causing measured in US dollar. On servers with
-multiple tor instances divide the server hosting costs through the number of tor instances running on that OS.
+Monthly hosting costs the hosting company is charging for the server. This does not include time spend to manage the relay. 
+The amount MUST be provided with two digits after the decimal point. 
+The value MUST be followed by the currency in [ISO4217 format](https://en.wikipedia.org/wiki/ISO_4217#Active_codes).
+On servers with multiple tor instances divide the server hosting costs through the number of tor relay instances running on that OS.
 
 example:
  
-```10.7```
+```
+10.70USD
+10.00EUR
+```
+**invalid** examples:
+```
+1USD
+1.1USD
+```
+
 
 ### uplinkbw
 Logical network nterface speed in MBit/s. For asymetrical uplinks specify the lower of up- and download bandwidth.
