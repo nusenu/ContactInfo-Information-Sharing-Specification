@@ -157,7 +157,7 @@ example:
 
 
 ### uplinkbw
-Logical network nterface speed in MBit/s. For asymetrical uplinks specify the lower of up- and download bandwidth.
+Logical network interface speed in MBit/s (1MBit/s = 1 000 000 Bit/s). For asymetrical uplinks specify the lower of up- and download bandwidth.
 On a server with multiple tor instances the total available bandwidth of the server MUST be divided by the number of tor relay instances. This is an integer value.
 
  example: 
@@ -165,7 +165,7 @@ On a server with multiple tor instances the total available bandwidth of the ser
  ```100```
 
 ### trafficacct
-States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in TB is provided. If no bandwidth is included this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two.
+States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in TB (**TODO**) is provided. If no bandwidth is included this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two.
 
 example values:
 
@@ -177,7 +177,7 @@ unmetered
 
 
 ### memory 
-Non-persistent memory (RAM) available on this server - measured in MB.
+Non-persistent memory (RAM) available on this server - measured in MB ([Mebibytes](https://en.wikipedia.org/wiki/Mebibyte)). (this is the output of 'free -m' on most Unix-based systems.)
 On a server with multiple tor instances the memory size MUST be divided by the number of tor relay instances.
 This is an integer value.
 
