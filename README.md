@@ -168,7 +168,7 @@ or "default" for no explicit configuration.
 
 ### os
 String stating which OS distribution and version is used. Distribution and version is separated with a "/" sign.
-On platforms where the file [/etc/os-release](https://www.freedesktop.org/software/systemd/man/os-release.html) is available os is created by taking the `ID` and `VERSION_ID` values.
+On platforms where the file [/etc/os-release](https://www.freedesktop.org/software/systemd/man/os-release.html) is available os is created by taking the `ID` and `VERSION_ID` values. The version identifier is optional and may be omitted.
 The string is case-insensitive.
 
  examples:
@@ -179,6 +179,7 @@ ubuntu/16.04
 debian/9
 centos/7
 fedora/26
+arch
 ```	
 
 ### ssl
