@@ -139,26 +139,35 @@ example:
 
 ### cost
 Monthly hosting costs this server is causing measured in US dollar. On servers with
-multiple tor instances devide the server hosting costs through the number of tor instances.
+multiple tor instances divide the server hosting costs through the number of tor instances running on that OS.
 
 example:
  
 ```10.7```
 
 ### uplinkbw
-Interface speed in MBit/s. For asymetrical uplinks specify the lower of up- and download bandwidth.
-On a server with multiple tor instances the total available bandwidth of the server MUST be devided by the number of tor relay instances. This is an integer value.
+Logical network nterface speed in MBit/s. For asymetrical uplinks specify the lower of up- and download bandwidth.
+On a server with multiple tor instances the total available bandwidth of the server MUST be divided by the number of tor relay instances. This is an integer value.
 
  example: 
  
  ```100```
 
 ### trafficacct
-States if this is an unmetered offering or metered TODO
+States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in TB is provided. If no bandwidth is included this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two.
+
+example values:
+
+```
+unmetered
+0
+25
+```
+
 
 ### memory 
 Non-persistent memory (RAM) available on this server - measured in MB.
-On a server with multiple tor instances the memory size MUST be devided by the number of tor relay instances.
+On a server with multiple tor instances the memory size MUST be divided by the number of tor relay instances.
 This is an integer value.
 
 example:
