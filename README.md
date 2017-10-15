@@ -139,7 +139,7 @@ example:
 
 ### cost
 Monthly hosting costs the hosting company is charging for the server. This does not include time spend to manage the relay. 
-The amount MUST be provided with two digits after the decimal point. 
+The amount MUST be provided with two digits after the decimal separator. The decimal separator MUST be a full stop (not a comma). 
 The value MUST be followed by the currency in [ISO4217 format](https://en.wikipedia.org/wiki/ISO_4217#Active_codes).
 On servers with multiple tor instances divide the server hosting costs through the number of tor relay instances running on that OS.
 
@@ -153,6 +153,7 @@ example:
 ```
 1USD
 1.1USD
+1,10USD
 ```
 
 
