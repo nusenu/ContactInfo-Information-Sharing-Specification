@@ -73,46 +73,58 @@ We are aware that this is trivially defeated anti-spam "protection" but
 not all email scrappers are aware of this specification
 (not targeted for tor contact info data).
 International non-ASCII email addresses are NOT supported.
+
 example value:
-	user[]example.com
+
+```user[]example.com```
   
 ### operatorurl
 The website of the operator
- example value:
-	https://www.torservers.net
+
+example value:
+
+```https://www.torservers.net```
 
 ### pgp
 40 characters pgp key fingerprint (long form) without leading "0x" and without spaces.
 Case in-sensitive.
- example value:
-	EF6E286DDA85EA2A4BA7DE684E2C6E8793298290
+
+example value:
+
+```EF6E286DDA85EA2A4BA7DE684E2C6E8793298290```
 
 ### keybase
-The keybase username identifier. This identifier should be usable
-to create a valid keybase.io url: https://keybase.io/<id>
- example value:
-	nusenu
+The keybase username identifier. This identifier MUST be usable
+to create a valid keybase.io url
+
+example value:
+
+```nusenu```
 
 ### twitter
-twitter handle without the leading "@"
+twitter identifier without the leading "@". The identifier MUST be usable
+to crate a valid twitter profile url
 
  example value: 
-	nusenu_
+ 
+```nusenu_```
 
 ### mastodon
-mastodon url
+url pointing to the operators mastodon profile.
 
  example value:
-	https://mastodon.social/@nusenu
+ 
+ ```https://mastodon.social/@nusenu```
 
 ### xmpp
-xmpp/jabber handle
+xmpp/jabber handle of the operator
 
 ### ricochet
-ricochet handle
+ricochet handle of the operator
 
  example value:
-	rs7ce36jsj24ogfw
+ 
+ ```rs7ce36jsj24ogfw```
 
 ## hoster information
 
@@ -121,17 +133,24 @@ hoster URL where this server has been ordered. This should help
 other relay operators and future relay operators to find hosting providers. 
 If you are your own ISP (and are not offering a commercial service for others) this field is obsolete.
 
+example:
+
+```https://example-hoster.com```
+
 ### cost
 Monthly hosting costs this server is causing measured in US dollar. On servers with
 multiple tor instances devide the server hosting costs through the number of tor instances.
 
- example:
-	10.7
+example:
+ 
+```10.7```
 
 ### uplinkbw
 Interface speed in MBit/s. For asymetrical uplinks specify the lower of up- and download bandwidth.
 
- example: 100   (for 100MBit/s)
+ example: 
+ 
+ ```100```
 
 ### trafficacct
 States if this is an unmetered offering or metered TODO
