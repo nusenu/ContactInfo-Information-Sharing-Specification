@@ -7,7 +7,7 @@ please send your first feedback until 2017-10-27
 - make it easier for current and future relay operators to find (rarely used) hosters for tor relays
 by increasing the information sharing between relay operators. 	-> help the tor network grow
 - improve geo- and autonomous system diversity on the tor network (more diverse is better)
-- collect additional (self-reported) relay metrics (for things like atlas [1] and OrNetStats [2])
+- collect additional (self-reported) relay metrics (for things like [atlas](https://atlas.torproject.org) and [OrNetStats](https://nusenu.github.io/OrNetStats))
 	exmples: How many use tor's Sandbox/OfflineMasterMode/KIST feature?
 	This data could provide tor developers with information on how well tested/how much used new features (like Sandboxes) are before changing defaults. 
 - improve the ability to contact relay operators (automatically)
