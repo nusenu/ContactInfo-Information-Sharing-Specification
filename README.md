@@ -8,12 +8,13 @@ please send your first feedback until 2017-10-27
 by increasing the information sharing between relay operators. 	-> help the tor network grow
 - improve geo- and autonomous system diversity on the tor network (more diverse is better)
 - collect additional (self-reported) relay metrics (for things like [atlas](https://atlas.torproject.org) and [OrNetStats](https://nusenu.github.io/OrNetStats))
-	exmples: How many use tor's Sandbox/OfflineMasterMode/KIST feature?
-	This data could provide tor developers with information on how well tested/how much used new features (like Sandboxes) are before changing defaults. 
+- exmples: How many use tor's Sandbox/OfflineMasterMode/KIST feature?
+- This data could provide tor developers with information on how well tested/how much used new features (like Sandboxes) are before changing defaults. 
 - improve the ability to contact relay operators (automatically)
 - make provided information machine readable 
-- provide the foundation for an automated contactInfo verification bot. Mutually verified email addresses (and other contact options) could be displayed differently on atlas.torproject.org
-- make t-shirt delivery easier since contact information is potentially already verified
+- provide the foundation for an automated contactInfo verification bot. 
+- Mutually verified email addresses (and other contact options) could be displayed differently on [atlas](https://atlas.torproject.org)
+- make tor t-shirt delivery easier since contact information is potentially already verified
 - increase the ability to detect undeclared relay groups / make hiding relay groups harder
 - make hosting costs visible
 - potentially detect relay operators impersonating other operators by using their email address
@@ -42,7 +43,6 @@ ContactInfo size limit but there is a descriptor size limit.
 The [max. descriptor size](https://gitweb.torproject.org/torspec.git/tree/dir-spec.txt#n364) is 20000 bytes. 
 The family size (number of listed fingerprints) and exit policy are two other relevant inputs.
 
-
 # Defined Fields 
 
 The fields specified in this document coexists with other arbibrary strings located in 
@@ -70,7 +70,7 @@ email address where the operator can be reached.
 The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
 the "@" sign MUST be replaced with "[]". 
 We are aware that this is trivially defeated anti-spam "protection" but 
-not all email scrappers are aware of this specification
+not all email address scrappers are aware of this specification
 (not targeted for tor contact info data).
 International non-ASCII email addresses are NOT supported.
 
@@ -95,7 +95,7 @@ example value:
 
 ### keybase
 The keybase username identifier. This identifier MUST be usable
-to create a valid keybase.io url
+to create a valid keybase.io profile url.
 
 example value:
 
@@ -103,7 +103,7 @@ example value:
 
 ### twitter
 twitter identifier without the leading "@". The identifier MUST be usable
-to crate a valid twitter profile url
+to create a valid twitter profile url
 
  example value: 
  
@@ -147,6 +147,7 @@ example:
 
 ### uplinkbw
 Interface speed in MBit/s. For asymetrical uplinks specify the lower of up- and download bandwidth.
+On a server with multiple tor instances the total available bandwidth of the server MUST be devided by the number of tor relay instances. This is an integer value.
 
  example: 
  
@@ -155,29 +156,50 @@ Interface speed in MBit/s. For asymetrical uplinks specify the lower of up- and 
 ### trafficacct
 States if this is an unmetered offering or metered TODO
 
+### memory 
+Non-persistent memory (RAM) available on this server - measured in MB.
+On a server with multiple tor instances the memory size MUST be devided by the number of tor relay instances.
+This is an integer value.
+
+example:
+
+```4096```
+
 ### virtualization
-Possible values: 
-xen, kvm, bhyve, openvz, vmware, hyper-v, vmm, "none" for bare-metal servers (not virtualized). TODO
+States the underlying virtualization technology used on which the OS is running. 
+Use "baremetal" for bare-metal servers (not virtualized).
+
+example values:
+
+```
+xen
+kvm
+bhyve
+virtualbox
+vmware
+hyper-v
+vmm
+```
 
 
 ## donation information
 
 ### bitcoin
-bitcoin address where people should send donations to.
+bitcoin address where people should send donations to support the operation of this tor relay.
 
 ### zcash
-zcash address where people should send donations to.
+zcash address where people should send donations to support the operation of this tor relay.
 
 ## tor configuration
 
 ### offlinemasterkey
-Character stating whether the [OfflineMasterKey](https://www.torproject.org/docs/tor-manual.html.en#OfflineMasterKey) feature is enabled ("y") on this tor instance or not ("n").
+Single character stating whether the [OfflineMasterKey](https://www.torproject.org/docs/tor-manual.html.en#OfflineMasterKey) feature is enabled ("y") on this tor instance or not ("n").
 
 ### signingkeylifetime
 Integer stating the [signing key renewal interval](https://www.torproject.org/docs/tor-manual.html.en#SigningKeyLifetime) in days.
 
 ### sandbox
-Character stating whether this instance runs with [sandbox](https://www.torproject.org/docs/tor-manual.html.en#Sandbox) enabled ("y") or not ("n").
+Single character stating whether this instance runs with [Sandbox](https://www.torproject.org/docs/tor-manual.html.en#Sandbox) enabled ("y") or not ("n").
 
 
 ### scheduler
@@ -202,14 +224,32 @@ fedora/26
 arch
 ```	
 
-### ssl
-String stating which ssl-library is used. Possible values: openssl, libressl, TODO
+### tls
+String stating which tls library is used. 
+
+example values: 
+
+```
+openssl
+libressl
+```
 		
 ### aesni
 Character stating stating whether AES-NI is available and used ("y") or not available/not used ("n").
  
 ### autoupdate
-Single haracter stating whether automatic (unnattended) updates are enabled ("y") or not. Possible values "y" and "n".
+Single character stating whether automatic (unnattended) updates are enabled ("y") or not ("n").
 
 ### configurationmgmt
-States what configuration managment system is used. Example values: ansible, chef, puppet, salt, manual (for no configuration management) TODO
+States what configuration managment system is used. 
+Set to "manual" for no configuration management.
+
+
+example values
+
+```
+ansible
+chef
+puppet
+salt
+```
