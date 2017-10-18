@@ -117,10 +117,10 @@ url pointing to the operators mastodon profile.
  ```https://mastodon.social/@nusenu```
 
 ### xmpp
-xmpp/jabber handle of the operator
+xmpp/jabber handle of the operator.
 
 ### ricochet
-ricochet handle of the operator
+ricochet handle of the operator.
 
  example value:
  
@@ -130,12 +130,13 @@ ricochet handle of the operator
 
 ### hosterurl
 hoster URL where this server has been ordered. This should help 
-other relay operators and future relay operators to find hosting providers. 
+other relay operators and future relay operators to find hosting providers. The URL MUST NOT include
+a protocol specifier (like "https://").
 If you are your own ISP (and are not offering a commercial service for others) this field is obsolete.
 
 example:
 
-```https://example-hoster.com```
+```www.example-hoster.com```
 
 ### cost
 Monthly hosting costs the hosting company is charging for the server. This does not include time spend to manage the relay. 
@@ -210,6 +211,14 @@ bitcoin address where people should send donations to support the operation of t
 
 ### zcash
 zcash address where people should send donations to support the operation of this tor relay.
+
+### donationurl
+URL pointing to a website that contains donation information to support this tor relay. 
+
+example:
+```
+https://torservers.net/donate.html
+```
 
 ## tor configuration
 
