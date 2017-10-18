@@ -167,7 +167,7 @@ On a server with multiple tor instances the total available bandwidth of the ser
  ```100```
 
 ### trafficacct
-States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in TB (**TODO**) is provided. If no bandwidth is included this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two.
+States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in GB (**TODO**) is provided. If no bandwidth is included this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two. This is an integer value.
 
 example values:
 
