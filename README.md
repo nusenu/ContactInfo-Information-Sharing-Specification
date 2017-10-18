@@ -62,7 +62,7 @@ Specifically the email field SHOULD be the first field.
 ## example
 An example contactInfo string as defined by this document could look like this:
 
-```foo bar email:user[]example-operator.com hosterurl:https://example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10 virtualization:xen```
+```foo bar email:user[]example-operator.com hosterurl:www.example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10 virtualization:xen```
 
 
 ## contact information
