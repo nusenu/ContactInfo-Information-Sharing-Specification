@@ -213,7 +213,8 @@ bitcoin address where people should send donations to support the operation of t
 zcash address where people should send donations to support the operation of this tor relay.
 
 ### donationurl
-URL pointing to a website that contains donation information to support this tor relay. 
+URL pointing to a website that contains donation information to support this tor relay.
+This SHOULD be an https URL.
 
 example:
 ```
