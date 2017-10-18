@@ -69,7 +69,7 @@ An example contactInfo string as defined by this document could look like this:
 ### email
 email address where the operator can be reached.
 The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
-the "@" sign MUST be replaced with "[]". 
+the "@" sign SHOULD be replaced with "[]". 
 We are aware that this is trivially defeated anti-spam "protection" but 
 not all email address scrappers are aware of this specification
 (not targeted for tor contact info data).
