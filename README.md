@@ -129,10 +129,14 @@ ricochet handle of the operator.
 
 ## hoster information
 
-### hosterurl
-hoster URL where this server has been ordered. This should help 
-other relay operators and future relay operators to find hosting providers. The URL MUST NOT include
-a protocol specifier (like "https://").
+### hoster
+Hoster domain where this server has been ordered. This should help 
+other relay operators and future relay operators to find hosting providers. 
+To normalize the provided domain:
+- The domain MUST NOT include a protocol specifier (like "https://").
+- The provided domain MUST NOT redirect to another (sub)domain
+- If the hoster has multiple domains (using different TLDs) use the international version.
+- The domain MUST not include trailing slashes "/".
 If you are your own ISP (and are not offering a commercial service for others) this field is obsolete.
 
 example:
