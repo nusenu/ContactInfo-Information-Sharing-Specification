@@ -34,21 +34,25 @@ by increasing the information sharing between relay operators. 	-> help the tor 
 # Considerations
 
 -  increases exposure of relay operators 
+
 The machine readable information could be used by spammers and to target
 relay operators. 
 Operators concerned about this can omit contact information
 but it should not be hard to create a new email address for the purpose .
 
 - more information makes targeted exploitation easier / more silent
+
 Attackers could use the additional information provided in these fields to specifically
 target only vulnerable systems. Operators concerned about sharing configuration information 
 should omit this type of information, but can share other information.
 
 - increased descriptor size and directory traffic
+
 The contactinfo field size could potentially grow because of this specification.
 This should be mitigated with the use of directory data compression and diffs available since tor 0.3.1.
 
 - ContactInfo size constraints
+
 According to the [manual](https://www.torproject.org/docs/tor-manual.html.en#ContactInfo) there is no explicit 
 ContactInfo size limit but there is a descriptor size limit. 
 The [max. descriptor size](https://gitweb.torproject.org/torspec.git/tree/dir-spec.txt#n364) is 20000 bytes. 
@@ -146,14 +150,15 @@ ricochet handle of the operator.
 ## hoster information
 
 ### hoster
-Hoster domain where this server has been ordered. This should help 
+Commercial hoster domain where this server has been ordered. This should help 
 other relay operators and future relay operators to find hosting providers. 
 To normalize the provided domain:
 - The domain MUST NOT include a protocol specifier (like "https://").
 - The provided domain MUST NOT redirect to another (sub)domain
 - If the hoster has multiple domains (using different TLDs) use the international version.
 - The domain MUST not include trailing slashes "/".
-If you are your own ISP (and are not offering a commercial service for others) this field is obsolete.
+
+If you are your own ISP (and are not offering a commercial service for others) this field SHOULD be omitted.
 
 example:
 
@@ -188,14 +193,14 @@ On a server with multiple tor instances the total available bandwidth of the ser
  ```100```
 
 ### trafficacct
-States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in GB (**TODO**) is provided. If no bandwidth is included this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two. This is an integer value.
+States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in GB ([GibiByte](https://en.wikipedia.org/wiki/Gibibyte)) is provided. If no bandwidth is included this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two. This is an integer value.
 
 example values:
 
 ```
 unmetered
 0
-25
+25600
 ```
 
 
@@ -234,8 +239,8 @@ bitcoin address where people should send donations to support the operation of t
 zcash address where people should send donations to support the operation of this tor relay.
 
 ### donationurl
-URL pointing to a website that contains donation information to support this tor relay.
-This SHOULD be an https URL.
+url pointing to a website that contains donation information to support this tor relay.
+This SHOULD be an HTTPS url.
 
 example:
 ```
