@@ -92,11 +92,15 @@ example value:
 ```user[]example.com```
   
 ### operatorurl
-The website of the operator
+The website of the operator. This value SHOULD be consistent across all relays of an operator.
+This can be a clearnet or .onion url.
 
 example value:
 
-```https://www.torservers.net```
+```
+https://www.torservers.net
+52g5y5karruvc7bz.onion
+```
 
 ### pgp
 40 characters pgp key fingerprint (long form) without leading "0x" and without spaces.
