@@ -15,6 +15,7 @@ in this field.
 
 # Motivation
 
+- increase the information sharing among tor relay operators
 - make it easier for current and future relay operators to find (rarely used) hosters for tor relays
 by increasing the information sharing between relay operators. 	-> help the tor network grow
 - (indirectly) improve geo- and autonomous system diversity on the tor network (more diverse is better)
