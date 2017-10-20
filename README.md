@@ -2,11 +2,22 @@
 # DRAFT
 please send your first feedback until 2017-10-27
 
+# Overview
+
+Tor's [ContactInfo](https://www.torproject.org/docs/tor-manual.html.en#ContactInfo) 
+[descriptor field](https://gitweb.torproject.org/torspec.git/tree/dir-spec.txt#n608) was primarily
+intended to contain an email address and PGP key fingerprint but since this field accepts an arbitrary string
+it has been used for multiple other other purposes (website urls, donation information, bitcoin addresses, ...).
+Making use of provided information in an automated way is hard since there is no specification on how 
+this string should look like. This specification aims at specifying how information should be included
+in this field.
+
+
 # Motivation
 
 - make it easier for current and future relay operators to find (rarely used) hosters for tor relays
 by increasing the information sharing between relay operators. 	-> help the tor network grow
-- improve geo- and autonomous system diversity on the tor network (more diverse is better)
+- (indirectly) improve geo- and autonomous system diversity on the tor network (more diverse is better)
 - collect additional (self-reported) relay metrics (for things like [atlas](https://atlas.torproject.org) and [OrNetStats](https://nusenu.github.io/OrNetStats))
 - exmples: How many use tor's Sandbox/OfflineMasterMode/KIST feature?
 - This data could provide tor developers with information on how well tested/how much used new features (like Sandboxes) are before changing defaults. 
