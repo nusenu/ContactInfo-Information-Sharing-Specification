@@ -138,14 +138,22 @@ url pointing to the operators mastodon profile.
  ```https://mastodon.social/@nusenu```
 
 ### xmpp
-xmpp/jabber handle of the operator.
+[XMPP](https://en.wikipedia.org/wiki/XMPP) handle of the operator.
+
+example value:
+
+```user@example.com```
 
 ### ricochet
-ricochet handle of the operator.
+[Ricochet](https://ricochet.im) handle of the operator.
 
  example value:
  
  ```rs7ce36jsj24ogfw```
+ 
+ ### bitmessage
+ [Bitmessage](https://bitmessage.org/) handle of the operator.
+ 
 
 ## hoster information
 
