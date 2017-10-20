@@ -269,7 +269,7 @@ Single character stating whether this instance runs with [Sandbox](https://www.t
 
 ### scheduler
 Value as configured with the torrc [scheduler](https://www.torproject.org/docs/tor-manual-dev.html.en#Schedulers) option
-or "default" for no explicit configuration.
+or "default" for no explicit configuration. This scheduler field MUST be omitted on tor releases that do not support this feature (<0.3.2.1-alpha).
 
 ## OS Information
 
