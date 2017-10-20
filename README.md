@@ -67,7 +67,8 @@ An example contactInfo string as defined by this document could look like this:
 
 ## contact information
 ### email
-email address where the operator can be reached.
+email address where the operator can be reached. 
+The given address SHOULD be the same for all relays from a given operator.
 The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
 the "@" sign SHOULD be replaced with "[]". 
 We are aware that this is trivially defeated anti-spam "protection" but 
