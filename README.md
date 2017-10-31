@@ -1,6 +1,6 @@
 
 # DRAFT
-please send your first feedback until 2017-10-27
+
 
 # Overview
 
@@ -63,7 +63,7 @@ The family size (number of listed fingerprints) and exit policy are two other re
 The fields specified in this document coexists with other arbibrary strings located in 
 the relay's ContactInfo descriptor field. Defined fields may appear at any position within 
 the contactInfo string. A field identifier (key) MUST only be used once, if it appears multiple times
-in the ContactInfo string only the first occurance is considered.
+in the ContactInfo string only the first occurance is considered. **Non-ASCII characters are not supported.**
 
 Information is provided in key-value pairs:
 
