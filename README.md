@@ -99,16 +99,24 @@ example value:
 The website of the operator. This value SHOULD be consistent across all relays of an operator.
 This can be a clearnet or .onion url.
 
+length: MUST NOT be longer than 253 characters
+
+valid characters: [a-zA-Z0-9.-]
+
 example value:
 
 ```
-https://www.torservers.net
+www.torservers.net
 52g5y5karruvc7bz.onion
 ```
 
 ### pgp
 40 characters pgp key fingerprint (long form) without leading "0x" and without spaces.
 Case in-sensitive.
+
+length: MUST be exactly 40 characters long
+
+valid characters: [a-fA-F0-0]
 
 example value:
 
@@ -118,6 +126,8 @@ example value:
 The keybase username identifier. This identifier MUST be usable
 to create a valid keybase.io profile url.
 
+valid characters: [a-fA-F0-0]
+
 example value:
 
 ```nusenu```
@@ -125,6 +135,10 @@ example value:
 ### twitter
 twitter identifier without the leading "@". The identifier MUST be usable
 to create a valid twitter profile url
+
+length: MUST be 1-15 characters long
+
+valid characters: [a-zA-Z0-9_]
 
  example value: 
  
@@ -138,14 +152,20 @@ url pointing to the operators mastodon profile.
  ```https://mastodon.social/@nusenu```
 
 ### xmpp
-[XMPP](https://en.wikipedia.org/wiki/XMPP) handle of the operator.
+[XMPP](https://en.wikipedia.org/wiki/XMPP) handle of the operator. The "@" sign SHOULD be replaced with "[]"
+
+length: MUST NOT be longer than 253 characters
 
 example value:
 
-```user@example.com```
+```user[]example.com```
 
 ### ricochet
 [Ricochet](https://ricochet.im) handle of the operator.
+
+valid characters: [a-z0-9]
+
+length: MUST be 16 characters long
 
  example value:
  
@@ -168,6 +188,10 @@ To normalize the provided domain:
 
 If you are your own ISP (and are not offering a commercial service for others) this field SHOULD be omitted.
 
+length: < 254 characters
+
+valid characters: [a-zA-Z0-9.-]
+
 example:
 
 ```www.example-hoster.com```
@@ -177,6 +201,10 @@ Monthly hosting costs the hosting company is charging for the server. This does 
 The amount MUST be provided with two digits after the decimal separator. The decimal separator MUST be a full stop (not a comma). 
 The value MUST be followed by the currency in [ISO4217 format](https://en.wikipedia.org/wiki/ISO_4217#Active_codes).
 On servers with multiple tor instances divide the server hosting costs through the number of tor relay instances running on that OS.
+
+length: < 13 characters
+
+valid characters: [A-Z0-9.]
 
 example:
  
@@ -196,12 +224,20 @@ example:
 Logical network interface speed in MBit/s (1MBit/s = 1 000 000 Bit/s). For asymetrical uplinks specify the lower of up- and download bandwidth.
 On a server with multiple tor instances the total available bandwidth of the server MUST be divided by the number of tor relay instances. This is an integer value.
 
+length: < 7 characters
+
+valid characters: [0-9]
+
  example: 
  
  ```100```
 
 ### trafficacct
 States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in GB ([GibiByte](https://en.wikipedia.org/wiki/Gibibyte)) is provided. If no bandwidth is included this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two. This is an integer value.
+
+length: < 10 characters
+
+valid characters: [unmetrd0-9]
 
 example values:
 
@@ -217,6 +253,8 @@ Non-persistent memory (RAM) available on this server - measured in MB ([Mebibyte
 On a server with multiple tor instances the memory size MUST be divided by the number of tor relay instances.
 This is an integer value.
 
+valid characters: [0-9]
+
 example:
 
 ```4096```
@@ -224,6 +262,8 @@ example:
 ### virtualization
 States the underlying virtualization technology used on which the OS is running. 
 Use "baremetal" for bare-metal servers (not virtualized).
+
+valid characters: [a-z-]
 
 example values:
 
