@@ -99,7 +99,7 @@ example value:
 The website of the operator. This value SHOULD be consistent across all relays of an operator.
 This can be a clearnet or .onion url.
 
-length: MUST NOT be longer than 253 characters
+length: < 254 characters
 
 valid characters: [a-zA-Z0-9.-]
 
@@ -126,6 +126,8 @@ example value:
 The keybase username identifier. This identifier MUST be usable
 to create a valid keybase.io profile url.
 
+length: < 50 characters
+
 valid characters: [a-fA-F0-0]
 
 example value:
@@ -147,6 +149,8 @@ valid characters: [a-zA-Z0-9_]
 ### mastodon
 url pointing to the operators mastodon profile.
 
+length: < 254 characters
+
  example value:
  
  ```https://mastodon.social/@nusenu```
@@ -154,7 +158,7 @@ url pointing to the operators mastodon profile.
 ### xmpp
 [XMPP](https://en.wikipedia.org/wiki/XMPP) handle of the operator. The "@" sign SHOULD be replaced with "[]"
 
-length: MUST NOT be longer than 253 characters
+length: < 254 characters
 
 example value:
 
@@ -253,6 +257,8 @@ Non-persistent memory (RAM) available on this server - measured in MB ([Mebibyte
 On a server with multiple tor instances the memory size MUST be divided by the number of tor relay instances.
 This is an integer value.
 
+length: < 10 characters
+
 valid characters: [0-9]
 
 example:
@@ -262,6 +268,8 @@ example:
 ### virtualization
 States the underlying virtualization technology used on which the OS is running. 
 Use "baremetal" for bare-metal servers (not virtualized).
+
+length: < 15 characters
 
 valid characters: [a-z-]
 
@@ -283,12 +291,23 @@ vmm
 ### bitcoin
 bitcoin address where people should send donations to support the operation of this tor relay.
 
+length: 26-35 characters
+
+valid characters: [A-Za-z0-9]
+
+
 ### zcash
 zcash address where people should send donations to support the operation of this tor relay.
+
+length: < 96 characters
+
+valid characters: [A-Za-z0-9]
 
 ### donationurl
 url pointing to a website that contains donation information to support this tor relay.
 This SHOULD be an HTTPS url.
+
+length: < 254 characters
 
 example:
 ```
@@ -300,16 +319,28 @@ https://torservers.net/donate.html
 ### offlinemasterkey
 Single character stating whether the [OfflineMasterKey](https://www.torproject.org/docs/tor-manual.html.en#OfflineMasterKey) feature is enabled ("y") on this tor instance or not ("n").
 
+length: 1 character
+
+valid characters: [yn]
+
 ### signingkeylifetime
 Integer stating the [signing key renewal interval](https://www.torproject.org/docs/tor-manual.html.en#SigningKeyLifetime) in days.
+
+length: < 6 characters
+
+valid characters: [0-9]
+
 
 ### sandbox
 Single character stating whether this instance runs with [Sandbox](https://www.torproject.org/docs/tor-manual.html.en#Sandbox) enabled ("y") or not ("n").
 
+length: 1 character
+
+valid characters: [yn]
 
 ### scheduler
 Value as configured with the torrc [scheduler](https://www.torproject.org/docs/tor-manual-dev.html.en#Schedulers) option
-or "default" for no explicit configuration. This scheduler field MUST be omitted on tor releases that do not support this feature (<0.3.2.1-alpha).
+or "default" for no explicit configuration. This field MUST be omitted on tor releases that do not support this feature (<0.3.2.1-alpha).
 
 ## OS Information
 
@@ -317,6 +348,10 @@ or "default" for no explicit configuration. This scheduler field MUST be omitted
 String stating which OS distribution and version is used. Distribution and version is separated with a "/" sign.
 On platforms where the file [/etc/os-release](https://www.freedesktop.org/software/systemd/man/os-release.html) is available os is created by taking the `ID` and `VERSION_ID` values. The version identifier is optional and may be omitted.
 The string is case-insensitive.
+
+length: < 21 character
+
+valid characters: [A-Za-z/.]
 
  examples:
 ``` 
@@ -332,6 +367,10 @@ arch
 ### tls
 String stating which tls library is used. 
 
+length: < 15 character
+
+valid characters: [a-z]
+
 example values: 
 
 ```
@@ -342,8 +381,16 @@ libressl
 ### aesni
 Character stating stating whether AES-NI is available and used ("y") or not available/not used ("n").
  
+length: 1 character
+
+valid characters: [yn]
+ 
 ### autoupdate
 Single character stating whether automatic (unnattended) updates are enabled ("y") or not ("n").
+
+length: 1 character
+
+valid characters: [yn]
 
 ### confmgmt
 States what configuration managment system is used. 
@@ -358,3 +405,7 @@ chef
 puppet
 salt
 ```
+
+length: < 16 character
+
+valid characters: [a-z]
