@@ -342,6 +342,10 @@ valid characters: [yn]
 Value as configured with the torrc [scheduler](https://www.torproject.org/docs/tor-manual-dev.html.en#Schedulers) option
 or "default" for no explicit configuration. This field MUST be omitted on tor releases that do not support this feature (<0.3.2.1-alpha).
 
+length: <50 character
+
+valid characters: [A-Za-z,]
+
 ## OS Information
 
 ### os
@@ -351,7 +355,7 @@ The string is case-insensitive.
 
 length: < 21 character
 
-valid characters: [A-Za-z/.]
+valid characters: [A-Za-z0-9/.]
 
  examples:
 ``` 
