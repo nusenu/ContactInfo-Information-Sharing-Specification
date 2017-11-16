@@ -19,7 +19,7 @@ this string should look like. This is an specification to formalize the ContactI
 by increasing the information sharing between relay operators. 	-> help the tor network grow
 - (indirectly) improve geo- and autonomous system diversity on the tor network (more diverse is better)
 - collect additional (self-reported) relay metrics (for things like [atlas](https://atlas.torproject.org) and [OrNetStats](https://nusenu.github.io/OrNetStats))
-- exmples: How many use tor's Sandbox/OfflineMasterMode/KIST feature?
+- examples: How many use tor's Sandbox/OfflineMasterMode/KIST feature?
 - This data could provide tor developers with information on how well tested/how much used new features (like Sandboxes) are before changing defaults. 
 - improve the ability to contact relay operators (automatically)
 - make provided information machine readable 
