@@ -273,16 +273,22 @@ length: < 15 characters
 
 valid characters: [a-z-]
 
-example values:
+possible values:
 
 ```
-xen
 kvm
-bhyve
-virtualbox
+qemu
+bochs
+xen
 vmware
+virtualbox
 hyper-v
+lxc
+bhyve
+openvz
+parallels
 vmm
+zvm
 ```
 
 
