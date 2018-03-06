@@ -287,7 +287,7 @@ lxc
 bhyve
 openvz
 parallels
-vmm
+vmm      #https://man.openbsd.org/vmm
 zvm
 ```
 
