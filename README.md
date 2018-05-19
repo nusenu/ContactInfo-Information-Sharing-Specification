@@ -389,7 +389,7 @@ libressl
 ```
 		
 ### aesni
-Character stating stating whether AES-NI is available and used ("y") or not available/not used ("n").
+Character stating whether AES-NI is available and used ("y") or not available/not used ("n").
  
 length: 1 character
 
