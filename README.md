@@ -18,13 +18,13 @@ this string should look like. This is an specification to formalize the ContactI
 - make it easier for current and future relay operators to find (rarely used) hosters for tor relays
 by increasing the information sharing between relay operators. 	-> help the tor network grow
 - (indirectly) improve geo- and autonomous system diversity on the tor network (more diverse is better)
-- collect additional (self-reported) relay metrics (for things like [atlas](https://atlas.torproject.org) and [OrNetStats](https://nusenu.github.io/OrNetStats))
+- collect additional (self-reported) relay metrics (for things like [Relay Search](https://metrics.torproject.org/rs.html) and [OrNetStats](https://nusenu.github.io/OrNetStats))
 - examples: How many use tor's Sandbox/OfflineMasterMode/KIST feature?
 - This data could provide tor developers with information on how well tested/how much used new features (like Sandboxes) are before changing defaults. 
 - improve the ability to contact relay operators (automatically)
 - make provided information machine readable 
 - provide the foundation for an automated contactInfo verification bot. 
-- Mutually verified email addresses (and other contact options) could be displayed differently on [atlas](https://atlas.torproject.org)
+- Mutually verified email addresses (and other contact options) could be displayed differently on [Relay Search](https://metrics.torproject.org/rs.html)
 - make tor t-shirt delivery easier since contact information is potentially already verified
 - increase the ability to detect undeclared relay groups / make hiding relay groups harder
 - make hosting costs visible
