@@ -385,6 +385,49 @@ fedora/26
 arch
 ```	
 
+### dnslocation
+
+This field is only relevant for exit relays.
+String describing the location of the used DNS resolver in relation to the exit relay
+This field is only relevant for exit relays.
+
+* **local** means the resolver is running on the same host as the tor process.
+* **sameas** means the resolver is running on the same autonomous system as the exit relay and queries to the resolver do not cross another AS before reaching the resolver.
+* **remote** means the resolver is running on a system outside the exit relay's autonomous system
+
+Multiple options may apply and should be separated using a comma. The order is relevant, the primary
+resolver must appear first followed by fallback resolvers.
+
+example values: 
+
+```
+local
+sameas
+remote
+local,sameas
+```
+
+valid characters: [a-z,]
+
+### dnsqname
+
+This field is only relevant for exit relays.
+Character stating whether this exit relay is performing DNS QNAME minimization ("y") or not ("n").
+QNAME minimization is defined in [RFC7816](https://datatracker.ietf.org/doc/rfc7816/).
+
+length: 1 character
+
+valid characters: [yn]
+
+### dnssec
+
+This field is only relevant for exit relays.
+Character stating whether this exit relay is performing DNSSEC validation ("y") or not ("n").
+
+length: 1 character
+
+valid characters: [yn]
+
 ### tls
 String stating which tls library is used. 
 
