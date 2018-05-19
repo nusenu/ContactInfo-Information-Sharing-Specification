@@ -265,6 +265,17 @@ example:
 
 ```4096```
 
+### cpu
+
+Only relevant for relays running on bare metal.
+String without spaces describing the used CPU model.
+
+example:
+
+```
+i5-8400
+```
+
 ### virtualization
 States the underlying virtualization technology used on which the OS is running. 
 Use "baremetal" for bare-metal servers (not virtualized).
