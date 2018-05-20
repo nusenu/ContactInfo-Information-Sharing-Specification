@@ -49,7 +49,7 @@ should omit this type of information, but can share other information.
 - increased descriptor size and directory traffic
 
 The contactinfo field size could potentially grow because of this specification.
-This should be mitigated with the use of directory data compression and diffs available since tor 0.3.1.
+This is expected to be mitigated by directory data compression and diffs available since tor 0.3.1.
 
 - ContactInfo size constraints
 
@@ -182,7 +182,7 @@ length: MUST be 16 characters long
 ## hoster information
 
 ### hoster
-Commercial hoster domain where this server has been ordered. This should help 
+Commercial hoster domain where this server has been ordered. This is supposed to help 
 other relay operators and future relay operators to find hosting providers. 
 To normalize the provided domain:
 - The domain MUST NOT include a protocol specifier (like "https://").
@@ -306,7 +306,7 @@ zvm
 ## donation information
 
 ### bitcoin
-bitcoin address where people should send donations to support the operation of this tor relay.
+bitcoin address where people are expected to send donations to support the operation of this tor relay.
 
 length: 26-35 characters
 
@@ -314,7 +314,7 @@ valid characters: [A-Za-z0-9]
 
 
 ### zcash
-zcash address where people should send donations to support the operation of this tor relay.
+zcash address where people are expected send donations to support the operation of this tor relay.
 
 length: < 96 characters
 
@@ -387,7 +387,7 @@ arch
 
 ### dnslocation
 
-This field is only relevant for exit relays, non-exit relays should not set this field.
+This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
 
 String describing the location of the used DNS resolver in relation to the exit relay
 This field is only relevant for exit relays.
@@ -396,8 +396,8 @@ This field is only relevant for exit relays.
 * **sameas** means the resolver is running on the same autonomous system as the exit relay and queries to the resolver do not cross another AS before reaching the resolver.
 * **remote** means the resolver is running on a system outside the exit relay's autonomous system
 
-Multiple options may apply and should be separated using a comma. The order is relevant, the primary
-resolver must appear first followed by fallback resolvers.
+Multiple options may apply and MUST be separated using a comma. The order is relevant, the primary
+resolver MUST appear first followed by fallback resolvers.
 
 example values: 
 
@@ -412,7 +412,7 @@ valid characters: [a-z,]
 
 ### dnsqname
 
-This field is only relevant for exit relays, non-exit relays should not set this field.
+This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
 
 Character stating whether this exit relay is performing DNS QNAME minimization ("y") or not ("n").
 QNAME minimization is defined in [RFC7816](https://datatracker.ietf.org/doc/rfc7816/).
@@ -423,7 +423,7 @@ valid characters: [yn]
 
 ### dnssec
 
-This field is only relevant for exit relays, non-exit relays should not set this field.
+This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
 
 Character stating whether this exit relay is performing DNSSEC validation ("y") or not ("n").
 
