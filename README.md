@@ -204,7 +204,8 @@ example:
 Monthly hosting costs the hosting company is charging for the server. This does not include time spend to manage the relay. 
 The amount MUST be provided with two digits after the decimal separator. The decimal separator MUST be a full stop (not a comma). 
 The value MUST be followed by the currency in [ISO4217 format](https://en.wikipedia.org/wiki/ISO_4217#Active_codes).
-On servers with multiple tor instances divide the server hosting costs through the number of tor relay instances running on that OS.
+
+On servers with multiple tor instances the server hosting costs given in this field **MUST** be divided through the number of tor relay instances running on that OS.
 
 length: < 13 characters
 
@@ -226,7 +227,7 @@ example:
 
 ### uplinkbw
 Logical network interface speed in MBit/s (1MBit/s = 1 000 000 Bit/s). For asymetrical uplinks specify the lower of up- and download bandwidth.
-On a server with multiple tor instances the total available bandwidth of the server MUST be divided by the number of tor relay instances. This is an integer value.
+On a server with multiple tor instances the total available bandwidth of the server **MUST** be divided by the number of tor relay instances. This is an integer value.
 
 length: < 7 characters
 
@@ -254,7 +255,8 @@ unmetered
 
 ### memory 
 Non-persistent memory (RAM) available on this server - measured in MB ([Mebibytes](https://en.wikipedia.org/wiki/Mebibyte)). (this is the output of 'free -m' on most Unix-based systems.)
-On a server with multiple tor instances the memory size MUST be divided by the number of tor relay instances.
+
+On a server with multiple tor instances the memory size **MUST** be divided by the number of tor relay instances.
 This is an integer value.
 
 length: < 10 characters
