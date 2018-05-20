@@ -188,7 +188,7 @@ To normalize the provided domain:
 - The domain MUST NOT include a protocol specifier (like "https://").
 - The provided domain MUST NOT redirect to another (sub)domain
 - If the hoster has multiple domains (using different TLDs) use the international version.
-- The domain MUST not include trailing slashes "/".
+- The domain MUST NOT include trailing slashes "/".
 
 If you are your own ISP (and are not offering a commercial service for others) this field SHOULD be omitted.
 
@@ -227,6 +227,7 @@ example:
 
 ### uplinkbw
 Logical network interface speed in MBit/s (1MBit/s = 1 000 000 Bit/s). For asymetrical uplinks specify the lower of up- and download bandwidth.
+
 On a server with multiple tor instances the total available bandwidth of the server **MUST** be divided by the number of tor relay instances. This is an integer value.
 
 length: < 7 characters
@@ -238,7 +239,9 @@ valid characters: [0-9]
  ```100```
 
 ### trafficacct
-States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in GB ([GibiByte](https://en.wikipedia.org/wiki/Gibibyte)) is provided. If no bandwidth is included this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two. This is an integer value.
+States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in GB ([GibiByte](https://en.wikipedia.org/wiki/Gibibyte)) MUST be provided. If no bandwidth is included, this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two. This is an integer value.
+
+On a server with multiple tor instances the total available monthly traffic of the server **MUST** be divided by the number of tor relay instances running on it.
 
 length: < 10 characters
 
