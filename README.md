@@ -226,7 +226,7 @@ example:
 
 
 ### uplinkbw
-Logical network interface speed in MBit/s (1MBit/s = 1 000 000 Bit/s) or the value of RelayBandwidthRate in your torrc setting (whatever is smaller). For asymetrical uplinks specify the lower of up- and download bandwidth.
+Logical network interface speed in Mbit/s (1Mbit/s = 1 000 000 Bit/s) or the value of RelayBandwidthRate in your torrc setting (whatever is smaller). For asymetrical uplinks specify the lower of up- and download bandwidth.
 
 On a server with multiple tor instances the total available bandwidth of the server **MUST** be divided by the number of tor relay instances. This is an integer value.
 
