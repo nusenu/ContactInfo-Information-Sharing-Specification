@@ -394,8 +394,7 @@ arch
 
 This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
 
-String describing the location of the used DNS resolver in relation to the exit relay
-This field is only relevant for exit relays.
+String describing the location of the used DNS resolver in relation to the exit relay.
 
 * **local** means the resolver is running on the same host as the tor process.
 * **sameas** means the resolver is running on the same autonomous system as the exit relay and queries to the resolver do not cross another AS before reaching the resolver.
