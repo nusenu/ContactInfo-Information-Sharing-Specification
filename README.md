@@ -436,6 +436,19 @@ length: 1 character
 
 valid characters: [yn]
 
+### dnslocalrootzone
+
+This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
+
+Character stating whether this exit relay is running the DNS root zone on loopback ("y") 
+to avoid latency and information disclosure to DNS root servers or not ("n").
+This is defined in [RFC7706](https://tools.ietf.org/html/rfc7706).
+
+length: 1 character
+
+valid characters: [yn]
+
+
 ### tls
 String stating which tls library is used. 
 
