@@ -389,6 +389,53 @@ centos/7
 fedora/26
 arch
 ```	
+
+### tls
+String stating which tls library is used. 
+
+length: < 15 character
+
+valid characters: [a-z]
+
+example values: 
+
+```
+openssl
+libressl
+```
+		
+### aesni
+Character stating whether AES-NI is available and used ("y") or not available/not used ("n").
+ 
+length: 1 character
+
+valid characters: [yn]
+ 
+### autoupdate
+Single character stating whether automatic (unnattended) updates are enabled ("y") or not ("n").
+
+length: 1 character
+
+valid characters: [yn]
+
+### confmgmt
+States what configuration managment system is used. 
+Set to "manual" for no configuration management.
+
+
+example values
+
+```
+ansible
+chef
+puppet
+salt
+```
+
+length: < 16 character
+
+valid characters: [a-z]
+
 ## DNS Configuration (Exits only)
 
 ### dnslocation
@@ -447,50 +494,3 @@ This is defined in [RFC7706](https://tools.ietf.org/html/rfc7706).
 length: 1 character
 
 valid characters: [yn]
-
-
-### tls
-String stating which tls library is used. 
-
-length: < 15 character
-
-valid characters: [a-z]
-
-example values: 
-
-```
-openssl
-libressl
-```
-		
-### aesni
-Character stating whether AES-NI is available and used ("y") or not available/not used ("n").
- 
-length: 1 character
-
-valid characters: [yn]
- 
-### autoupdate
-Single character stating whether automatic (unnattended) updates are enabled ("y") or not ("n").
-
-length: 1 character
-
-valid characters: [yn]
-
-### confmgmt
-States what configuration managment system is used. 
-Set to "manual" for no configuration management.
-
-
-example values
-
-```
-ansible
-chef
-puppet
-salt
-```
-
-length: < 16 character
-
-valid characters: [a-z]
