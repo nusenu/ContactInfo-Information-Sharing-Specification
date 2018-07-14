@@ -81,6 +81,9 @@ An example contactInfo string as defined by this document could look like this:
 
 
 ## contact information
+
+At least one of the fields in this section MUST be provided.
+
 ### email
 email address where the operator can be reached. 
 The given address SHOULD be the same for all relays from a given operator.
