@@ -389,6 +389,7 @@ centos/7
 fedora/26
 arch
 ```	
+## DNS Configuration (Exits only)
 
 ### dnslocation
 
