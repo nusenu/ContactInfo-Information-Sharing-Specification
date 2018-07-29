@@ -97,6 +97,20 @@ International non-ASCII email addresses are NOT supported.
 example value:
 
 ```user[]example.com```
+
+### abuse
+abuse email address where abuse emails should be send. 
+The given address SHOULD be the same for all relays from a given operator.
+The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
+the "@" sign SHOULD be replaced with "[]". 
+We are aware that this is trivially defeated anti-spam "protection" but 
+not all email address scrappers are aware of this specification
+(not targeted for tor contact info data).
+International non-ASCII email addresses are NOT supported.
+
+example value:
+
+```user[]example.com```
   
 ### operatorurl
 The website of the operator. This value SHOULD be consistent across all relays of an operator.
