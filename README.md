@@ -96,7 +96,7 @@ International non-ASCII email addresses are NOT supported.
 
 example value:
 
-```user[]example.com```
+```contact[]example.com```
 
 ### abuse
 abuse email address where abuse emails should be send. 
@@ -110,7 +110,7 @@ International non-ASCII email addresses are NOT supported.
 
 example value:
 
-```user[]example.com```
+```abuse[]example.com```
   
 ### operatorurl
 The website of the operator. This value SHOULD be consistent across all relays of an operator.
