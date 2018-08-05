@@ -344,7 +344,7 @@ valid characters: [A-Za-z0-9]
 
 ### donationurl
 url pointing to a website that contains donation information to support this tor relay.
-This SHOULD be an HTTPS url.
+This MUST be an HTTPS url.
 
 length: < 254 characters
 
