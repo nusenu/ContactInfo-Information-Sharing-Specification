@@ -69,7 +69,7 @@ Information is provided in key-value pairs:
 
 ```key ":" value WS key ":" value ...```
 
-keys and values MUST not contain spaces.
+keys and values MUST NOT contain spaces.
 WS is a single or multiple whitespace characters (space, tab, ..).
 The order of keys is not mandatory but SHOULD follow the order in which they appear in this specification.
 Specifically the email field SHOULD be the first field.
