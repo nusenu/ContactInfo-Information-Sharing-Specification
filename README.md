@@ -107,7 +107,7 @@ This key SHOULD be available on public keyservers.
 
 length: MUST be exactly 40 characters long
 
-valid characters: [a-fA-F0-0]
+valid characters: [a-fA-F0-9]
 
 example value:
 
@@ -183,6 +183,18 @@ length: < 254 characters
 example value:
 
 ```user[]example.com```
+
+### otr3
+OTR version 3 key fingerprint without spaces.
+Case in-sensitive. This key fingerprint relates to the xmpp address given in the `xmpp` field.
+
+length: MUST be exactly 40 characters long
+
+valid characters: [a-fA-F0-9]
+
+example value:
+
+```EF6E286DDA85EA2A4BA7DE684E2C6E8793298290```
 
 ### ricochet
 [Ricochet](https://ricochet.im) handle of the operator.
