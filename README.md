@@ -289,7 +289,7 @@ unmetered
 
 
 ### memory 
-Non-persistent memory (RAM) available on this server - measured in MB ([Mebibytes](https://en.wikipedia.org/wiki/Mebibyte)). (this is the output of 'free -m' on most Unix-based systems.)
+Non-persistent memory (RAM) available on this server - measured in MB ([Mebibytes](https://en.wikipedia.org/wiki/Mebibyte)). This is the output of `free -m` on most Unix-based systems.
 
 On a server with multiple tor instances the memory size **MUST** be divided by the number of tor relay instances.
 This is an integer value.
