@@ -98,6 +98,21 @@ example value:
 
 ```contact[]example.com```
 
+### pgp
+40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
+Case in-sensitive. This key relates to the email address given in the `email` field,
+but providing the `pgp` field without an `email` field is also possible.
+
+This key SHOULD be available on public keyservers.
+
+length: MUST be exactly 40 characters long
+
+valid characters: [a-fA-F0-0]
+
+example value:
+
+```EF6E286DDA85EA2A4BA7DE684E2C6E8793298290```
+
 ### abuse
 abuse email address where abuse emails should be send. 
 The given address SHOULD be the same for all relays from a given operator.
@@ -126,18 +141,6 @@ example value:
 www.torservers.net
 52g5y5karruvc7bz.onion
 ```
-
-### pgp
-40 characters pgp key fingerprint (long form) without leading "0x" and without spaces.
-Case in-sensitive.
-
-length: MUST be exactly 40 characters long
-
-valid characters: [a-fA-F0-0]
-
-example value:
-
-```EF6E286DDA85EA2A4BA7DE684E2C6E8793298290```
 
 ### keybase
 The keybase username identifier. This identifier MUST be usable
