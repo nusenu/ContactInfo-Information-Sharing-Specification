@@ -146,7 +146,7 @@ example.com
 
 ### verifyurl
 
-This URL points to a simple text file that contains all relay fingerprints (one per line) of the organization and can be used to automatically verify the operatorurl claim.
+This URL points to a simple text file that contains all relay fingerprints (one per line) of the organization and can be used to automatically verify the operatorurl claim. The file may contain comments (lines starting with #).
 The verifyurl MUST be on the same domain as the operatorurl.
 
 example:
