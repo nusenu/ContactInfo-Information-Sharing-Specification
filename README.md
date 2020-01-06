@@ -82,7 +82,7 @@ An example contactInfo string as defined by this document could look like this:
 
 ## contact information
 
-At least one of the fields in this section MUST be provided.
+The email field MUST be provided.
 
 ### email
 email address where the operator can be reached. 
@@ -164,7 +164,7 @@ valid characters: [a-zA-Z0-9_]
 
  example value: 
  
-```nusenu_```
+```torproject```
 
 ### mastodon
 url pointing to the operators mastodon profile.
