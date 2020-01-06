@@ -130,7 +130,8 @@ example value:
   
 ### operatorurl
 The website of the operator. The URL MUST be consistent across all relays of an operator.
-This can be a clearnet or .onion URL. The URL MUST point to an operator specific domain (non-shared).
+This can be a clearnet or an onion service URL. The URL MUST point to an operator specific domain (non-shared).
+If you provide an operatorurl we strongly recommend to also provide the **verifyurl** (see bellow).
 
 length: < 254 characters
 
@@ -139,9 +140,18 @@ valid characters: [a-zA-Z0-9.-]
 example value:
 
 ```
-www.torservers.net
+example.com
 52g5y5karruvc7bz.onion
 ```
+
+### verifyurl
+
+This URL points to a simple text file that contains all relay fingerprints (one per line) of the organization and can be used to automatically verify the operatorurl claim.
+The verifyurl MUST be on the same domain as the operatorurl.
+
+example:
+
+```https://example.com/.foo/fingerprints.txt```
 
 ### keybase
 The keybase username identifier. This identifier MUST be usable
@@ -210,7 +220,6 @@ length: MUST be 16 characters long
  
  ### bitmessage
  [Bitmessage](https://bitmessage.org/) handle of the operator.
- 
 
 ## hoster information
 
