@@ -29,6 +29,7 @@ by increasing the information sharing between relay operators. 	-> help the tor 
 - increase the ability to detect undeclared relay groups / make hiding relay groups harder
 - make hosting costs visible
 - potentially detect relay operators impersonating other operators by using their email address
+- allow the automatic attribution and verification that a relay is really operated by a given entity 
 
 
 # Considerations
