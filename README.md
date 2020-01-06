@@ -1,5 +1,5 @@
 
-# DRAFT
+# DRAFT (please send comments before 2020-02-02 to [tor-relays](https://lists.torproject.org/cgi-bin/mailman/listinfo/tor-relays))
 
 
 # Overview
