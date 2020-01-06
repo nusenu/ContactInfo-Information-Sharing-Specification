@@ -129,8 +129,8 @@ example value:
 ```abuse[]example.com```
   
 ### operatorurl
-The website of the operator. This value SHOULD be consistent across all relays of an operator.
-This can be a clearnet or .onion url.
+The website of the operator. The URL MUST be consistent across all relays of an operator.
+This can be a clearnet or .onion URL. The URL MUST point to an operator specific domain (non-shared).
 
 length: < 254 characters
 
