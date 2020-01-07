@@ -355,7 +355,7 @@ zvm
 ### bitcoin
 bitcoin address where people are expected to send donations to support the operation of this tor relay.
 
-length: 26-35 characters
+length: < 100 characters
 
 valid characters: [A-Za-z0-9]
 
