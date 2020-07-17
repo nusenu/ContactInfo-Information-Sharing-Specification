@@ -189,6 +189,19 @@ length: < 254 characters
  example value:
  
  ```https://mastodon.social/@nusenu```
+ 
+### matrix
+
+[Matrix](https://matrix.org/) user identifier. 
+
+https://matrix.org/docs/spec/appendices#user-identifiers
+
+example value:
+
+```
+@user:matrix.org
+```
+
 
 ### xmpp
 [XMPP](https://en.wikipedia.org/wiki/XMPP) handle of the operator. The "@" sign SHOULD be replaced with "[]"
@@ -222,9 +235,6 @@ length: MUST be 16 characters long
  
  ```rs7ce36jsj24ogfw```
  
- ### bitmessage
- [Bitmessage](https://bitmessage.org/) handle of the operator.
-
 ## hoster information
 
 ### hoster
