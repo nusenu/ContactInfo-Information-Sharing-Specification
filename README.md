@@ -1,5 +1,5 @@
 
-# DRAFT (please send comments before 2020-02-02 to [tor-relays](https://lists.torproject.org/cgi-bin/mailman/listinfo/tor-relays))
+# DRAFT
 
 
 # Overview
@@ -140,18 +140,22 @@ valid characters: [a-zA-Z0-9.-]
 example value:
 
 ```
-example.com
-52g5y5karruvc7bz.onion
+https://example.com
 ```
 
 ### verifyurl
 
-This URL points to a simple text file that contains all relay fingerprints (one per line) of the organization and can be used to automatically verify the operatorurl claim. All relays contained in the file must use the `verifyurl` field for bidirectional verification. Unidirectional commitments are not considered verified. The file may contain comments (lines starting with #). All relays of the operator's relay family (MyFamily setting) must be listed in the file.
+This URL points to a simple text file that contains all relay fingerprints (one per line) of 
+the operator and can be used to automatically verify the operatorurl claim bidirectionally. All relays contained 
+in the file must use the `verifyurl` field in their ContactInfo for bidirectional verification to suceed. Unidirectional commitments 
+are not considered verified. The file may contain comments (lines starting with #). All relays of the 
+operator's relay family (MyFamily setting) must be listed in the file.
 The verifyurl MUST be on the same domain as the operatorurl.
+The verifyurl field value MUST start with "https://".
 
 example:
 
-```https://example.com/.foo/fingerprints.txt```
+```https://example.com/.foo/tor-relay-fingerprints.txt```
 
 ### keybase
 The keybase username identifier. This identifier MUST be usable
@@ -320,7 +324,7 @@ String without spaces describing the used CPU model.
 example:
 
 ```
-i5-8400
+intel-i5-8400
 ```
 
 ### virtualization
@@ -369,7 +373,7 @@ valid characters: [A-Za-z0-9]
 
 ### donationurl
 url pointing to a website that contains donation information to support this tor relay.
-This MUST be an HTTPS url.
+This MUST be an HTTPS URL.
 
 length: < 254 characters
 
