@@ -158,6 +158,8 @@ operator's relay family (MyFamily setting) must be listed in the file.
 The verifyurl MUST be on the same domain as the operatorurl.
 The verifyurl field value MUST start with "https://".
 
+length: < 254 characters
+
 example:
 
 ```https://example.com/.foo/tor-relay-fingerprints.txt```
