@@ -75,11 +75,16 @@ WS is a single or multiple whitespace characters (space, tab, ..).
 The order of keys is not mandatory but SHOULD follow the order in which they appear in this specification.
 Specifically the email field SHOULD be the first field.
 
-## example
+
+## example ContactInfo string
 An example contactInfo string as defined by this document could look like this:
 
 ```foo bar email:user[]example-operator.com hoster:www.example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10.00USD virtualization:xen```
 
+
+## HTTPS URLs and used certificate authority
+
+The HTTPS endpoints located in field values MUST use certificates from a well known trusted certificate authority (for example [Let's Encrypt](https://letsencrypt.org/)).
 
 ## contact information
 
@@ -192,14 +197,12 @@ length: < 254 characters
  
 ### matrix
 
-[Matrix](https://matrix.org/) user identifier. 
-
-https://matrix.org/docs/spec/appendices#user-identifiers
+[Matrix](https://matrix.org/) [user identifier](https://matrix.org/docs/spec/appendices#user-identifiers).
 
 example value:
 
 ```
-@user:matrix.org
+@user:example.com
 ```
 
 
