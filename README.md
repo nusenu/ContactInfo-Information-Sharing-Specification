@@ -68,7 +68,9 @@ in the ContactInfo string only the first occurance is considered. **Non-ASCII ch
 
 Information is provided in key-value pairs:
 
-```key ":" value WS key ":" value ...```
+```
+key ":" value WS key ":" value ...
+```
 
 keys and values MUST NOT contain spaces.
 WS is a single or multiple whitespace characters (space, tab, ..).
@@ -102,7 +104,9 @@ International non-ASCII email addresses are NOT supported.
 
 example value:
 
-```contact[]example.com```
+```
+contact[]example.com
+```
 
 ### pgp
 40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
@@ -117,7 +121,9 @@ valid characters: [a-fA-F0-9]
 
 example value:
 
-```EF6E286DDA85EA2A4BA7DE684E2C6E8793298290```
+```
+EF6E286DDA85EA2A4BA7DE684E2C6E8793298290
+```
 
 ### abuse
 abuse email address where abuse emails should be send. 
@@ -131,7 +137,9 @@ International non-ASCII email addresses are NOT supported.
 
 example value:
 
-```abuse[]example.com```
+```
+abuse[]example.com
+```
   
 ### operatorurl
 The website of the operator. The URL MUST be consistent across all relays of an operator.
@@ -162,7 +170,9 @@ length: < 254 characters
 
 example:
 
-```https://example.com/.foo/tor-relay-fingerprints.txt```
+```
+https://example.com/.foo/tor-relay-fingerprints.txt
+```
 
 ### keybase
 The keybase username identifier. This identifier MUST be usable
@@ -195,7 +205,9 @@ length: < 254 characters
 
  example value:
  
- ```https://mastodon.social/@nusenu```
+ ```
+ https://mastodon.social/@nusenu
+ ```
  
 ### matrix
 
