@@ -89,6 +89,44 @@ An example contactInfo string as defined by this document could look like this:
 
 The HTTPS endpoints located in field values MUST use certificates from a well known trusted certificate authority (for example [Let's Encrypt](https://letsencrypt.org/)).
 
+## Overview of definied fields
+
+  * email
+  * pgp
+  * abuse
+  * operatorurl
+  * verifyurl
+  * keybase
+  * twitter
+  * mastodon
+  * matrix
+  * xmpp
+  * otr3
+  * ricochet
+  * hoster
+  * cost
+  * uplinkbw
+  * trafficacct
+  * memory
+  * cpu
+  * virtualization
+  * bitcoin
+  * zcash
+  * donationurl
+  * offlinemasterkey
+  * signingkeylifetime
+  * sandbox
+  * os
+  * tls
+  * aesni
+  * autoupdate
+  * confmgmt
+  * dnslocation
+  * dnsqname
+  * dnssec
+  * dnslocalrootzone
+  
+
 ## contact information
 
 The email field MUST be provided.
@@ -433,14 +471,6 @@ Single character stating whether this instance runs with [Sandbox](https://www.t
 length: 1 character
 
 valid characters: [yn]
-
-### scheduler
-Value as configured with the torrc [scheduler](https://www.torproject.org/docs/tor-manual-dev.html.en#Schedulers) option
-or "default" for no explicit configuration. This field MUST be omitted on tor releases that do not support this feature (<0.3.2.1-alpha).
-
-length: <50 character
-
-valid characters: [A-Za-z,]
 
 ## OS Information
 
