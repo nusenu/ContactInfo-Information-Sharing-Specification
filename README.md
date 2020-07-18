@@ -197,13 +197,14 @@ https://example.com
 
 ### verifyurl
 
-This URL points to a simple text file that contains all relay fingerprints (one per line) of 
+The verifyurl points to a simple text file that contains all relay fingerprints (one per line) of 
 the operator and can be used to automatically verify the operatorurl claim bidirectionally. All relays contained 
-in the file must use the `verifyurl` field in their ContactInfo for bidirectional verification to suceed. Unidirectional commitments 
+in the file must use the `verifyurl` field in their ContactInfo for bidirectional verification to succeed. Unidirectional commitments 
 are not considered verified. The file may contain comments (lines starting with #). All relays of the 
 operator's relay family (MyFamily setting) must be listed in the file.
 The verifyurl MUST be on the same domain as the operatorurl.
-The verifyurl field value MUST start with "https://".
+The verifyurl field value MUST start with "https://". 
+The text file MUST be fetchable by a bot, no CAPTCHA or similar must be presented.
 
 length: < 254 characters
 
