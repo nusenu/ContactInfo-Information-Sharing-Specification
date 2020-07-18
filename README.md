@@ -1,6 +1,4 @@
-
-# DRAFT
-
+Version 1
 
 # Overview
 
@@ -10,7 +8,6 @@ intended to contain an email address and PGP key fingerprint but since this fiel
 it has been used for multiple other purposes (website urls, donation information, bitcoin addresses, ...).
 Making use of provided information in an automated way is hard since there is no specification on how 
 this string should look like. This is an specification to formalize the ContactInfo string.
-
 
 # Motivation
 
