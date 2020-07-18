@@ -37,9 +37,10 @@ by increasing the information sharing between relay operators. 	-> help the tor 
 -  increases exposure of relay operators 
 
 The machine readable information could be used by spammers and to target
-relay operators. 
-Operators concerned about this can omit contact information
-but it should not be hard to create a new email address for the purpose .
+relay operators. The amount of spam observed has been limited.
+Operators concerned about spam should create a dedicated email address for the purpose of using it
+in the ContactInfo string. This email address can be rotated should there be any 
+unacceptable amount of spam.
 
 - more information makes targeted exploitation easier / more silent
 
@@ -81,7 +82,7 @@ Specifically the email field SHOULD be the first field.
 ## example ContactInfo string
 An example contactInfo string as defined by this document could look like this:
 
-```foo bar email:user[]example-operator.com hoster:www.example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10.00USD virtualization:xen```
+```foo bar email:user[]example-operator.com operatorurl:https://example-operator.com verifyurl:https://example-operator.com/.tor/relay-fingerprints.txt hoster:www.example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10.00USD virtualization:xen```
 
 
 ## HTTPS URLs and used certificate authority
@@ -171,7 +172,7 @@ length: < 254 characters
 example:
 
 ```
-https://example.com/.foo/tor-relay-fingerprints.txt
+https://example.com/.tor/relay-fingerprints.txt
 ```
 
 ### keybase
@@ -246,7 +247,7 @@ example value:
 
 valid characters: [a-z0-9]
 
-length: MUST be 16 characters long
+length: < 254 characters
 
  example value:
  
