@@ -125,6 +125,7 @@ The HTTPS endpoints located in field values MUST use certificates from a well kn
   * dnsqname
   * dnssec
   * dnslocalrootzone
+  * CIISSversion
   
 
 ## contact information
@@ -599,3 +600,22 @@ This is defined in [RFC7706](https://tools.ietf.org/html/rfc7706).
 length: 1 character
 
 valid characters: [yn]
+
+## Specification Version Information
+
+### CIISSversion
+
+Version of the **C**ontact**I**nfo **I**nformation **S**haring **S**pecification (this document) used to generate the ContactInfo string.
+
+format: integer counter
+
+valid characters: [0-9]
+
+length: <4 digits
+
+example values:
+
+```
+1
+```
+
