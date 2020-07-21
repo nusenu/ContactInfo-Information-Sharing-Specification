@@ -7,7 +7,7 @@ Tor's [ContactInfo](https://www.torproject.org/docs/tor-manual.html.en#ContactIn
 intended to contain an email address and PGP key fingerprint but since this field accepts an arbitrary string
 it has been used for multiple other purposes (website urls, donation information, bitcoin addresses, ...).
 Making use of provided information in an automated way is hard since there is no specification on how 
-this string should look like. This is an specification to formalize the ContactInfo string.
+this string should look like. This is a specification to formalize the ContactInfo string.
 
 # Motivation
 
