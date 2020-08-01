@@ -73,11 +73,12 @@ WS is a single or multiple whitespace characters (space, tab, ..).
 The order of keys is not mandatory but SHOULD follow the order in which they appear in this specification.
 Specifically the email field SHOULD be the first field.
 
+The version field (`ciissversion`) and at least one additional field (any) is mandatory.
 
 ## example ContactInfo string
 An example contactInfo string as defined by this document could look like this:
 
-```foo bar email:user[]example-operator.com operatorurl:https://example-operator.com verifyurl:https://example-operator.com/.tor/relay-fingerprints.txt hoster:www.example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10.00USD virtualization:xen```
+```foo bar email:user[]example-operator.com operatorurl:https://example-operator.com verifyurl:https://example-operator.com/.tor/relay-fingerprints.txt hoster:www.example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10.00USD virtualization:xen ciissversion:1```
 
 
 ## HTTPS URLs and used certificate authority
@@ -120,7 +121,7 @@ The HTTPS endpoints located in field values MUST use certificates from a well kn
   * dnsqname
   * dnssec
   * dnslocalrootzone
-  * CIISSversion
+  * ciissversion
   
 
 ## contact information
@@ -596,7 +597,9 @@ valid characters: [yn]
 
 ## Specification Version Information
 
-### CIISSversion
+### ciissversion
+
+This field is mandatory.
 
 Version of the **C**ontact**I**nfo **I**nformation **S**haring **S**pecification (this document) used to generate the ContactInfo string.
 
