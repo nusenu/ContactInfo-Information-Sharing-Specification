@@ -219,7 +219,9 @@ valid characters: [a-fA-F0-0]
 
 example value:
 
-```nusenu```
+```
+nusenu
+```
 
 ### twitter
 twitter identifier without the leading "@". The identifier MUST be usable
