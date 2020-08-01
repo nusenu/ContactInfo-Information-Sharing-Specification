@@ -233,7 +233,9 @@ valid characters: [a-zA-Z0-9_]
 
  example value: 
  
-```torproject```
+```
+torproject
+```
 
 ### mastodon
 url pointing to the operators mastodon profile.
@@ -264,7 +266,9 @@ length: < 254 characters
 
 example value:
 
-```user[]example.com```
+```
+user[]example.com
+```
 
 ### otr3
 OTR version 3 key fingerprint without spaces.
@@ -276,7 +280,9 @@ valid characters: [a-fA-F0-9]
 
 example value:
 
-```EF6E286DDA85EA2A4BA7DE684E2C6E8793298290```
+```
+EF6E286DDA85EA2A4BA7DE684E2C6E8793298290
+```
 
 ### ricochet
 [Ricochet](https://ricochet.im) handle of the operator.
@@ -287,7 +293,9 @@ length: < 254 characters
 
  example value:
  
- ```rs7ce36jsj24ogfw```
+ ```
+ rs7ce36jsj24ogfw
+ ```
  
 ## hoster information
 
@@ -308,7 +316,9 @@ valid characters: [a-zA-Z0-9.-]
 
 example:
 
-```www.example-hoster.com```
+```
+www.example-hoster.com
+```
 
 ### cost
 Monthly hosting costs the hosting company is charging for the server. This does not include time spend to manage the relay. 
@@ -346,7 +356,9 @@ valid characters: [0-9]
 
  example: 
  
- ```100```
+ ```
+ 100
+ ```
 
 ### trafficacct
 States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in GiB ([GibiByte](https://en.wikipedia.org/wiki/Gibibyte)) MUST be provided. If no bandwidth is included, this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two. This is an integer value.
@@ -378,7 +390,9 @@ valid characters: [0-9]
 
 example:
 
-```4096```
+```
+4096
+```
 
 ### cpu
 
