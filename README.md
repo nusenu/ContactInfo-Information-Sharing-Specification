@@ -177,8 +177,8 @@ abuse[]example.com
   
 ### operatorurl
 The website of the operator. The URL MUST be consistent across all relays of an operator.
-This can be a clearnet or an onion service URL. The URL MUST point to an operator specific domain (non-shared).
-If you provide an operatorurl we strongly recommend to also provide the **verifyurl** (see bellow).
+The URL MUST point to an operator specific domain (non-shared).
+If you provide an operatorurl we strongly recommend to also set the **verifymethod** (see bellow) to allow the verification of this field.
 
 length: < 254 characters
 
