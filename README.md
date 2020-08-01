@@ -223,7 +223,6 @@ When choosing this method the operator must create a DNS TXT record for each rel
 value:
 we-run-this-tor-relay
 
-
 possible values for the "verifymethod" fields are:
 
 ```
@@ -232,7 +231,6 @@ uri
 dns,uri
 uri,dns
 ```
-
 
 ### keybase
 The keybase username identifier. This identifier MUST be usable
