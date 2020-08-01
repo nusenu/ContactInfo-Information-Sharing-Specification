@@ -219,9 +219,11 @@ The dns method requires DNSSEC to be enabled on the domain.
 
 When choosing this method the operator must create a DNS TXT record for each relay under the operatorurl domain to pass the verification.
 
-<relay fingerprint>.example.com
+relay-fingerprint.example.com
 value:
 we-run-this-tor-relay
+
+where relay-fingerprint is the 40 character fingerprint of the relays.
 
 possible values for the "verifymethod" fields are:
 
