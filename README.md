@@ -78,7 +78,7 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
 ## example ContactInfo string
 An example contactInfo string as defined by this document could look like this:
 
-```foo bar email:user[]example-operator.com operatorurl:https://example-operator.com verifyurl:https://example-operator.com/.tor/relay-fingerprints.txt hoster:www.example-hoster.com uplinkbw:100 trafficacct:unmetered cost:10.00USD virtualization:xen ciissversion:1```
+```foo bar email:user[]example-operator.com operatorurl:https://example.com verifymethod:uri uplinkbw:100 trafficacct:unmetered cost:10.00USD virtualization:xen ciissversion:1```
 
 
 ## HTTPS URLs and used certificate authority
@@ -91,7 +91,7 @@ The HTTPS endpoints located in field values MUST use certificates from a well kn
   * pgp
   * abuse
   * operatorurl
-  * verifyurl
+  * verifymethod
   * keybase
   * twitter
   * mastodon
@@ -190,24 +190,49 @@ example value:
 https://example.com
 ```
 
-### verifyurl
+### verifymethod
 
-The verifyurl points to a simple text file that contains all relay fingerprints (one per line) of 
-the operator and can be used to automatically verify the operatorurl claim bidirectionally. All relays contained 
-in the file must use the `verifyurl` field in their ContactInfo for bidirectional verification to succeed. Unidirectional commitments 
-are not considered verified. The file may contain comments (lines starting with #). All relays of the 
-operator's relay family (MyFamily setting) must be listed in the file.
-The verifyurl MUST be on the same domain as the operatorurl.
-The verifyurl field value MUST start with "https://". 
-The text file MUST be fetchable by a bot, no CAPTCHA or similar must be presented.
+The "verifymethod" field tells interested parties how they can verify the operatorurl claim 
+since the operatorurl can be set to an arbitrary value by a (malicious) operator - without consent of the entity it points to. 
+The following methods are currently specified to allow for bidirectional verification (relay -> website, website or DNS -> relay).
+All relays of the operator's relay family (MyFamily setting) must have the same verifymethod set.
+Multiple methods can be listed, sepearated by comma.
 
-length: < 254 characters
+#### uri 
 
-example:
+The uri method uses the ["tor-relay" well-known URI](https://nusenu.github.io/tor-relay-well-known-uri-spec/)
+to fetch the Tor relay IDs from the operatorurl for verification.
+
+So if operatorurl points to "example.com", the verification constructs the URL and fetches the relay IDs from:
+
+* https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
+
+and optionally:
+
+* https://example.com/.well-known/tor-relay/ed25519-pubkey.txt
+
+For details about the expected content in these files see [https://nusenu.github.io/tor-relay-well-known-uri-spec](https://nusenu.github.io/tor-relay-well-known-uri-spec).
+
+#### dns 
+
+The dns method requires DNSSEC to be enabled on the domain.
+
+When choosing this method the operator must create a DNS TXT record for each relay under the operatorurl domain to pass the verification.
+
+<relay fingerprint>.example.com
+value:
+we-run-this-tor-relay
+
+
+possible values for the "verifymethod" fields are:
 
 ```
-https://example.com/.tor/relay-fingerprints.txt
+dns
+uri
+dns,uri
+uri,dns
 ```
+
 
 ### keybase
 The keybase username identifier. This identifier MUST be usable
