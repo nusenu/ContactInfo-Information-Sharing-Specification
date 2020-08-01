@@ -1,5 +1,3 @@
-Version 1
-
 # Overview
 
 Tor's [ContactInfo](https://www.torproject.org/docs/tor-manual.html.en#ContactInfo) 
@@ -126,8 +124,6 @@ The HTTPS endpoints located in field values MUST use certificates from a well kn
   
 
 ## contact information
-
-The email field MUST be provided.
 
 ### email
 email address where the operator can be reached. 
