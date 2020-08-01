@@ -23,7 +23,7 @@ by increasing the information sharing between relay operators. 	-> help the tor 
 - make tor t-shirt delivery easier since contact information is potentially already verified
 - increase the ability to detect undeclared relay groups / make hiding relay groups harder
 - make hosting costs visible
-- potentially detect relay operators impersonating other operators by using their email address
+- potentially detect relay operators impersonating other operators by using their contact information
 - allow the automatic attribution and verification that a relay is really operated by a given entity 
 
 
