@@ -205,13 +205,13 @@ Multiple methods can be listed, sepearated by comma. Their order has no particul
 The uri method uses the ["tor-relay" well-known URI](https://nusenu.github.io/tor-relay-well-known-uri-spec/)
 to fetch the Tor relay IDs from the operatorurl domain for verification.
 
-So if operatorurl points to "https://example.com", the verification constructs the URL and fetches the relay IDs from:
+So if the operatorurl points to "https://example.com", the verification process uses the well-known URI to fetch the relay IDs for verification from:
 
 * https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 
 Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI should not redirect to an other domain.
 
-For details about the expected content in this file see [https://nusenu.github.io/tor-relay-well-known-uri-spec](https://nusenu.github.io/tor-relay-well-known-uri-spec).
+For details about the expected content and format of this file see [https://nusenu.github.io/tor-relay-well-known-uri-spec](https://nusenu.github.io/tor-relay-well-known-uri-spec).
 
 #### dns 
 
