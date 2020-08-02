@@ -176,9 +176,11 @@ abuse[]example.com
 ```
   
 ### operatorurl
-The website of the operator. The URL MUST be consistent across all relays of an operator.
+This field is a URL pointing to the website of the operator / organization operating the relay. 
+The URL MUST be consistent across all relays of an operator.
 The URL MUST point to an operator specific domain (non-shared).
-If you provide an operatorurl we strongly recommend to also set the **verifymethod** (see bellow) to allow the verification of this field.
+If you provide an operatorurl we strongly recommend to also set the **verifymethod** field (see bellow)
+which is used to verify the operatorurl claim.
 
 length: < 254 characters
 
@@ -192,40 +194,41 @@ https://example.com
 
 ### verifymethod
 
-The "verifymethod" field tells interested parties how they can verify the operatorurl claim 
+The verifymethod field tells interested parties how they can verify the operatorurl claim 
 since the operatorurl can be set to an arbitrary value by a (malicious) operator - without consent of the entity it points to. 
 The following methods are currently specified to allow for bidirectional verification (relay -> website, website or DNS -> relay).
 All relays of the operator's relay family (MyFamily setting) must have the same verifymethod set.
-Multiple methods can be listed, sepearated by comma.
+Multiple methods can be listed, sepearated by comma. Their order has no particular meaning.
 
 #### uri 
 
 The uri method uses the ["tor-relay" well-known URI](https://nusenu.github.io/tor-relay-well-known-uri-spec/)
-to fetch the Tor relay IDs from the operatorurl for verification.
+to fetch the Tor relay IDs from the operatorurl domain for verification.
 
-So if operatorurl points to "example.com", the verification constructs the URL and fetches the relay IDs from:
+So if operatorurl points to "https://example.com", the verification constructs the URL and fetches the relay IDs from:
 
 * https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 
-and optionally:
+Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI should not redirect to an other domain.
 
-* https://example.com/.well-known/tor-relay/ed25519-pubkey.txt
-
-For details about the expected content in these files see [https://nusenu.github.io/tor-relay-well-known-uri-spec](https://nusenu.github.io/tor-relay-well-known-uri-spec).
+For details about the expected content in this file see [https://nusenu.github.io/tor-relay-well-known-uri-spec](https://nusenu.github.io/tor-relay-well-known-uri-spec).
 
 #### dns 
 
-The dns method requires DNSSEC to be enabled on the domain.
+The dns method requires DNSSEC to be enabled on the domain to prevent/detect DNS manipulation in transit.
 
 When choosing this method the operator must create a DNS TXT record for each relay under the operatorurl domain to pass the verification.
 
-relay-fingerprint.example.com
+Let's assume the operatorurl points to "https://example.com", in that case the following DNS TXT record would be needed for verification:
+
+*relay-fingerprint*.example.com
 value:
 we-run-this-tor-relay
 
-where relay-fingerprint is the 40 character fingerprint of the relays.
+where *relay-fingerprint* is the 40 character fingerprint of the relay.
+Each relay has its own DNS record.
 
-possible values for the "verifymethod" fields are:
+Possible values for the "verifymethod" fields are:
 
 ```
 dns
