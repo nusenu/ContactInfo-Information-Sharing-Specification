@@ -198,7 +198,8 @@ The verifymethod field tells interested parties how they can verify the operator
 since the operatorurl can be set to an arbitrary value by a (malicious) operator - without consent of the entity it points to. 
 The following methods are currently specified to allow for bidirectional verification (relay -> website, website or DNS -> relay).
 All relays of the operator's relay family (MyFamily setting) must have the same verifymethod set.
-Multiple methods can be listed, sepearated by comma. Their order has no particular meaning.
+Multiple methods can be listed, sepearated by comma. All methods listed in this field must succeed for verification to succeed if multiple are listed.
+Their order has no particular meaning.
 
 #### uri 
 
