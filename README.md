@@ -99,7 +99,6 @@ The HTTPS endpoints located in field values MUST use certificates from a well kn
   * matrix
   * xmpp
   * otr3
-  * ricochet
   * hoster
   * cost
   * uplinkbw
@@ -312,19 +311,6 @@ example value:
 EF6E286DDA85EA2A4BA7DE684E2C6E8793298290
 ```
 
-### ricochet
-[Ricochet](https://ricochet.im) handle of the operator.
-
-valid characters: [a-z0-9]
-
-length: < 254 characters
-
- example value:
- 
- ```
- rs7ce36jsj24ogfw
- ```
- 
 ## hoster information
 
 ### hoster
