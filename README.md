@@ -595,7 +595,7 @@ valid characters: [a-z,]
 
 This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
 
-Character stating whether this exit relay is performing DNS QNAME minimization ("y") or not ("n").
+Character stating whether this exit relay is using a resolver that is performing DNS QNAME minimization ("y") or not ("n").
 QNAME minimization is defined in [RFC7816](https://datatracker.ietf.org/doc/rfc7816/).
 
 length: 1 character
@@ -616,7 +616,7 @@ valid characters: [yn]
 
 This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
 
-Character stating whether this exit relay is running the DNS root zone on loopback ("y") 
+Character stating whether this exit relay is using a resolver that is running the DNS root zone on loopback ("y") 
 to avoid latency and information disclosure to DNS root servers or not ("n").
 This is defined in [RFC7706](https://tools.ietf.org/html/rfc7706).
 
