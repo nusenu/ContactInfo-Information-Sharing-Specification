@@ -525,12 +525,11 @@ valid characters: [A-Za-z0-9/.]
 
  examples:
 ``` 
-OpenBSD/6.1
-HardenedBSD/11
-ubuntu/16.04
-debian/9
-centos/7
-fedora/26
+OpenBSD/6.7
+FreeBSD/13
+ubuntu/20.04
+debian/10
+centos/8
 arch
 ```	
 
