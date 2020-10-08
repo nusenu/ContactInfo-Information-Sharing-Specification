@@ -178,7 +178,7 @@ This field is a URL pointing to the website of the operator / organization opera
 The URL MUST be consistent across all relays of an operator.
 The URL MUST point to an operator specific domain (non-shared).
 If you provide an operatorurl we strongly recommend to also set the **verifymethod** field (see bellow)
-which is used to verify the operatorurl claim.
+to protect it against spoofing attacks.
 
 length: < 254 characters
 
@@ -192,12 +192,17 @@ https://example.com
 
 ### verifymethod
 
+This field is only relevant when the operatorurl field is set.
+
 The verifymethod field tells interested parties how they can verify the operatorurl claim 
-since the operatorurl can be set to an arbitrary value by a (malicious) operator - without consent of the entity it points to. 
-The following methods are currently specified to allow for bidirectional verification (relay -> website, website or DNS -> relay).
+since the operatorurl can be set to an arbitrary value by a (malicious) operator - without consent of the entity it points to.
 All relays of the operator's relay family (MyFamily setting) must have the same verifymethod set.
-Multiple methods can be listed, sepearated by comma. All methods listed in this field must succeed for verification to succeed if multiple are listed.
-Their order has no particular meaning.
+The following methods are currently specified to allow for bidirectional verification:
+
+* uri
+* dns
+
+The "uri" method is preferred over "dns" as it is easier to setup and faster to verify. Only a single method is supported, they can not be combined.
 
 #### uri 
 
@@ -210,7 +215,7 @@ So if the operatorurl points to "https://example.com", the verification process 
 
 Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI should not redirect to an other domain.
 
-For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can defined additional files under "tor-relay" for newer relay IDs in the future.
+For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can define additional files under "tor-relay" for newer relay IDs in the future.
 
 #### dns 
 
@@ -232,8 +237,6 @@ Possible values for the "verifymethod" fields are:
 ```
 dns
 uri
-dns,uri
-uri,dns
 ```
 
 ### keybase
