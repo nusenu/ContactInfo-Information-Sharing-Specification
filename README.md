@@ -146,7 +146,7 @@ contact[]example.com
 Case in-sensitive. This key relates to the email address given in the `email` field,
 but providing the `pgp` field without an `email` field is also possible.
 
-This key SHOULD be available on public keyservers.
+This key SHOULD be available on https://keys.openpgp.org
 
 length: MUST be exactly 40 characters long
 
