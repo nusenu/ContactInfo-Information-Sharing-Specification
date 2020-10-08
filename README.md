@@ -224,7 +224,7 @@ Let's assume the operatorurl points to "https://example.com", in that case the f
 value:
 we-run-this-tor-relay
 
-where *relay-fingerprint* is the 40 character fingerprint of the relay.
+where *relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the relay.
 Each relay has its own DNS record.
 
 Possible values for the "verifymethod" fields are:
