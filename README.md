@@ -389,7 +389,7 @@ valid characters: [0-9]
  ```
 
 ### trafficacct
-States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in GiB ([GibiByte](https://en.wikipedia.org/wiki/Gibibyte)) MUST be provided. If no bandwidth is included, this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two. This is an integer value.
+States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in GiB ([GibiByte](https://en.wikipedia.org/wiki/Gibibyte)) MUST be provided. If no traffic is included in the monthly costs, this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two. This is an integer value.
 
 On a server with multiple tor instances the total available monthly traffic of the server **MUST** be divided by the number of tor relay instances running on it.
 
