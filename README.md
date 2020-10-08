@@ -463,7 +463,7 @@ zvm
 ## donation information
 
 ### bitcoin
-bitcoin address where people are expected to send donations to support the operation of this tor relay.
+bitcoin address where people can send donations to support the operation of this tor relay.
 
 length: < 100 characters
 
@@ -471,7 +471,7 @@ valid characters: [A-Za-z0-9]
 
 
 ### zcash
-zcash address where people are expected send donations to support the operation of this tor relay.
+zcash address where people can send donations to support the operation of this tor relay.
 
 length: < 96 characters
 
