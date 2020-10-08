@@ -555,7 +555,7 @@ length: 1 character
 valid characters: [yn]
  
 ### autoupdate
-Single character stating whether automatic (unnattended) updates are enabled ("y") or not ("n").
+Single character stating whether automatic (unattended) updates are enabled ("y") or not ("n").
 
 length: 1 character
 
