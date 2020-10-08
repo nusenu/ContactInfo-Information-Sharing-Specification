@@ -207,7 +207,7 @@ The "uri" method is preferred over "dns" as it is easier to setup and faster to 
 #### uri 
 
 The uri method uses the ["tor-relay" well-known URI](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)
-to fetch the Tor relay IDs from the operatorurl domain for verification.
+to fetch the tor relay IDs from the operatorurl domain for verification.
 
 So if the operatorurl points to "https://example.com", the verification process uses the well-known URI to fetch the relay IDs for verification from:
 
@@ -255,7 +255,7 @@ nusenu
 
 ### twitter
 twitter identifier without the leading "@". The identifier MUST be usable
-to create a valid twitter profile url
+to create a valid twitter profile url.
 
 length: MUST be 1-15 characters long
 
