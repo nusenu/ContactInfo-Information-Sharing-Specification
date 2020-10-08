@@ -606,7 +606,7 @@ valid characters: [yn]
 
 This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
 
-Character stating whether this exit relay is performing DNSSEC validation ("y") or not ("n").
+Character stating whether this exit relay is using a resolver that is performing DNSSEC validation ("y") or not ("n").
 
 length: 1 character
 
