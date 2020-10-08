@@ -60,7 +60,8 @@ The family size (number of listed fingerprints) and exit policy are two other re
 The fields specified in this document coexists with other arbitrary strings located in 
 the relay's ContactInfo descriptor field. Defined fields may appear at any position within 
 the contactInfo string. A field identifier (key) MUST only be used once, if it appears multiple times
-in the ContactInfo string only the first occurance is considered. **Non-ASCII characters are not supported.**
+in the ContactInfo string only the first occurance is considered. 
+UTF-8 is supported to the extend that tor supports it ([proposal 285](https://gitweb.torproject.org/torspec.git/tree/proposals/285-utf-8.txt)).
 
 Information is provided in key-value pairs:
 
@@ -134,7 +135,6 @@ the "@" sign SHOULD be replaced with "[]".
 We are aware that this is trivially defeated anti-spam "protection" but 
 not all email address scrappers are aware of this specification
 (not targeted for tor contact info data).
-International non-ASCII email addresses are NOT supported.
 
 example value:
 
@@ -167,7 +167,6 @@ the "@" sign SHOULD be replaced with "[]".
 We are aware that this is trivially defeated anti-spam "protection" but 
 not all email address scrappers are aware of this specification
 (not targeted for tor contact info data).
-International non-ASCII email addresses are NOT supported.
 
 example value:
 
