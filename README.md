@@ -14,8 +14,8 @@ this string should look like. This is a specification to formalize the ContactIn
 by increasing the information sharing between relay operators. 	-> help the tor network grow
 - (indirectly) improve geo- and autonomous system diversity on the tor network (more diverse is better)
 - collect additional (self-reported) relay metrics (for things like [Relay Search](https://metrics.torproject.org/rs.html) and [OrNetStats](https://nusenu.github.io/OrNetStats))
-- examples: How many use tor's Sandbox/OfflineMasterMode?
 - This data could provide tor developers with information on how well tested/how much used new features (like Sandboxes) are before changing defaults. 
+- examples: How many use tor's Sandbox/OfflineMasterMode?
 - improve the ability to contact relay operators (automatically)
 - make provided information machine readable 
 - provide the foundation for an automated contactInfo verification bot. 
@@ -46,7 +46,7 @@ should omit this type of information, but can share other information.
 - increased descriptor size and directory traffic
 
 The contactinfo field size could potentially grow because of this specification.
-This is expected to be mitigated by directory data compression and diffs available since tor 0.3.1.
+This is mitigated by directory data compression and diffs available since tor version 0.3.1.
 
 - ContactInfo size constraints
 
@@ -57,7 +57,7 @@ The family size (number of listed fingerprints) and exit policy are two other re
 
 # Defined Fields 
 
-The fields specified in this document coexists with other arbibrary strings located in 
+The fields specified in this document coexists with other arbitrary strings located in 
 the relay's ContactInfo descriptor field. Defined fields may appear at any position within 
 the contactInfo string. A field identifier (key) MUST only be used once, if it appears multiple times
 in the ContactInfo string only the first occurance is considered. **Non-ASCII characters are not supported.**
