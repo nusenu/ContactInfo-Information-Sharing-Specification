@@ -210,7 +210,7 @@ So if the operatorurl points to "https://example.com", the verification process 
 
 Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI should not redirect to an other domain.
 
-For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md).
+For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can defined additional files under "tor-relay" for newer relay IDs in the future.
 
 #### dns 
 
