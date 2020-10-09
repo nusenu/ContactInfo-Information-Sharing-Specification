@@ -200,7 +200,7 @@ All relays of the operator's relay family (MyFamily setting) must have the same 
 The following methods are currently specified to allow for bidirectional verification:
 
 * uri
-* dns
+* dns-rsa-sha1
 
 The "uri" method is preferred over "dns" as it is easier to setup and faster to verify. Only a single method is supported, they can not be combined.
 
@@ -215,11 +215,11 @@ So if the operatorurl points to "https://example.com", the verification process 
 
 Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI should not redirect to an other domain.
 
-For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can define additional files under "tor-relay" for newer relay IDs in the future.
+For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can define additional files under "tor-relay" (not explicitely listed here) that can be used to achieve the same goal (retieve relay IDs). It is recommended to always use the latest relay ID format file.
 
-#### dns 
+#### dns-rsa-sha1
 
-The dns method requires DNSSEC to be enabled on the domain to prevent/detect DNS manipulation in transit.
+The dns-rsa-sha1 method requires DNSSEC to be enabled on the domain to prevent/detect DNS manipulation in transit.
 
 When choosing this method the operator must create a DNS TXT record for each relay under the operatorurl domain to pass the verification.
 
@@ -235,8 +235,8 @@ Each relay has its own DNS record.
 Possible values for the "verifymethod" fields are:
 
 ```
-dns
 uri
+dns-rsa-sha1
 ```
 
 ### keybase
