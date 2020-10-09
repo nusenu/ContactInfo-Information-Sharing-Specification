@@ -185,6 +185,9 @@ SHOULD be ignored if verification does not succeed.
 For tools and websites that display the operatorurl field and implement this specification: 
 Users MUST be able to tell verified operatorurls from unverified operatorurls.
 
+In cases where operators do not have a website, this field can be used to specify a DNS domain only. 
+In that case "http(s)://" is ommitted. 
+
 length: < 400 characters
 
 valid characters: [%/:a-zA-Z0-9.-]
