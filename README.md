@@ -187,7 +187,7 @@ to fetch the tor relay IDs from the `operatorurl` domain for verification.
 
 So if the `operatorurl` points to "https://example.com", the verification process uses the well-known URI to fetch the relay IDs for verification from:
 
-* https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
+https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 
 Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI MUST NOT redirect to another domain.
 
