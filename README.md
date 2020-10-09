@@ -62,6 +62,7 @@ the relay's ContactInfo descriptor field. Defined fields may appear at any posit
 the contactInfo string. A field identifier (key) MUST only be used once, if it appears multiple times
 in the ContactInfo string only the first occurance is considered. 
 UTF-8 is supported to the extend that tor supports it ([proposal 285](https://gitweb.torproject.org/torspec.git/tree/proposals/285-utf-8.txt)).
+Punycode encoding should be used for internationalized domain names.
 
 Information is provided in key-value pairs:
 
