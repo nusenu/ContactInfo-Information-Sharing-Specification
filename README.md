@@ -92,10 +92,10 @@ The HTTPS endpoints located in field values MUST use certificates from a well kn
 ## Overview of definied fields
 
   * email
-  * pgp
-  * abuse
   * operatorurl
   * verifymethod
+  * pgp
+  * abuse
   * keybase
   * twitter
   * mastodon
@@ -145,37 +145,6 @@ example value:
 contact[]example.com
 ```
 
-### pgp
-40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
-Case in-sensitive. This key relates to the email address given in the `email` field,
-but providing the `pgp` field without an `email` field is also possible.
-
-This key SHOULD be available on https://keys.openpgp.org
-
-length: MUST be exactly 40 characters long
-
-valid characters: [a-fA-F0-9]
-
-example value:
-
-```
-EF6E286DDA85EA2A4BA7DE684E2C6E8793298290
-```
-
-### abuse
-Email address where abuse emails related to this tor relay should be send. 
-The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
-the "@" sign SHOULD be replaced with "[]". 
-We are aware that this is trivially defeated anti-spam "protection" but 
-not all email address scrappers are aware of this specification
-(not targeted for tor contact info data).
-
-example value:
-
-```
-abuse[]example.com
-```
-  
 ### operatorurl
 This field is an URL pointing to the website of the operator / organization operating the relay. 
 The URL MUST be consistent across all relays of an operator.
@@ -240,6 +209,38 @@ value:
 Each relay has its own DNS record.
 
 Verification SHOULD be renewed at least every 6 months.
+
+### pgp
+40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
+Case in-sensitive. This key relates to the email address given in the `email` field,
+but providing the `pgp` field without an `email` field is also possible.
+
+This key SHOULD be available on https://keys.openpgp.org
+
+length: MUST be exactly 40 characters long
+
+valid characters: [a-fA-F0-9]
+
+example value:
+
+```
+EF6E286DDA85EA2A4BA7DE684E2C6E8793298290
+```
+
+### abuse
+Email address where abuse emails related to this tor relay should be send. 
+The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
+the "@" sign SHOULD be replaced with "[]". 
+We are aware that this is trivially defeated anti-spam "protection" but 
+not all email address scrappers are aware of this specification
+(not targeted for tor contact info data).
+
+example value:
+
+```
+abuse[]example.com
+```
+
 
 ### keybase
 The keybase username identifier. This identifier MUST be usable
