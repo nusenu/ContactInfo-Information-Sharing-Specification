@@ -208,7 +208,7 @@ value:
 *relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the relay.
 Each relay has its own DNS record, only a single TXT record MUST be returned.
 
-Verification SHOULD be renewed at least every 6 months.
+Tools using any of the data to verify the `operatorurl` content should check it at least every 6 months.
 
 ### pgp
 40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
