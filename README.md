@@ -454,6 +454,17 @@ zvm
 
 ## donation information
 
+### donationurl
+url pointing to a website that contains donation information to support this tor relay.
+This MUST be an HTTPS URL.
+
+length: < 254 characters
+
+example:
+```
+https://torservers.net/donate.html
+```
+
 ### btc
 Bitcoin or [OpenAlias](https://openalias.org/) address where people can send donations to support the operation of this tor relay.
 
@@ -473,18 +484,6 @@ valid characters: [A-Za-z0-9]
 Monero or [OpenAlias](https://openalias.org/) address where people can send donations to support the operation of this tor relay.
 
 length: < 100 characters
-
-
-### donationurl
-url pointing to a website that contains donation information to support this tor relay.
-This MUST be an HTTPS URL.
-
-length: < 254 characters
-
-example:
-```
-https://torservers.net/donate.html
-```
 
 ## tor configuration
 
