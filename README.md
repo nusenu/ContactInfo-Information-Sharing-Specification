@@ -1,3 +1,5 @@
+**Version 2**
+
 # Overview
 
 Tor's [ContactInfo](https://www.torproject.org/docs/tor-manual.html.en#ContactInfo) 
@@ -80,7 +82,7 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
 ## example ContactInfo string
 An example contactInfo string as defined by this document could look like this:
 
-```foo bar email:user[]example-operator.com operatorurl:https://example.com verifymethod:uri uplinkbw:100 trafficacct:unmetered cost:10.00USD virtualization:xen ciissversion:1```
+```foo bar email:user[]example-operator.com operatorurl:https://example.com verifymethod:uri uplinkbw:100 ciissversion:2```
 
 
 ## HTTPS URLs and used certificate authority
@@ -645,5 +647,6 @@ example values:
 
 ```
 1
+2
 ```
 
