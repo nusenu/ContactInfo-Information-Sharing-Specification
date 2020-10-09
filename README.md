@@ -159,8 +159,7 @@ EF6E286DDA85EA2A4BA7DE684E2C6E8793298290
 ```
 
 ### abuse
-abuse email address where abuse emails should be send. 
-The given address SHOULD be the same for all relays from a given operator.
+Email address where abuse emails related to this tor relay should be send. 
 The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
 the "@" sign SHOULD be replaced with "[]". 
 We are aware that this is trivially defeated anti-spam "protection" but 
