@@ -109,8 +109,9 @@ The HTTPS endpoints located in field values MUST use certificates from a well kn
   * memory
   * cpu
   * virtualization
-  * bitcoin
-  * zcash
+  * btc
+  * zec
+  * xmr
   * donationurl
   * offlinemasterkey
   * signingkeylifetime
@@ -453,20 +454,26 @@ zvm
 
 ## donation information
 
-### bitcoin
-bitcoin address where people can send donations to support the operation of this tor relay.
+### btc
+Bitcoin or [OpenAlias](https://openalias.org/) address where people can send donations to support the operation of this tor relay.
 
 length: < 100 characters
 
 valid characters: [A-Za-z0-9]
 
 
-### zcash
-zcash address where people can send donations to support the operation of this tor relay.
+### zec
+Zcash address where people can send donations to support the operation of this tor relay.
 
 length: < 96 characters
 
 valid characters: [A-Za-z0-9]
+
+### xmr
+Monero or [OpenAlias](https://openalias.org/) address where people can send donations to support the operation of this tor relay.
+
+length: < 100 characters
+
 
 ### donationurl
 url pointing to a website that contains donation information to support this tor relay.
