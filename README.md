@@ -172,7 +172,7 @@ This field is only relevant when the `operatorurl` field is set. It is ignored w
 
 Since the `operatorurl` can be set to an arbitrary value - without consent of the entity it points to -
 the `verifymethod` field tells interested parties how to verify the `operatorurl` value.
-All relays of the operator's relay family (MyFamily setting) MUST have the same `verifymethod` set.
+All relays in the operator's relay family (MyFamily setting) MUST have the same `verifymethod` set.
 The following verification methods are available:
 
 * uri
