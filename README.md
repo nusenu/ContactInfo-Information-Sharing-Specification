@@ -206,7 +206,7 @@ value:
 "we-run-this-tor-relay"
 
 *relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the relay.
-Each relay has its own DNS record.
+Each relay has its own DNS record, only a single TXT record MUST be returned.
 
 Verification SHOULD be renewed at least every 6 months.
 
