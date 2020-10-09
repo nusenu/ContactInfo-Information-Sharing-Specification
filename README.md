@@ -199,54 +199,47 @@ https://example.com
 
 ### verifymethod
 
-This field is only relevant when the operatorurl field is set. It is ignored when operatorurl is not set.
+This field is only relevant when the `operatorurl` field is set. It is ignored when `operatorurl` is not set.
 
-Since the operatorurl can be set to an arbitrary value - without consent of the entity it points to,
-the verifymethod field tells interested parties how to verify the operatorurl claim.
-All relays of the operator's relay family (MyFamily setting) MUST have the same verifymethod set.
-The following methods are currently specified to support verification:
+Since the `operatorurl` can be set to an arbitrary value - without consent of the entity it points to -
+the `verifymethod` field tells interested parties how to verify the `operatorurl` value.
+All relays of the operator's relay family (MyFamily setting) MUST have the same `verifymethod` set.
+The following verification methods are available:
 
 * uri
 * dns-rsa-sha1
 
-The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup and faster to verify. Only a single method is supported, they can not be combined.
+The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup and faster to verify when a webserver is already available. Only a single method can be specified, they can not be combined.
 
 #### uri 
 
-The uri method uses the ["tor-relay" well-known URI](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)
-to fetch the tor relay IDs from the operatorurl domain for verification.
+The "uri" method uses the ["tor-relay" well-known URI](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)
+to fetch the tor relay IDs from the `operatorurl` domain for verification.
 
-So if the operatorurl points to "https://example.com", the verification process uses the well-known URI to fetch the relay IDs for verification from:
+So if the `operatorurl` points to "https://example.com", the verification process uses the well-known URI to fetch the relay IDs for verification from:
 
 * https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 
 Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI MUST NOT redirect to another domain.
 
-For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can define additional files under "tor-relay" (not explicitely listed here) containing future relay ID formats that can be used to achieve the same goal (retrieve and verify relay IDs) in the future. It is recommended to always use the latest relay ID file format available at the time of verification.
+For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can define additional files under "tor-relay" (not explicitely listed here) containing future relay ID formats that can be used to achieve the same goal (retrieve and verify relay IDs) in the future. It is recommended to always use the latest relay ID file format available.
 
 #### dns-rsa-sha1
 
 The dns-rsa-sha1 method requires DNSSEC to be enabled on the domain to prevent/detect DNS manipulation in transit.
 
-When choosing this method the operator creates a DNS TXT record for each relay under the operatorurl domain to pass the verification.
+When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay to confirm the `operatorurl` field.
 
-Let's assume the operatorurl points to "https://example.com", in that case the following DNS TXT record would be needed for verification:
+These DNS TXT records look as follows (`operatorurl:example.com`):
 
 *relay-fingerprint*.example.com
 value:
-we-run-this-tor-relay
+"we-run-this-tor-relay"
 
-where *relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the relay.
+*relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the relay.
 Each relay has its own DNS record.
 
-Possible values for the `verifymethod` field are:
-
-```
-uri
-dns-rsa-sha1
-```
-
-operatorurls SHOULD be verified at least every 6 months.
+Verification SHOULD be renewed at least every 6 months.
 
 ### keybase
 The keybase username identifier. This identifier MUST be usable
