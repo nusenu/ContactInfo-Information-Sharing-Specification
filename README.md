@@ -180,7 +180,7 @@ The URL MUST point to an operator specific domain (non-shared).
 If you provide an operatorurl we strongly recommend to also set the **verifymethod** field (see bellow)
 to protect it against spoofing attacks.
 
-length: < 254 characters
+length: < 400 characters
 
 valid characters: [%/:a-zA-Z0-9.-]
 
@@ -215,13 +215,13 @@ So if the operatorurl points to "https://example.com", the verification process 
 
 Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI should not redirect to an other domain.
 
-For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can define additional files under "tor-relay" (not explicitely listed here) that can be used to achieve the same goal (retieve relay IDs). It is recommended to always use the latest relay ID format file.
+For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can define additional files under "tor-relay" (not explicitely listed here) that can be used to achieve the same goal (retrieve relay IDs). It is recommended to always use the latest relay ID file format available at the time of verification.
 
 #### dns-rsa-sha1
 
 The dns-rsa-sha1 method requires DNSSEC to be enabled on the domain to prevent/detect DNS manipulation in transit.
 
-When choosing this method the operator must create a DNS TXT record for each relay under the operatorurl domain to pass the verification.
+When choosing this method the operator creates a DNS TXT record for each relay under the operatorurl domain to pass the verification.
 
 Let's assume the operatorurl points to "https://example.com", in that case the following DNS TXT record would be needed for verification:
 
@@ -232,7 +232,7 @@ we-run-this-tor-relay
 where *relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the relay.
 Each relay has its own DNS record.
 
-Possible values for the "verifymethod" fields are:
+Possible values for the `verifymethod` field are:
 
 ```
 uri
@@ -325,7 +325,7 @@ To normalize the provided domain:
 - If the hoster has multiple domains (using different TLDs) use the international version.
 - The domain MUST NOT include trailing slashes "/".
 
-If you are your own ISP (and are not offering a commercial service for others) this field SHOULD be omitted.
+If you are your own ISP (and are not offering a commercial service for others) this field MUST be omitted.
 
 length: < 254 characters
 
