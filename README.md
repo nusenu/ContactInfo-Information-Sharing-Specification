@@ -177,11 +177,13 @@ abuse[]example.com
 ```
   
 ### operatorurl
-This field is a URL pointing to the website of the operator / organization operating the relay. 
+This field is an URL pointing to the website of the operator / organization operating the relay. 
 The URL MUST be consistent across all relays of an operator.
 The URL MUST point to an operator specific domain (non-shared).
-If you provide an operatorurl we strongly recommend to also set the **verifymethod** field (see bellow)
-to protect it against spoofing attacks.
+The provided domain in the URL is verified using the verifymethod described bellow. The operatorurl
+SHOULD be ignored if verification does not succeed. 
+For tools and websites that display the operatorurl field and implement this specification: 
+Users MUST be able to tell verified operatorurls from unverified operatorurls.
 
 length: < 400 characters
 
@@ -195,17 +197,17 @@ https://example.com
 
 ### verifymethod
 
-This field is only relevant when the operatorurl field is set.
+This field is only relevant when the operatorurl field is set. It is ignored when operatorurl is not set.
 
-The verifymethod field tells interested parties how they can verify the operatorurl claim 
-since the operatorurl can be set to an arbitrary value by a (malicious) operator - without consent of the entity it points to.
-All relays of the operator's relay family (MyFamily setting) must have the same verifymethod set.
-The following methods are currently specified to allow for bidirectional verification:
+Since the operatorurl can be set to an arbitrary value - without consent of the entity it points to,
+the verifymethod field tells interested parties how to verify the operatorurl claim.
+All relays of the operator's relay family (MyFamily setting) MUST have the same verifymethod set.
+The following methods are currently specified to support verification:
 
 * uri
 * dns-rsa-sha1
 
-The "uri" method is preferred over "dns-rsa-sha1" as it is easier to setup and faster to verify. Only a single method is supported, they can not be combined.
+The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup and faster to verify. Only a single method is supported, they can not be combined.
 
 #### uri 
 
@@ -216,9 +218,9 @@ So if the operatorurl points to "https://example.com", the verification process 
 
 * https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 
-Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI should not redirect to an other domain.
+Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI MUST NOT redirect to another domain.
 
-For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can define additional files under "tor-relay" (not explicitely listed here) that can be used to achieve the same goal (retrieve relay IDs). It is recommended to always use the latest relay ID file format available at the time of verification.
+For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can define additional files under "tor-relay" (not explicitely listed here) containing future relay ID formats that can be used to achieve the same goal (retrieve and verify relay IDs) in the future. It is recommended to always use the latest relay ID file format available at the time of verification.
 
 #### dns-rsa-sha1
 
@@ -241,6 +243,8 @@ Possible values for the `verifymethod` field are:
 uri
 dns-rsa-sha1
 ```
+
+operatorurls SHOULD be verified at least every 6 months.
 
 ### keybase
 The keybase username identifier. This identifier MUST be usable
