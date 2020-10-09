@@ -572,7 +572,7 @@ valid characters: [a-z]
 
 ### dnslocation
 
-This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
+This field is only relevant for exit relays, it is ignored on relays that do not allow exiting.
 
 String describing the location of the used DNS resolver in relation to the exit relay.
 
@@ -596,7 +596,7 @@ valid characters: [a-z,]
 
 ### dnsqname
 
-This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
+This field is only relevant for exit relays, it is ignored on relays that do not allow exiting.
 
 Character stating whether this exit relay is using a resolver that is performing DNS QNAME minimization ("y") or not ("n").
 QNAME minimization is defined in [RFC7816](https://datatracker.ietf.org/doc/rfc7816/).
@@ -607,7 +607,7 @@ valid characters: [yn]
 
 ### dnssec
 
-This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
+This field is only relevant for exit relays, it is ignored on relays that do not allow exiting.
 
 Character stating whether this exit relay is using a resolver that is performing DNSSEC validation ("y") or not ("n").
 
@@ -617,7 +617,7 @@ valid characters: [yn]
 
 ### dnslocalrootzone
 
-This field is only relevant for exit relays, non-exit relays SHOULD NOT set this field.
+This field is only relevant for exit relays, it is ignored on relays that do not allow exiting.
 
 Character stating whether this exit relay is using a resolver that is running the DNS root zone on loopback ("y") 
 to avoid latency and information disclosure to DNS root servers or not ("n").
