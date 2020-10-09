@@ -180,10 +180,9 @@ abuse[]example.com
 This field is an URL pointing to the website of the operator / organization operating the relay. 
 The URL MUST be consistent across all relays of an operator.
 The URL MUST point to an operator specific domain (non-shared).
-The provided domain in the URL is verified using the verifymethod described bellow. The operatorurl
+The provided domain in the URL is verified using the verify method described bellow (`verifymethod` field). The operatorurl
 SHOULD be ignored if verification does not succeed. 
-For tools and websites that display the operatorurl field and implement this specification: 
-Users MUST be able to tell verified operatorurls from unverified operatorurls.
+Users MUST be able to tell verified operatorurls from unverified operatorurls in tools or websites implementing this specification.
 
 In cases where operators do not have a website, this field can be used to specify a DNS domain only. 
 In that case "http(s)://" is ommitted. 
