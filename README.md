@@ -172,26 +172,26 @@ This field is only relevant when the `operatorurl` field is set. It is ignored w
 
 Since the `operatorurl` can be set to an arbitrary value - without consent of the entity it points to -
 the `verifymethod` field tells interested parties how to verify the `operatorurl` value.
-All relays in the operator's relay family (MyFamily setting) MUST have the same `verifymethod` set.
 The following verification methods are available:
 
 * uri
 * dns-rsa-sha1
 
-The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup and faster to verify when a webserver is already available. Only a single method can be specified, they can not be combined.
+The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup and faster to verify if a webserver is available. Only a single method can be used, they can not be combined. All relays in the operator's relay family ([MyFamily](https://2019.www.torproject.org/docs/tor-manual.html.en#MyFamily) setting) MUST have the same `verifymethod` set.
 
 #### uri 
 
-The "uri" method uses the ["tor-relay" well-known URI](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)
-to fetch the tor relay IDs from the `operatorurl` domain for verification.
+The "uri" method uses the "tor-relay" well-known URI to fetch the tor relay IDs (fingerprints) from a fixed location on the `operatorurl` domain for verification.
 
-So if the `operatorurl` points to "https://example.com", the verification process uses the well-known URI to fetch the relay IDs for verification from:
+Example: If the `operatorurl` points to "https://example.com", the verification process fetches the relay fingerprints from (the path and filename is static and defined in [tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)):
 
 https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 
+The file contains RSA SHA1 relay fingerprints - one per line. It is not required that all listed relay IDs point to running relays.
+
 Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI MUST NOT redirect to another domain.
 
-For details about the expected content and format of this file see [tor spec proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md). Proposal 326 can define additional files under "tor-relay" (not explicitely listed here) containing future relay ID formats that can be used to achieve the same goal (retrieve and verify relay IDs) in the future. It is recommended to always use the latest relay ID file format available.
+Tor Proposal 326 can define additional files in the "tor-relay" folder containing future relay ID formats that can be used to achieve the same goal (retrieve and verify relay IDs) in the future. It is recommended to always use the latest relay ID file format available.
 
 #### dns-rsa-sha1
 
