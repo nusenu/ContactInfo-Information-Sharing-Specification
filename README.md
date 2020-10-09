@@ -202,7 +202,7 @@ The following methods are currently specified to allow for bidirectional verific
 * uri
 * dns-rsa-sha1
 
-The "uri" method is preferred over "dns" as it is easier to setup and faster to verify. Only a single method is supported, they can not be combined.
+The "uri" method is preferred over "dns-rsa-sha1" as it is easier to setup and faster to verify. Only a single method is supported, they can not be combined.
 
 #### uri 
 
