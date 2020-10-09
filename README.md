@@ -181,7 +181,7 @@ to protect it against spoofing attacks.
 
 length: < 254 characters
 
-valid characters: [a-zA-Z0-9.-]
+valid characters: [%/:a-zA-Z0-9.-]
 
 example value:
 
