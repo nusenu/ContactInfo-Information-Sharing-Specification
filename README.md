@@ -32,7 +32,7 @@ by increasing the information sharing between relay operators. 	-> help the Tor 
 
 An example ContactInfo string as defined by this specification could look like this:
 
-```foo bar email:tor-relay-operator[]example.com url:https://example.com verifymethod:uri uplinkbw:100 ciissversion:2```
+```foo bar email:tor-relay-operator[]example.com url:https://example.com proof:uri uplinkbw:100 ciissversion:2```
 
 # Defined Fields 
 
@@ -60,7 +60,7 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
 
   * email
   * url
-  * verifymethod
+  * proof
   * pgp
   * abuse
   * keybase
@@ -117,7 +117,7 @@ This field contains an URL (or hostname) pointing to the website of the entity (
 In most cases the responsible entity will be the same as the technical contact mentioned in the `email` field.
 This field MUST be consistent across all relays where this entity is responsible.
 It MUST point to a specific (non-shared) domain/hostname. Two organizations/persons can not have the same field content.
-This field is verified using the verify method described bellow (`verifymethod` field). 
+The `url` field is verified using the selected proof method described bellow (`proof` field). 
 
 When displaying the `url` field content on websites and tools implementing this specification:
 * The `url` SHOULD be ignored if verification does not succeed.
@@ -136,18 +136,18 @@ example value:
 https://example.com
 ```
 
-### verifymethod
+### proof
 
 This field is only relevant when the `url` field is set. It is ignored when `url` is not set.
 
 Since the `url` can be set to an arbitrary value - without consent of the entity it points to -
-the `verifymethod` field tells interested parties how to verify the `url` value.
-The following verification methods are available:
+the `proof` field tells interested parties how they can verify the `url` value.
+A relay operator can choose between two options to establish a proof:
 
 * uri
 * dns-rsa-sha1
 
-The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup if a webserver is available and faster when performing verfication. Only a single method can be used, they can not be combined. All relays in the operator's relay family ([MyFamily](https://2019.www.torproject.org/docs/tor-manual.html.en#MyFamily) setting) MUST have the same `verifymethod` set.
+The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup if a webserver is available and faster when performing proof verfications. Only a single method can be used, proofs can not be combined. All relays in the operator's relay family ([MyFamily](https://2019.www.torproject.org/docs/tor-manual.html.en#MyFamily) setting) MUST have the same `proof` value set.
 
 #### uri 
 
