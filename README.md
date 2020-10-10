@@ -11,18 +11,18 @@ this string should look like. This is a specification to formalize the ContactIn
 
 # Motivation
 
-- increase information sharing among tor relay operators
-- make it easier for current and future relay operators to find (rarely used) hosters for tor relays
-by increasing the information sharing between relay operators. 	-> help the tor network grow
-- (indirectly) improve geo- and autonomous system diversity on the tor network (more diverse is better)
+- increase information sharing among Tor relay operators
+- make it easier for current and future relay operators to find (rarely used) hosters for Tor relays
+by increasing the information sharing between relay operators. 	-> help the Tor network grow
+- (indirectly) improve geo- and autonomous system diversity on the Tor network (more diverse is better)
 - collect additional (self-reported) relay metrics (for things like [Relay Search](https://metrics.torproject.org/rs.html) and [OrNetStats](https://nusenu.github.io/OrNetStats))
-- This data could provide tor developers with information on how well tested/how much used new features (like Sandboxes) are before changing defaults. 
-- examples: How many use tor's Sandbox/OfflineMasterMode?
+- This data could provide Tor developers with information on how well tested/how much used new features (like Sandboxes) are before changing defaults.
+- examples: How many use Tor's Sandbox/OfflineMasterMode?
 - improve the ability to contact relay operators (automatically)
 - make provided information machine readable 
 - provide the foundation for an automated contactInfo verification bot. 
 - Mutually verified email addresses (and other contact options) could be displayed differently on [Relay Search](https://metrics.torproject.org/rs.html)
-- make tor t-shirt delivery easier since contact information is potentially already verified
+- make Tor t-shirt delivery easier since contact information is potentially already verified
 - increase the ability to detect undeclared relay groups / make hiding relay groups harder
 - make hosting costs visible
 - potentially detect relay operators impersonating other operators by using their contact information
@@ -40,7 +40,7 @@ The fields specified in this document coexists with other arbitrary strings loca
 the relay's ContactInfo descriptor field. Defined fields may appear at any position within 
 the contactInfo string. A field identifier (key) MUST only be used once, if it appears multiple times
 in the ContactInfo string only the first occurance is considered. 
-UTF-8 is supported to the extend that tor supports it ([proposal 285](https://gitweb.torproject.org/torspec.git/tree/proposals/285-utf-8.txt)).
+UTF-8 is supported to the extend that Tor supports it ([proposal 285](https://gitweb.torproject.org/torspec.git/tree/proposals/285-utf-8.txt)).
 Punycode encoding should be used for internationalized domain names.
 
 Information is provided in key-value pairs:
@@ -104,7 +104,7 @@ The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rf
 the "@" sign SHOULD be replaced with "[]". 
 We are aware that this is trivially defeated anti-spam "protection" but 
 not all email address scrappers are aware of this specification
-(not targeted for tor contact info data).
+(not targeted for Tor contact info data).
 
 example value:
 
@@ -149,7 +149,7 @@ The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup 
 
 #### uri 
 
-The "uri" method uses the "tor-relay" well-known URI to fetch the tor relay IDs (fingerprints) from a fixed location on the `url` domain for verification.
+The "uri" method uses the "tor-relay" well-known URI to fetch the Tor relay IDs (fingerprints) from a fixed location on the `url` domain for verification.
 
 Example: If the `url` points to "https://example.com", the verification process fetches the relay fingerprints from (the path and filename is static and defined in [tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)):
 
@@ -196,13 +196,13 @@ EF6E286DDA85EA2A4BA7DE684E2C6E8793298290
 ```
 
 ### abuse
-Email address of the abuse handling contact for this tor relay.
-This is primariy relevant for tor exit relays but can also be used on non-exit relays.
+Email address of the abuse handling contact for this Tor relay.
+This is primariy relevant for Tor exit relays but can also be used on non-exit relays.
 The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
 the "@" sign SHOULD be replaced with "[]". 
 We are aware that this is trivially defeated anti-spam "protection" but 
 not all email address scrappers are aware of this specification
-(not targeted for tor contact info data).
+(not targeted for Tor contact info data).
 
 example value:
 
@@ -316,7 +316,7 @@ Monthly hosting costs the hosting company is charging for the server. This does 
 The amount MUST be provided with two digits after the decimal separator. The decimal separator MUST be a full stop (not a comma). 
 The value MUST be followed by the currency in [ISO4217 format](https://en.wikipedia.org/wiki/ISO_4217#Active_codes).
 
-On servers with multiple tor instances the server hosting costs given in this field **MUST** be divided through the number of tor relay instances running on that OS.
+On servers with multiple Tor instances the server hosting costs given in this field **MUST** be divided through the number of Tor relay instances running on that OS.
 
 length: < 13 characters
 
@@ -339,7 +339,7 @@ example:
 ### uplinkbw
 Logical network interface speed in Mbit/s (1Mbit/s = 1 000 000 Bit/s) or the value of RelayBandwidthRate in your torrc setting (whatever is smaller). For asymetrical uplinks specify the lower of up- and download bandwidth.
 
-On a server with multiple tor instances the total available bandwidth of the server **MUST** be divided by the number of tor relay instances running on it. This is an integer value.
+On a server with multiple Tor instances the total available bandwidth of the server **MUST** be divided by the number of Tor relay instances running on it. This is an integer value.
 
 length: < 7 characters
 
@@ -354,7 +354,7 @@ valid characters: [0-9]
 ### trafficacct
 States if this is an unmetered or metered offering. In case of metered bandwidth the monthly included outbound (TX) traffic in GiB ([GibiByte](https://en.wikipedia.org/wiki/Gibibyte)) MUST be provided. If no traffic is included in the monthly costs, this value MUST be set to 0. If the hoster meters in+outbound the hoster provided value must be divided by two. This is an integer value.
 
-On a server with multiple tor instances the total available monthly traffic of the server **MUST** be divided by the number of tor relay instances running on it.
+On a server with multiple Tor instances the total available monthly traffic of the server **MUST** be divided by the number of Tor relay instances running on it.
 
 length: < 10 characters
 
@@ -372,7 +372,7 @@ unmetered
 ### memory 
 Non-persistent memory (RAM) available on this server - measured in MB ([Mebibytes](https://en.wikipedia.org/wiki/Mebibyte)). This is the output of `free -m` on most Unix-based systems.
 
-On a server with multiple tor instances the memory size **MUST** be divided by the number of tor relay instances.
+On a server with multiple Tor instances the memory size **MUST** be divided by the number of Tor relay instances.
 This is an integer value.
 
 length: < 10 characters
@@ -426,7 +426,7 @@ zvm
 ## donation information
 
 ### donationurl
-url pointing to a website that contains donation information to support this tor relay.
+url pointing to a website that contains donation information to support this Tor relay.
 This MUST be an HTTPS URL.
 
 length: < 254 characters
@@ -437,7 +437,7 @@ https://torservers.net/donate.html
 ```
 
 ### btc
-Bitcoin or [OpenAlias](https://openalias.org/) address where people can send donations to support the operation of this tor relay.
+Bitcoin or [OpenAlias](https://openalias.org/) address where people can send donations to support the operation of this Tor relay.
 
 length: < 100 characters
 
@@ -445,21 +445,21 @@ valid characters: [A-Za-z0-9]
 
 
 ### zec
-Zcash address where people can send donations to support the operation of this tor relay.
+Zcash address where people can send donations to support the operation of this Tor relay.
 
 length: < 96 characters
 
 valid characters: [A-Za-z0-9]
 
 ### xmr
-Monero or [OpenAlias](https://openalias.org/) address where people can send donations to support the operation of this tor relay.
+Monero or [OpenAlias](https://openalias.org/) address where people can send donations to support the operation of this Tor relay.
 
 length: < 100 characters
 
-## tor configuration
+## Tor configuration
 
 ### offlinemasterkey
-Single character stating whether the [OfflineMasterKey](https://www.torproject.org/docs/tor-manual.html.en#OfflineMasterKey) feature is enabled ("y") on this tor instance or not ("n").
+Single character stating whether the [OfflineMasterKey](https://www.torproject.org/docs/tor-manual.html.en#OfflineMasterKey) feature is enabled ("y") on this Tor instance or not ("n").
 
 length: 1 character
 
@@ -555,7 +555,7 @@ This field is only relevant for exit relays, it is ignored on relays that do not
 
 String describing the location of the used DNS resolver in relation to the exit relay.
 
-* **local** means the resolver is running on the same host as the tor process.
+* **local** means the resolver is running on the same host as the Tor process.
 * **sameas** means the resolver is running on the same autonomous system as the exit relay and queries to the resolver do not cross another AS before reaching the resolver.
 * **remote** means the resolver is running on a system outside the exit relay's autonomous system
 
@@ -647,7 +647,7 @@ should omit this type of information, but can share other information.
 - increased descriptor size and directory traffic
 
 The contactinfo field size could potentially grow because of this specification.
-This is mitigated by directory data compression and diffs available since tor version 0.3.1.
+This is mitigated by directory data compression and diffs available since Tor version 0.3.1.
 
 - ContactInfo size constraints
 
