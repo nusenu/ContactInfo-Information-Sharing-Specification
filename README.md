@@ -32,7 +32,7 @@ by increasing the information sharing between relay operators. 	-> help the tor 
 
 An example ContactInfo string as defined by this specification could look like this:
 
-```foo bar email:tor-relay-operator[]example.com operatorurl:https://example.com verifymethod:uri uplinkbw:100 ciissversion:2```
+```foo bar email:tor-relay-operator[]example.com url:https://example.com verifymethod:uri uplinkbw:100 ciissversion:2```
 
 # Defined Fields 
 
@@ -59,7 +59,7 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
 ## Overview of definied fields
 
   * email
-  * operatorurl
+  * url
   * verifymethod
   * pgp
   * abuse
@@ -112,14 +112,14 @@ example value:
 contact[]example.com
 ```
 
-### operatorurl
+### url
 This field contains an URL (or hostname) pointing to the website of the responsible entity (organization or person) for this Tor relay. 
 This is not necessarily the same entity as the technical contact (`email` field).
 This field MUST be consistent across all relays of this organization or person.
 It MUST point to a specific (non-shared) domain/hostname. Two organizations/persons can not use the same field content.
-This field is verified using the verify method described bellow (`verifymethod` field). The operatorurl
+This field is verified using the verify method described bellow (`verifymethod` field). The `url`
 SHOULD be ignored if verification does not succeed.
-End users MUST be able to tell verified operatorurls from unverified operatorurls in tools or websites implementing this specification.
+End users MUST be able to tell verified from unverified URLs in tools or websites implementing this specification.
 
 In cases where the responsible organization or person does not have a website, this field can be used to specify a DNS domain only. 
 In that case "http(s)://" is omitted. 
@@ -136,10 +136,10 @@ https://example.com
 
 ### verifymethod
 
-This field is only relevant when the `operatorurl` field is set. It is ignored when `operatorurl` is not set.
+This field is only relevant when the `url` field is set. It is ignored when `url` is not set.
 
-Since the `operatorurl` can be set to an arbitrary value - without consent of the entity it points to -
-the `verifymethod` field tells interested parties how to verify the `operatorurl` value.
+Since the `url` can be set to an arbitrary value - without consent of the entity it points to -
+the `verifymethod` field tells interested parties how to verify the `url` value.
 The following verification methods are available:
 
 * uri
@@ -149,15 +149,15 @@ The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup 
 
 #### uri 
 
-The "uri" method uses the "tor-relay" well-known URI to fetch the tor relay IDs (fingerprints) from a fixed location on the `operatorurl` domain for verification.
+The "uri" method uses the "tor-relay" well-known URI to fetch the tor relay IDs (fingerprints) from a fixed location on the `url` domain for verification.
 
-Example: If the `operatorurl` points to "https://example.com", the verification process fetches the relay fingerprints from (the path and filename is static and defined in [tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)):
+Example: If the `url` points to "https://example.com", the verification process fetches the relay fingerprints from (the path and filename is static and defined in [tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)):
 
 https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 
 The file contains RSA SHA1 relay fingerprints - one per line. It is not required that all listed relay IDs point to running relays.
 
-Note: This URI MUST be accessible via HTTPS regardless whether the operatorurl uses HTTPS or not. The URI MUST NOT redirect to another domain.
+Note: This URI MUST be accessible via HTTPS regardless whether the `url` uses HTTPS or not. The URI MUST NOT redirect to another domain.
 
 Tor Proposal 326 can define additional files in the "tor-relay" folder containing future relay ID formats that can be used to achieve the same goal (retrieve and verify relay IDs) in the future. It is recommended to always use the latest relay ID file format available.
 
@@ -165,9 +165,9 @@ Tor Proposal 326 can define additional files in the "tor-relay" folder containin
 
 The dns-rsa-sha1 method requires DNSSEC to be enabled on the domain to prevent/detect DNS manipulation in transit.
 
-When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay to confirm the `operatorurl` field.
+When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay to confirm the `url` field.
 
-These DNS TXT records look as follows (`operatorurl:example.com`):
+These DNS TXT records look as follows (`url:example.com`):
 
 *relay-fingerprint*.example.com
 value:
@@ -176,7 +176,7 @@ value:
 *relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the relay.
 Each relay has its own DNS record, only a single TXT record MUST be returned.
 
-Tools using any of the data to verify the `operatorurl` (uri or DNS data) SHOULD re-verify it at least every 6 months.
+Tools using any of the data to verify the `url` (uri or DNS data) SHOULD re-verify it at least every 6 months.
 
 ### pgp
 40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
