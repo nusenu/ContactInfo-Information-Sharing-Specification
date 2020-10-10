@@ -28,34 +28,11 @@ by increasing the information sharing between relay operators. 	-> help the tor 
 - potentially detect relay operators impersonating other operators by using their contact information
 - allow the automatic attribution and verification that a relay is really operated by a given entity 
 
+# Example
 
-# Considerations
+An example ContactInfo string as defined by this specification could look like this:
 
--  increases exposure of relay operators 
-
-The machine readable information could be used by spammers and to target
-relay operators. The amount of spam observed has been limited.
-Operators concerned about spam should create a dedicated email address for the purpose of using it
-in the ContactInfo string. This email address can be rotated should there be any 
-unacceptable amount of spam.
-
-- more information makes targeted exploitation easier / more silent
-
-Attackers could use the additional information provided in these fields to specifically
-target only vulnerable systems. Operators concerned about sharing configuration information 
-should omit this type of information, but can share other information.
-
-- increased descriptor size and directory traffic
-
-The contactinfo field size could potentially grow because of this specification.
-This is mitigated by directory data compression and diffs available since tor version 0.3.1.
-
-- ContactInfo size constraints
-
-According to the [manual](https://www.torproject.org/docs/tor-manual.html.en#ContactInfo) there is no explicit 
-ContactInfo size limit but there is a descriptor size limit. 
-The [max. descriptor size](https://gitweb.torproject.org/torspec.git/tree/dir-spec.txt#n364) is 20000 bytes. 
-The family size (number of listed fingerprints) and exit policy are two other relevant inputs.
+```foo bar email:tor-relay-operator[]example.com operatorurl:https://example.com verifymethod:uri uplinkbw:100 ciissversion:2```
 
 # Defined Fields 
 
@@ -78,12 +55,6 @@ The order of keys is not mandatory but SHOULD follow the order in which they app
 Specifically the email field SHOULD be the first field.
 
 The version field (`ciissversion`) and at least one additional field (any) is mandatory.
-
-## example ContactInfo string
-An example contactInfo string as defined by this document could look like this:
-
-```foo bar email:tor-relay-operator[]example.com operatorurl:https://example.com verifymethod:uri uplinkbw:100 ciissversion:2```
-
 
 ## HTTPS URLs and used certificate authority
 
@@ -660,3 +631,31 @@ example values:
 2
 ```
 
+
+# Considerations
+
+-  increases exposure of relay operators 
+
+The machine readable information could be used by spammers and to target
+relay operators. The amount of spam observed has been limited.
+Operators concerned about spam should create a dedicated email address for the purpose of using it
+in the ContactInfo string. This email address can be rotated should there be any 
+unacceptable amount of spam.
+
+- more information makes targeted exploitation easier / more silent
+
+Attackers could use the additional information provided in these fields to specifically
+target only vulnerable systems. Operators concerned about sharing configuration information 
+should omit this type of information, but can share other information.
+
+- increased descriptor size and directory traffic
+
+The contactinfo field size could potentially grow because of this specification.
+This is mitigated by directory data compression and diffs available since tor version 0.3.1.
+
+- ContactInfo size constraints
+
+According to the [manual](https://www.torproject.org/docs/tor-manual.html.en#ContactInfo) there is no explicit 
+ContactInfo size limit but there is a descriptor size limit. 
+The [max. descriptor size](https://gitweb.torproject.org/torspec.git/tree/dir-spec.txt#n364) is 20000 bytes. 
+The family size (number of listed fingerprints) and exit policy are two other relevant inputs.
