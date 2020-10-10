@@ -56,10 +56,6 @@ Specifically the email field SHOULD be the first field.
 
 The version field (`ciissversion`) and at least one additional field (any) is mandatory.
 
-## HTTPS URLs and used certificate authority
-
-The HTTPS endpoints located in field values MUST use certificates from a well known trusted certificate authority (for example [Let's Encrypt](https://letsencrypt.org/)).
-
 ## Overview of definied fields
 
   * email
@@ -659,3 +655,8 @@ According to the [manual](https://www.torproject.org/docs/tor-manual.html.en#Con
 ContactInfo size limit but there is a descriptor size limit. 
 The [max. descriptor size](https://gitweb.torproject.org/torspec.git/tree/dir-spec.txt#n364) is 20000 bytes. 
 The family size (number of listed fingerprints) and exit policy are two other relevant inputs.
+
+
+## HTTPS URLs and used certificate authority
+
+The HTTPS endpoints located in field values MUST use certificates from a well known trusted certificate authority (for example [Let's Encrypt](https://letsencrypt.org/)).
