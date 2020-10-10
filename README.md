@@ -141,7 +141,7 @@ The `proof` field is only relevant when the `url` field is set. It is ignored wh
 
 Since the `url` can be set to an arbitrary value - without consent of the entity it points to -
 the `proof` field tells interested parties how they can verify the `url` value.
-A relay operator can choose one out of two options to establish a proof (proofs can not be combined):
+A relay operator can choose one out of two options to establish a proof (proofs can not be combined), they are also the two possible field values:
 
 * uri
 * dns-rsa-sha1
