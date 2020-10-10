@@ -147,13 +147,13 @@ A relay operator can choose between two options to establish a proof:
 * uri
 * dns-rsa-sha1
 
-The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup if a webserver is available and faster when performing proof verfications. Only a single method can be used, proofs can not be combined. All relays in the operator's relay family ([MyFamily](https://2019.www.torproject.org/docs/tor-manual.html.en#MyFamily) setting) MUST have the same `proof` value set.
+The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup if a webserver is available and faster when performing proof verfications. Only a single method can be used, proofs can not be combined. All relays using a given `url` value MUST have the same `proof` value set. Within a group of relays using a certain `url` value you can not use multiple distinct `proof` values.
 
 #### uri 
 
 The "uri" method uses the "tor-relay" well-known URI to fetch the Tor relay IDs (fingerprints) from a fixed location on the `url` domain for verification.
 
-Example: If the `url` points to "https://example.com", the verification process fetches the relay fingerprints from (the path and filename is static and defined in [tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)):
+Example: If the `url` points to "https://example.com", the verification process fetches the relay fingerprints from (the path and filename is static and defined in [Tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)):
 
 https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 
