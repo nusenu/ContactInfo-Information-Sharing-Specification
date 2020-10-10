@@ -152,9 +152,11 @@ is available and faster when performing proof verfications. The DNS based option
 when no webserver is available. All relays using a given `url` value MUST have the same consistent `proof` value.
 You can not use multiple distinct `proof` values within a single group of relays using a certain `url` value.
 
+Tools performing proof checks SHOULD re-verify it at least every 6 months.
+
 #### uri 
 
-The "uri" method uses the "tor-relay" well-known URI to fetch the Tor relay IDs (fingerprints) from a fixed location on the `url` domain for verification.
+The "uri" proof method uses the "tor-relay" well-known URI to fetch the Tor relay IDs (fingerprints) from a fixed location on the `url` domain for verification.
 
 Example: If the `url` points to "https://example.com", the verification process fetches the relay fingerprints from (the path and filename is static and defined in [Tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)):
 
@@ -168,20 +170,17 @@ Tor proposal 326 can define additional files in the well-known "tor-relay" folde
 
 #### dns-rsa-sha1
 
-The dns-rsa-sha1 method requires DNSSEC to be enabled on the domain to prevent/detect DNS manipulation in transit.
+The "dns-rsa-sha1" proof method requires DNSSEC to be enabled on the domain located in the `url` field to prevent/detect DNS manipulation in transit.
+When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay to proof the `url` field.
 
-When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay to confirm the `url` field.
-
-These DNS TXT records look as follows (`url:example.com`):
+These DNS TXT records look as follows (example: `url:example.com`):
 
 *relay-fingerprint*.example.com
 value:
 "we-run-this-tor-relay"
 
-*relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the relay.
-Each relay has its own DNS record, only a single TXT record MUST be returned.
-
-Tools using any of the data to verify the `url` (uri or DNS data) SHOULD re-verify it at least every 6 months.
+*relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the Tor relay.
+Each relay has its own DNS record, only a single TXT record MUST be returned per relay.
 
 ### pgp
 40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
