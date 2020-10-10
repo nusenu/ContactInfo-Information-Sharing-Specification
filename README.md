@@ -58,9 +58,10 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
 
 ## Overview of definied fields
 
-  * email
-  * url
-  * proof
+  * **email**
+  * **url**
+  * **proof**
+  * **ciissversion** (mandatory)
   * pgp
   * abuse
   * keybase
@@ -91,9 +92,7 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
   * dnslocation
   * dnsqname
   * dnssec
-  * dnslocalrootzone
-  * ciissversion
-  
+  * dnslocalrootzone 
 
 ## contact information
 
