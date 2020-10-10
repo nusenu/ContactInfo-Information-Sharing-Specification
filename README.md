@@ -131,8 +131,8 @@ The HTTPS endpoints located in field values MUST use certificates from a well kn
 ## contact information
 
 ### email
-email address where the operator can be reached. 
-The given address SHOULD be the same for all relays from a given operator.
+This field contains the email address of the technical contact managing this Tor relay.
+The given email address SHOULD be the same for all relays this entity manages.
 The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
 the "@" sign SHOULD be replaced with "[]". 
 We are aware that this is trivially defeated anti-spam "protection" but 
@@ -146,15 +146,16 @@ contact[]example.com
 ```
 
 ### operatorurl
-This field is an URL pointing to the website of the operator / organization operating the relay. 
-The URL MUST be consistent across all relays of an operator.
-The URL MUST point to an operator specific domain (non-shared).
-The provided domain in the URL is verified using the verify method described bellow (`verifymethod` field). The operatorurl
-SHOULD be ignored if verification does not succeed. 
-Users MUST be able to tell verified operatorurls from unverified operatorurls in tools or websites implementing this specification.
+This field contains an URL (or hostname) pointing to the website of the responsible entity (organization or person) for this Tor relay. 
+This is not necessarily the same entity as the technical contact (`email` field).
+This field MUST be consistent across all relays of this organization or person.
+It MUST point to a specific (non-shared) domain/hostname. Two organizations/persons can not use the same field content.
+This field is verified using the verify method described bellow (`verifymethod` field). The operatorurl
+SHOULD be ignored if verification does not succeed.
+End users MUST be able to tell verified operatorurls from unverified operatorurls in tools or websites implementing this specification.
 
-In cases where operators do not have a website, this field can be used to specify a DNS domain only. 
-In that case "http(s)://" is ommitted. 
+In cases where the responsible organization or person does not have a website, this field can be used to specify a DNS domain only. 
+In that case "http(s)://" is omitted. 
 
 length: < 400 characters
 
@@ -228,7 +229,8 @@ EF6E286DDA85EA2A4BA7DE684E2C6E8793298290
 ```
 
 ### abuse
-Email address where abuse emails related to this tor relay should be send. 
+Email address of the abuse handling contact for this tor relay.
+This is primariy relevant for tor exit relays but can also be used on non-exit relays.
 The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
 the "@" sign SHOULD be replaced with "[]". 
 We are aware that this is trivially defeated anti-spam "protection" but 
@@ -243,7 +245,7 @@ abuse[]example.com
 
 
 ### keybase
-The keybase username identifier. This identifier MUST be usable
+The keybase username identifier for the technical contact for this Tor relay. This identifier MUST be usable
 to create a valid keybase.io profile url.
 
 length: < 50 characters
@@ -257,8 +259,9 @@ nusenu
 ```
 
 ### twitter
-twitter identifier without the leading "@". The identifier MUST be usable
-to create a valid twitter profile url.
+twitter identifier  for the organization/person responsible for this Tor relay without the leading "@". The identifier MUST be usable
+to create a valid twitter profile url. If the responsible organization or person has no twitter account, the technical contact can be used
+instead.
 
 length: MUST be 1-15 characters long
 
@@ -271,7 +274,7 @@ torproject
 ```
 
 ### mastodon
-url pointing to the operators mastodon profile.
+url pointing to the operators mastodon profile  for the organization/person responsible for this Tor relay.
 
 length: < 254 characters
 
@@ -283,7 +286,8 @@ length: < 254 characters
  
 ### matrix
 
-[Matrix](https://matrix.org/) [user identifier](https://matrix.org/docs/spec/appendices#user-identifiers).
+[Matrix](https://matrix.org/) [user identifier](https://matrix.org/docs/spec/appendices#user-identifiers)
+for the technical contact for this Tor relay.
 
 example value:
 
@@ -293,7 +297,7 @@ example value:
 
 
 ### xmpp
-[XMPP](https://en.wikipedia.org/wiki/XMPP) handle of the operator. The "@" sign SHOULD be replaced with "[]"
+[XMPP](https://en.wikipedia.org/wiki/XMPP) handle for the technical contact of this Tor relay. The "@" sign SHOULD be replaced with "[]".
 
 length: < 254 characters
 
