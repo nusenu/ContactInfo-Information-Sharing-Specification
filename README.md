@@ -113,10 +113,10 @@ contact[]example.com
 ```
 
 ### url
-This field contains an URL (or hostname) pointing to the website of the responsible entity (organization or person) for this Tor relay. 
-This is not necessarily the same entity as the technical contact (`email` field).
-This field MUST be consistent across all relays of this organization or person.
-It MUST point to a specific (non-shared) domain/hostname. Two organizations/persons can not use the same field content.
+This field contains an URL (or hostname) pointing to the website of the entity (organization or person) responsible for this Tor relay.
+In most cases the responsible entity will be the same as the technical contact mentioned in the `email` field.
+This field MUST be consistent across all relays where this entity is responsible.
+It MUST point to a specific (non-shared) domain/hostname. Two organizations/persons can not have the same field content.
 This field is verified using the verify method described bellow (`verifymethod` field). The `url`
 SHOULD be ignored if verification does not succeed.
 End users MUST be able to tell verified from unverified URLs in tools or websites implementing this specification.
