@@ -138,16 +138,19 @@ https://example.com
 
 ### proof
 
-This field is only relevant when the `url` field is set. It is ignored when `url` is not set.
+The `proof` field is only relevant when the `url` field is set. It is ignored when `url` is not set.
 
 Since the `url` can be set to an arbitrary value - without consent of the entity it points to -
 the `proof` field tells interested parties how they can verify the `url` value.
-A relay operator can choose between two options to establish a proof:
+A relay operator can choose one out of two options to establish a proof (proofs can not be combined):
 
 * uri
 * dns-rsa-sha1
 
-The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup if a webserver is available and faster when performing proof verfications. Only a single method can be used, proofs can not be combined. All relays using a given `url` value MUST have the same `proof` value set. Within a group of relays using a certain `url` value you can not use multiple distinct `proof` values.
+The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup if a webserver
+is available and faster when performing proof verfications. The DNS based option SHOULD only be used
+when no webserver is available. All relays using a given `url` value MUST have the same consistent `proof` value.
+You can not use multiple distinct `proof` values within a single group of relays using a certain `url` value.
 
 #### uri 
 
