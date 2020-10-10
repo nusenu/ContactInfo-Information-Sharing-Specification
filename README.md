@@ -161,7 +161,7 @@ The file contains RSA SHA1 relay fingerprints - one per line. It is not required
 
 Note: This URI MUST be accessible via HTTPS regardless whether the `url` uses HTTPS or not. The URI MUST NOT redirect to another domain.
 
-Tor Proposal 326 can define additional files in the "tor-relay" folder containing future relay ID formats that can be used to achieve the same goal (retrieve and verify relay IDs) in the future. It is recommended to always use the latest relay ID file format available.
+Tor proposal 326 can define additional files in the well-known "tor-relay" folder containing future relay ID formats that can be used to achieve the same goal (retrieve and verify relay IDs) in the future. It is recommended to always use the latest relay ID file format when setting up the proof and performing proof verifications.
 
 #### dns-rsa-sha1
 
