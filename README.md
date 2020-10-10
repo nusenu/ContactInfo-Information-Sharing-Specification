@@ -145,7 +145,7 @@ The following verification methods are available:
 * uri
 * dns-rsa-sha1
 
-The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup and faster to verify if a webserver is available. Only a single method can be used, they can not be combined. All relays in the operator's relay family ([MyFamily](https://2019.www.torproject.org/docs/tor-manual.html.en#MyFamily) setting) MUST have the same `verifymethod` set.
+The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup if a webserver is available and faster when performing verfication. Only a single method can be used, they can not be combined. All relays in the operator's relay family ([MyFamily](https://2019.www.torproject.org/docs/tor-manual.html.en#MyFamily) setting) MUST have the same `verifymethod` set.
 
 #### uri 
 
