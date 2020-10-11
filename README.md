@@ -137,7 +137,7 @@ In that case "http(s)://" is omitted.
 
 length: < 400 characters
 
-valid characters: [%/:a-zA-Z0-9.-]
+valid characters: [_%/:a-zA-Z0-9.-]
 
 example value:
 
