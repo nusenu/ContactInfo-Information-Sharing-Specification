@@ -2,7 +2,7 @@
 
 # Overview
 
-The Tor relay [ContactInfo](https://www.torproject.org/docs/tor-manual.html.en#ContactInfo) was primarily
+The Tor relay [ContactInfo](https://www.torproject.org/docs/tor-manual.html.en#ContactInfo) string was primarily
 intended to contain an email address and PGP key fingerprint but since this field accepts an arbitrary string
 it has been used for multiple other purposes (website urls, donation information, bitcoin addresses, ...).
 Making use of provided information in an automated way is hard since there is no specification on how 
@@ -227,12 +227,12 @@ abuse[]example.com
 
 
 ### keybase
-The keybase username identifier for the technical contact for this Tor relay. This identifier MUST be usable
+The technical contact's keybase username. This identifier MUST be usable
 to create a valid keybase.io profile url.
 
 length: < 50 characters
 
-valid characters: [a-fA-F0-0]
+valid characters: [a-fA-F0-9]
 
 example value:
 
@@ -241,8 +241,8 @@ nusenu
 ```
 
 ### twitter
-twitter identifier  for the organization/person responsible for this Tor relay without the leading "@". The identifier MUST be usable
-to create a valid twitter profile url. If the responsible organization or person has no twitter account, the technical contact can be used
+The entity's twitter username without the leading "@" (non-technical contact). The user MUST be usable
+to create a valid twitter profile url. If the responsible organization or person has no twitter account, the technical contact's twitter handle can be used
 instead.
 
 length: MUST be 1-15 characters long
@@ -256,7 +256,7 @@ torproject
 ```
 
 ### mastodon
-url pointing to the operators mastodon profile  for the organization/person responsible for this Tor relay.
+url pointing to the entity's mastodon profile (responsible organization/person).
 
 length: < 254 characters
 
