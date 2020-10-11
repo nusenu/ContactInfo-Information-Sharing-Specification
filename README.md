@@ -19,7 +19,7 @@ this string should look like. This is a specification to formalize the ContactIn
 - collect additional (self-reported) relay metrics
   - for Tor relay operators 
   - for Tor developers
-- provide metadata for tools generating Tor network graphs
+- provide metadata for Tor network graphs
 - make hosting costs visible
 - make it easier for current and future relay operators to find (rarely used) hosters
   - (indirectly) improve geo- and autonomous system diversity on the Tor network (more diverse is better)
