@@ -36,6 +36,13 @@ An example ContactInfo string as defined by this specification could look like t
 
 ```foo bar email:tor-relay-operator[]example.com url:https://example.com proof:uri-rsa uplinkbw:100 ciissversion:2```
 
+In words this means:
+* the technical contact for this relay can be reached at tor-relay-operator@example.com
+* the entity responsible for this relay has a website at https://example.com
+* the proof file to verify the `url` can be fetched from https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
+* this relay has a uplink bandwidth of 100 Mbit/s
+* this ContactInfo string implements version 2 of this specification
+
 # Defined Fields 
 
 The fields specified in this document coexists with other arbitrary strings located in 
