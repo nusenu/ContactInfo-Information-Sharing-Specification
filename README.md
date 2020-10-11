@@ -156,7 +156,7 @@ Tools performing proof checks SHOULD re-verify it at least every 6 months.
 
 #### uri-rsa
 
-The "uri" proof method uses the "tor-relay" well-known URI to fetch the RSA SHA1 Tor relay fingerprints
+The "uri-rsa" proof method uses the well-known "tor-relay" URI to fetch the RSA SHA1 Tor relay fingerprints
 from a fixed location on the `url` domain for verification.
 
 Example: If the `url` points to "https://example.com", the verification process fetches the relay fingerprints from (the path and filename is static and defined in [Tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)):
