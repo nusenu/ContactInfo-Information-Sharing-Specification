@@ -7,7 +7,7 @@ intended to contain an email address and PGP key fingerprint but since this fiel
 it has been used for multiple other purposes (website urls, donation information, bitcoin addresses, ...).
 Making use of provided information in an automated way is hard since there is no specification on how 
 this string should look like. This is a specification to formalize the ContactInfo string.
-This specification is opt-in, operators can chose to implement it or not
+This specification is optional (opt-in), operators can choose to implement it or not.
 
 # Motivation
 
