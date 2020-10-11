@@ -12,21 +12,24 @@ this string should look like. This is a specification to formalize the ContactIn
 # Motivation
 
 - increase information sharing among Tor relay operators
-- make it easier for current and future relay operators to find (rarely used) hosters for Tor relays
-by increasing the information sharing between relay operators. 	-> help the Tor network grow
-- (indirectly) improve geo- and autonomous system diversity on the Tor network (more diverse is better)
-- collect additional (self-reported) relay metrics (for things like [Relay Search](https://metrics.torproject.org/rs.html) and [OrNetStats](https://nusenu.github.io/OrNetStats))
-- This data could provide Tor developers with information on how well tested/how much used new features (like Sandboxes) are before changing defaults.
-- examples: How many use Tor's Sandbox/OfflineMasterMode?
-- improve the ability to contact relay operators (automatically)
-- make provided information machine readable 
-- provide the foundation for an automated contactInfo verification bot. 
-- Mutually verified email addresses (and other contact options) could be displayed differently on [Relay Search](https://metrics.torproject.org/rs.html)
-- make Tor t-shirt delivery easier since contact information is potentially already verified
-- increase the ability to detect undeclared relay groups / make hiding relay groups harder
+- improve the ability to contact relay operators
+- increase trust in contact information
+  - give operators a standardized way to authenticate some fields
+  - detect relay operators impersonating other operators
+- collect additional (self-reported) relay metrics
+  - for Tor relay operators 
+  - for Tor developers
+- provide metadata for tools generating Tor network graphs
 - make hosting costs visible
-- potentially detect relay operators impersonating other operators by using their contact information
-- allow the automatic attribution and verification that a relay is really operated by a given entity 
+- make it easier for current and future relay operators to find (rarely used) hosters
+  - (indirectly) improve geo- and autonomous system diversity on the Tor network (more diverse is better)
+  
+## Design Goals
+
+- make provided information machine readable
+- allow for automatic verification (limited)
+- do not require changes in Tor
+- low entry barrier
 
 # Example
 
