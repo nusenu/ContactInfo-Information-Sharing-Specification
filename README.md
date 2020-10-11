@@ -32,7 +32,7 @@ by increasing the information sharing between relay operators. 	-> help the Tor 
 
 An example ContactInfo string as defined by this specification could look like this:
 
-```foo bar email:tor-relay-operator[]example.com url:https://example.com proof:uri uplinkbw:100 ciissversion:2```
+```foo bar email:tor-relay-operator[]example.com url:https://example.com proof:uri-rsa uplinkbw:100 ciissversion:2```
 
 # Defined Fields 
 
@@ -138,38 +138,40 @@ https://example.com
 ### proof
 
 The `proof` field is only relevant when the `url` field is set. It is ignored when `url` is not set.
+The `proof` field gives the operator the option to authenticate the `url` field.
 
 Since the `url` can be set to an arbitrary value - without consent of the entity it points to -
 the `proof` field tells interested parties how they can verify the `url` value.
 A relay operator can choose one out of two options to establish a proof (proofs can not be combined), they are also the two possible field values:
 
-* uri
-* dns-rsa-sha1
+* uri-rsa
+* dns-rsa
 
-The "uri" method is preferred over "dns-rsa-sha1" because it is easier to setup if a webserver
+The "uri-rsa" method is preferred over "dns-rsa" because it is easier to setup if a webserver
 is available and faster when performing proof verfications. The DNS based option SHOULD only be used
 when no webserver is available. All relays using a given `url` value MUST have the same consistent `proof` value.
 You can not use multiple distinct `proof` values within a single group of relays using a certain `url` value.
 
 Tools performing proof checks SHOULD re-verify it at least every 6 months.
 
-#### uri 
+#### uri-rsa
 
-The "uri" proof method uses the "tor-relay" well-known URI to fetch the Tor relay IDs (fingerprints) from a fixed location on the `url` domain for verification.
+The "uri" proof method uses the "tor-relay" well-known URI to fetch the RSA SHA1 Tor relay fingerprints
+from a fixed location on the `url` domain for verification.
 
 Example: If the `url` points to "https://example.com", the verification process fetches the relay fingerprints from (the path and filename is static and defined in [Tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)):
 
 https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 
-The file contains RSA SHA1 relay fingerprints - one per line. It is not required that all listed relay IDs point to running relays.
+The text file contains the RSA SHA1 relay fingerprints from that entity - one per line. It is not required that all listed relay fingerprints point to running relays.
 
 Note: This URI MUST be accessible via HTTPS regardless whether the `url` uses HTTPS or not. The URI MUST NOT redirect to another domain.
 
-Tor proposal 326 can define additional files in the well-known "tor-relay" folder containing future relay ID formats that can be used to achieve the same goal (retrieve and verify relay IDs) in the future. It is recommended to always use the latest relay ID file format when setting up the proof and performing proof verifications.
+#### dns-rsa
 
-#### dns-rsa-sha1
+The "dns-rsa" proof method uses DNS instead of HTTPS and places the RSA SHA1 relay fingerprint in DNS TXT records.
+DNSSEC MUST be enabled on the domain located in the `url` field to ensure the integrity of DNS records.
 
-The "dns-rsa-sha1" proof method requires DNSSEC to be enabled on the domain located in the `url` field to prevent/detect DNS manipulation in transit.
 When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay to proof the `url` field.
 
 These DNS TXT records look as follows (example: `url:example.com`):
@@ -179,7 +181,7 @@ value:
 "we-run-this-tor-relay"
 
 *relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the Tor relay.
-Each relay has its own DNS record, only a single TXT record MUST be returned per relay.
+Each relay has its own DNS record, a single TXT record MUST be returned per relay only.
 
 ### pgp
 40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
