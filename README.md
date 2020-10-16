@@ -162,7 +162,7 @@ is available and faster when performing proof verfications. The DNS based option
 when no webserver is available. All relays using a given `url` value MUST have the same consistent `proof` value.
 You can not use multiple distinct `proof` values within a single group of relays using a certain `url` value.
 
-Tools performing proof checks SHOULD re-verify it at least every 6 months.
+Tools performing proof checks SHOULD re-verify the availability of the proof at least every 6 months.
 
 #### uri-rsa
 
