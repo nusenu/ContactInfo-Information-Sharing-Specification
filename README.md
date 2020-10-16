@@ -169,11 +169,15 @@ Tools performing proof checks SHOULD re-verify the availability of the proof at 
 The "uri-rsa" proof method uses the well-known "tor-relay" URI to fetch the RSA SHA1 Tor relay fingerprints
 from a fixed location on the `url` domain for verification.
 
-Example: If the `url` points to "https://example.com", the verification process fetches the relay fingerprints from (the path and filename is static and defined in [Tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md)):
+Example: If the `url` points to "https://example.com", the verification process fetches the relay fingerprints from:
 
 https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 
-The text file contains the RSA SHA1 relay fingerprints from that entity - one per line. It is not required that all listed relay fingerprints point to running relays.
+The text file contains the RSA SHA1 relay fingerprints from that entity - one per line. 
+The path and filename is static and defined in 
+[Tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md).
+It is not required that all listed relay fingerprints point to running relays, but all running relays contained in the file
+MUST have the same `url` field value.
 
 Note: This URI MUST be accessible via HTTPS regardless whether the `url` uses HTTPS or not. The URI MUST NOT redirect to another domain.
 
