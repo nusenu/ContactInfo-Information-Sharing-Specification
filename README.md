@@ -35,10 +35,10 @@ This specification is optional (opt-in), operators can choose to implement it or
 
 An example ContactInfo string as defined by this specification could look like this:
 
-```foo bar email:tor-relay-operator[]example.com url:https://example.com proof:uri-rsa uplinkbw:100 ciissversion:2```
+```foo bar email:tor[]example.com url:https://example.com proof:uri-rsa uplinkbw:100 ciissversion:2```
 
 In words this means:
-* the technical contact for this relay can be reached at tor-relay-operator@example.com
+* the technical contact for this relay can be reached at tor@example.com
 * the entity responsible for this relay has a website at https://example.com
 * the proof file to verify the `url` can be fetched from https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 * this relay has a uplink bandwidth of 100 Mbit/s
