@@ -186,7 +186,7 @@ Note: This URI MUST be accessible via HTTPS regardless whether the `url` uses HT
 The "dns-rsa" proof method uses DNS instead of HTTPS and places the RSA SHA1 relay fingerprint in DNS TXT records.
 DNSSEC MUST be enabled on the domain located in the `url` field to ensure the integrity of DNS records.
 
-When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay to proof the `url` field.
+When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay to proof it's `url` field.
 
 These DNS TXT records look as follows (example: `url:example.com`):
 
