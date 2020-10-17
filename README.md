@@ -21,7 +21,7 @@ In words this means:
 * the technical contact for this relay can be reached at tor@example.com
 * the entity responsible for this relay has a website at https://example.com
 * the proof file to verify the `url` can be fetched from https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
-* this relay has a uplink bandwidth of 100 Mbit/s
+* this relay has an uplink bandwidth of 100 Mbit/s
 * this ContactInfo string implements version 2 of this specification
 
 # Motivation
