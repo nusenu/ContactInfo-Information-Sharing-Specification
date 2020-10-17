@@ -30,7 +30,7 @@ In words this means:
 - improve the ability to contact relay operators
 - increase trust in contact information
   - give operators a standardized way to authenticate some fields
-  - detect relay operators impersonating other operators
+  - detect relay operators impersonating other operators or entities that do not run relays
 - collect additional (self-reported) relay metrics
   - for Tor relay operators 
   - for Tor developers
