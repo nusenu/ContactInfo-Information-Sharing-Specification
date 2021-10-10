@@ -177,7 +177,7 @@ https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
 
 The text file contains the RSA SHA1 relay fingerprints from that entity - one per line. 
 The path and filename is static and defined in 
-[Tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/master/proposals/326-tor-relay-well-known-uri-rfc8615.md).
+[Tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/main/proposals/326-tor-relay-well-known-uri-rfc8615.md).
 It is not required that all listed relay fingerprints point to running relays, but all running relays contained in the file
 MUST have the same `url` field value.
 
