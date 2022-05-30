@@ -193,10 +193,12 @@ Note: This URI MUST be accessible via HTTPS regardless whether the `url` uses HT
 
 #### dns-rsa
 
-The "dns-rsa" proof method uses DNS instead of HTTPS and places the RSA SHA1 relay fingerprint in DNS TXT records.
+The "dns-rsa" proof method uses DNS instead of HTTPS and places the RSA SHA1 relay fingerprint or the hashed fingerprint in
+case of a bridge in DNS TXT records.
 DNSSEC MUST be enabled on the domain located in the `url` field to ensure the integrity of DNS records.
 
-When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay to proof it's `url` field.
+When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay/bridge
+to proof it's `url` field.
 
 These DNS TXT records look as follows (example: `url:example.com`):
 
@@ -205,7 +207,16 @@ value:
 "we-run-this-tor-relay"
 
 *relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the Tor relay.
-Each relay has its own DNS record, a single TXT record MUST be returned per relay only.
+
+For bridges:
+
+*hashed-fingerprint*.example.com
+value:
+"we-run-this-tor-bridge"
+
+*hashed-fingerprint* is the 40 character SHA1 hash of the bridge's fingerprint.
+
+Each relay/bridge has its own DNS record, a single TXT record MUST be returned per relay/bridge only.
 
 ### pgp
 40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
