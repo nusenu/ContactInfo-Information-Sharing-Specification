@@ -70,41 +70,41 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
 
 ## Overview of definied fields
 
-  * **email**
-  * **url**
-  * **proof**
-  * **ciissversion** (mandatory)
-  * pgp
-  * abuse
-  * keybase
-  * twitter
-  * mastodon
-  * matrix
-  * xmpp
-  * otr3
-  * hoster
-  * cost
-  * uplinkbw
-  * trafficacct
-  * memory
-  * cpu
-  * virtualization
-  * btc
-  * zec
-  * xmr
-  * donationurl
-  * offlinemasterkey
-  * signingkeylifetime
-  * sandbox
-  * os
-  * tls
-  * aesni
-  * autoupdate
-  * confmgmt
-  * dnslocation
-  * dnsqname
-  * dnssec
-  * dnslocalrootzone 
+  * **[email](#email)**
+  * **[url](#url)**
+  * **[proof](#proof)**
+  * **[ciissversion](#ciissversion)** (mandatory)
+  * [pgp](#pgp)
+  * [abuse](#abuse)
+  * [keybase](#keybase)
+  * [twitter](#twitter)
+  * [mastodon](#mastodon)
+  * [matrix](#matrix)
+  * [xmpp](#xmpp)
+  * [otr3](#otr3)
+  * [hoster](#hoster)
+  * [cost](#cost)
+  * [uplinkbw](#uplinkbw)
+  * [trafficacct](#trafficacct)
+  * [memory](#memory)
+  * [cpu](#cpu)
+  * [virtualization](#virtualization)
+  * [btc](#btc)
+  * [zec](#zec)
+  * [xmr](#xmr)
+  * [donationurl](#donationurl)
+  * [offlinemasterkey](#offlinemasterkey)
+  * [signingkeylifetime](#signingkeylifetime)
+  * [sandbox](#sandbox)
+  * [os](#os)
+  * [tls](#tls)
+  * [aesni](#aesni)
+  * [autoupdate](#autoupdate)
+  * [confmgmt](#confmgmt)
+  * [dnslocation](#dnslocation)
+  * [dnsqname](#dnsqname)
+  * [dnssec](#dnssec)
+  * [dnslocalrootzone](#dnslocalrootzone)
 
 ## contact information
 
