@@ -542,7 +542,7 @@ arch
 ```	
 
 ### tls
-String stating which tls library is used. 
+String stating which tls library is used by the tor daemon. 
 
 length: < 15 character
 
