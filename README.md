@@ -163,9 +163,9 @@ You can not use multiple distinct `proof` values within a single group of relays
 * uri-familyid-ed25519
 * dns-familyid-ed25519
 
-previously used deprected proof values:
+previously used deprecated proof values:
 
-* uri-rsa (deprected, used in version 2)
+* uri-rsa (deprecated, used in version 2)
 * dns-rsa (deprecated, used in version 2)
 
 Tools performing proof checks SHOULD re-verify the availability of the proof at least every 6 months.
