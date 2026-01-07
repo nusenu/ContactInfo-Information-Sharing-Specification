@@ -15,14 +15,14 @@ A simple to use ContactInfo generator for this specification can be found at [ht
 
 An example ContactInfo string as defined by this specification could look like this:
 
-```foo bar email:tor[]example.com url:https://example.com proof:uri-rsa uplinkbw:100 ciissversion:2```
+```foo bar email:tor[]example.com url:https://example.com proof:uri-familyid-ed25519 uplinkbw:1000 ciissversion:3```
 
 In words this means:
 * the technical contact for this relay can be reached at tor@example.com
 * the entity responsible for this relay has a website at https://example.com
-* the proof file to verify the `url` can be fetched from https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
-* this relay has an uplink bandwidth of 100 Mbit/s
-* this ContactInfo string implements version 2 of this specification
+* the proof file to verify the `url` can be fetched from https://example.com/.well-known/tor-relay/ed25519-family-id.txt
+* this relay has an uplink bandwidth of 1000 Mbit/s
+* this ContactInfo string implements version 3 of this specification
 
 # Motivation
 
