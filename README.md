@@ -81,6 +81,7 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
   * [twitter](#twitter)
   * [mastodon](#mastodon)
   * [matrix](#matrix)
+  * [signal][#signal)
   * [xmpp](#xmpp)
   * [otr3](#otr3)
   * [hoster](#hoster)
@@ -299,6 +300,9 @@ example value:
 @user:example.com
 ```
 
+### signal
+
+This field contains a [Signal username](https://support.signal.org/hc/en-us/articles/6712070553754-Phone-Number-Privacy-and-Usernames#username_req).
 
 ### xmpp
 [XMPP](https://en.wikipedia.org/wiki/XMPP) handle for the technical contact of this Tor relay. The "@" sign SHOULD be replaced with "[]".
