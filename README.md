@@ -81,7 +81,7 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
   * [twitter](#twitter)
   * [mastodon](#mastodon)
   * [matrix](#matrix)
-  * [signal][#signal)
+  * [signal](#signal)
   * [xmpp](#xmpp)
   * [otr3](#otr3)
   * [hoster](#hoster)
