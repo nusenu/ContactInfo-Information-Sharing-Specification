@@ -1,4 +1,4 @@
-**Version 2**
+**Version 3-dev**
 
 # Overview
 
@@ -533,16 +533,15 @@ valid characters: [A-Za-z0-9/.]
 
  examples:
 ``` 
-OpenBSD/6.7
-FreeBSD/13
-ubuntu/20.04
-debian/10
-centos/8
+OpenBSD/7.9
+FreeBSD/17
+ubuntu/26.04
+debian/13
 arch
 ```	
 
 ### tls
-String stating which tls library is used by the tor daemon. 
+String stating which tls library is used by the tor daemon.
 
 length: < 15 character
 
