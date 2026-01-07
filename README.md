@@ -155,34 +155,30 @@ The `proof` field gives the operator the option to authenticate the `url` field.
 Since the `url` can be set to an arbitrary value - without consent of the entity it points to -
 the `proof` field tells interested parties how they can verify the `url` value.
 A relay operator can choose one out of two options to establish a proof (proofs can not be combined), they are also the two possible field values:
-
-* uri-rsa
-* dns-rsa
-
-The "uri-rsa" method is preferred over "dns-rsa" because it is easier to setup if a webserver
-is available and faster when performing proof verfications. The DNS based option SHOULD only be used
-when no webserver is available. All relays using a given `url` value MUST have the same consistent `proof` value.
+All relays using a given `url` value MUST have the same consistent `proof` value.
 You can not use multiple distinct `proof` values within a single group of relays using a certain `url` value.
+
+* uri-familyid-ed25519
+* dns-familyid-ed25519
+
+previously used deprected proof values:
+
+* uri-rsa (deprected, used in version 2)
+* dns-rsa (deprecated, used in version 2)
 
 Tools performing proof checks SHOULD re-verify the availability of the proof at least every 6 months.
 
-#### uri-rsa
+#### uri-familyid-ed25519
 
-The "uri-rsa" proof method uses the well-known "tor-relay" URI to fetch the RSA SHA1 Tor relay fingerprints
-from a fixed location on the `url` domain for verification.
+The "uri-familyid-25519" proof method uses the well-known "tor-relay" URI
+[/.well-known/tor-relay/ed25519-family-id.txt](https://gitlab.torproject.org/tpo/core/torspec/-/blob/main/proposals/326-tor-relay-well-known-uri-rfc8615.md?ref_type=heads&plain=0#well-knowntor-relayed25519-family-idtxt)
+to publish the family ID on a fixed location on the domain in the `url` field for verification.
 
-Example: If the `url` points to "https://example.com", the verification process fetches the relay fingerprints from:
+Example: If the `url` points to "https://example.com", the verification process fetches the ed25519 family ID from:
 
-https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
+https://example.com/.well-known/tor-relay/ed25519-family-id.txt
 
-The text file contains the RSA SHA1 relay fingerprints from that entity - one per line. 
-
-For bridges the file is named:
-
-https://example.com/.well-known/tor-relay/hashed-bridge-rsa-fingerprint.txt
-
-In case of bridges the file contains [hashed fingerprints](https://metrics.torproject.org/onionoo.html#details_bridge_hashed_fingerprint)
-instead of fingerprints.
+The text file contains the ed25519 happy family ID of the operator.
 
 The path and filename is static and defined in 
 [Tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/main/proposals/326-tor-relay-well-known-uri-rfc8615.md).
@@ -191,32 +187,21 @@ MUST have the same `url` field value.
 
 Note: This URI MUST be accessible via HTTPS regardless whether the `url` uses HTTPS or not. The URI MUST NOT redirect to another domain.
 
-#### dns-rsa
+#### dns-familyid-ed25519
 
-The "dns-rsa" proof method uses DNS instead of HTTPS and places the RSA SHA1 relay fingerprint or the hashed fingerprint in
-case of a bridge in DNS TXT records.
+The "dns-familyid-ed25519" proof method uses DNS instead of HTTPS.
 DNSSEC MUST be enabled on the domain located in the `url` field to ensure the integrity of DNS records.
 
-When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay/bridge
+When choosing this method (for example because no webserver is available) the operator creates a single DNS TXT record
 to proof it's `url` field.
 
 These DNS TXT records look as follows (example: `url:example.com`):
 
-*relay-fingerprint*.example.com
+we-run-this-tor-ed25519-family-id.example.com
 value:
-"we-run-this-tor-relay"
+"put your ed25519 family ID here"
 
-*relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the Tor relay.
-
-For bridges:
-
-*hashed-fingerprint*.example.com
-value:
-"we-run-this-tor-bridge"
-
-*hashed-fingerprint* is the 40 character SHA1 hash of the bridge's fingerprint.
-
-Each relay/bridge has its own DNS record, a single TXT record MUST be returned per relay/bridge only.
+It MUST NOT contain the secret_family_key content!
 
 ### pgp
 40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
