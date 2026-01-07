@@ -73,6 +73,7 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
   * **[email](#email)**
   * **[url](#url)**
   * **[proof](#proof)**
+  * **[urlpolicy](#urlpolicy)**
   * **[ciissversion](#ciissversion)** (mandatory)
   * [pgp](#pgp)
   * [abuse](#abuse)
@@ -202,6 +203,17 @@ value:
 "put your ed25519 family ID here"
 
 It MUST NOT contain the secret_family_key content!
+
+### urlpolicy
+
+This field tells tor users and tor directories how relays should be handled that claim to be operated by a specific `url`
+but fail the proof validation process.
+
+Possible values are:
+
+* none - Do nothing.
+* notify - Notify the operator by sending an email to the address from the `email` field.
+* reject - Do not accept the relay.
 
 ### pgp
 40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
