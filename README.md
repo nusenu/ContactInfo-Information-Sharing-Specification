@@ -201,7 +201,8 @@ to proof it's `url` field.
 
 These DNS TXT records look as follows (example: `url:example.com`):
 
-we-run-this-tor-ed25519-family-id.example.com
+`we-run-this-tor-ed25519-family-id.example.com`
+
 value:
 "put your public ed25519 family ID here" (a 43 character long case sensitive string)
 
