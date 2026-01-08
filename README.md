@@ -218,7 +218,7 @@ but fail the proof validation process.
 Possible values are:
 
 * `none` - Do nothing.
-* `notify` - Notify the operator by sending an email to the address from the `email` field.
+* `notify` - Notify the operator by sending an email to the address in the `email` field.
 * `reject` - Do not accept the relay.
 * `notify+reject` - First send an email notification then reject the relay.
 
