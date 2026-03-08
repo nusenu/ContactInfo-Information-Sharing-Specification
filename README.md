@@ -212,7 +212,7 @@ It MUST NOT contain the secret_family_key content!
 
 ### urlpolicy
 
-This field tells tor users and tor directories how relays should be handled that claim to be operated by a specific `url`
+This field tells tor users and tor directory authorities how relays should be handled that claim to be operated by a specific `url`
 but fail the proof validation process.
 
 Possible values are:
