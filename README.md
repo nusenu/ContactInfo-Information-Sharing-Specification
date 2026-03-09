@@ -276,6 +276,14 @@ torproject
 
 The entity's bluesky username without the leading "@" and trailing ".bsky.social".
 
+length: MUST be 1-50 characters long
+
+example value:
+
+```
+torproject.org
+```
+
 ### mastodon
 url pointing to the entity's mastodon profile (responsible organization/person).
 
