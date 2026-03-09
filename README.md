@@ -274,7 +274,7 @@ torproject
 
 ### bluesky
 
-The entity's bluesky username without the leading "@" and without the trailing ".bsky.social‬".
+The entity's bluesky username without the leading "@" and trailing ".bsky.social".
 
 ### mastodon
 url pointing to the entity's mastodon profile (responsible organization/person).
