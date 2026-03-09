@@ -78,6 +78,7 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
   * [abuse](#abuse)
   * [keybase](#keybase)
   * [twitter](#twitter)
+  * [bluesky](#bluesky)
   * [mastodon](#mastodon)
   * [matrix](#matrix)
   * [signal](#signal)
@@ -270,6 +271,10 @@ valid characters: [a-zA-Z0-9_]
 ```
 torproject
 ```
+
+### bluesky
+
+The entity's bluesky username without the leading "@" and without the trailing ".bsky.social‬".
 
 ### mastodon
 url pointing to the entity's mastodon profile (responsible organization/person).
