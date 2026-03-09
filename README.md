@@ -257,9 +257,9 @@ nusenu
 ```
 
 ### twitter
-The entity's twitter username without the leading "@" (non-technical contact). The user MUST be usable
-to create a valid twitter profile url. If the responsible organization or person has no twitter account, the technical contact's twitter handle can be used
-instead.
+The entity's twitter/X username without the leading "@" (non-technical contact). The username MUST be usable
+to create a valid twitter/X profile url. If the responsible organization or person has no twitter/X account, 
+the technical contact's twitter/X handle can be used instead.
 
 length: MUST be 1-15 characters long
 
