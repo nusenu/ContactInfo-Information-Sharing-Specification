@@ -73,7 +73,6 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
   * **[email](#email)**
   * **[url](#url)**
   * **[proof](#proof)**
-  * **[urlpolicy](#urlpolicy)**
   * **[ciissversion](#ciissversion)** (mandatory)
   * [pgp](#pgp)
   * [abuse](#abuse)
@@ -209,18 +208,6 @@ value:
 During key rollover two DNS TXT records might exist at the same time.
 
 It MUST NOT contain the secret_family_key content!
-
-### urlpolicy
-
-This field tells tor users and tor directory authorities how relays should be handled that claim to be operated by a specific `url`
-but fail the proof validation process.
-
-Possible values are:
-
-* `none` - Do nothing.
-* `notify` - Notify the operator by sending an email to the address in the `email` field.
-* `reject` - Do not accept the relay.
-* `notify+reject` - First send an email notification then reject the relay.
 
 ### pgp
 40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
