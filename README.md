@@ -1,28 +1,26 @@
-**Version 2**
+**Version 3**
 
 # Overview
 
-The Tor relay [ContactInfo](https://www.torproject.org/docs/tor-manual.html.en#ContactInfo) string was primarily
+The Tor relay `ContactInfo` string was primarily
 intended to contain an email address and PGP key fingerprint but since this field accepts an arbitrary string
 it has been used for multiple other purposes (website urls, donation information, bitcoin addresses, ...).
 Making use of provided information in an automated way is hard since there is no specification on how 
 this string should look like. This is a specification to formalize the ContactInfo string.
 This specification is optional (opt-in), operators can choose to implement it or not.
 
-A simple to use ContactInfo generator for this specification can be found at [https://torcontactinfogenerator.netlify.app/](https://torcontactinfogenerator.netlify.app/)
-
 # Example
 
 An example ContactInfo string as defined by this specification could look like this:
 
-```foo bar email:tor[]example.com url:https://example.com proof:uri-rsa uplinkbw:100 ciissversion:2```
+```foo bar email:tor[]example.com url:https://example.com proof:uri-familyid-ed25519 uplinkbw:1000 ciissversion:3```
 
 In words this means:
 * the technical contact for this relay can be reached at tor@example.com
 * the entity responsible for this relay has a website at https://example.com
-* the proof file to verify the `url` can be fetched from https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
-* this relay has an uplink bandwidth of 100 Mbit/s
-* this ContactInfo string implements version 2 of this specification
+* the proof file to verify the `url` can be fetched from https://example.com/.well-known/tor-relay/ed25519-family-id.txt
+* this relay has an uplink bandwidth of 1000 Mbit/s
+* this ContactInfo string implements version 3 of this specification
 
 # Motivation
 
@@ -78,8 +76,11 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
   * [abuse](#abuse)
   * [keybase](#keybase)
   * [twitter](#twitter)
+  * [bluesky](#bluesky)
   * [mastodon](#mastodon)
   * [matrix](#matrix)
+  * [signal](#signal)
+  * [irc](#irc)
   * [xmpp](#xmpp)
   * [otr3](#otr3)
   * [hoster](#hoster)
@@ -125,6 +126,7 @@ contact[]example.com
 
 ### url
 This field contains an URL (or hostname) pointing to the website of the entity (organization or person) responsible for this Tor relay.
+If the `url` field is set, the `proof` field MUST also be set.
 In most cases the responsible entity will be the same as the technical contact mentioned in the `email` field.
 This field MUST be consistent across all relays where this entity is responsible.
 It MUST point to a specific (non-shared) domain/hostname. Two organizations/persons can not have the same field content.
@@ -149,74 +151,60 @@ https://example.com
 
 ### proof
 
-The `proof` field is only relevant when the `url` field is set. It is ignored when `url` is not set.
-The `proof` field gives the operator the option to authenticate the `url` field.
+The `proof` field is mandatory when the `url` field is set. It is ignored when `url` is not set.
+The `proof` field gives the operator the option to tell interested entities how they can verify the domain in the `url` field.
+This prevents operators from claiming arbitrary domains.
 
 Since the `url` can be set to an arbitrary value - without consent of the entity it points to -
 the `proof` field tells interested parties how they can verify the `url` value.
+All relays using a given `url` value MUST have the same consistent `proof` value.
+You can not use multiple distinct `proof` values within a single group of relays using a certain `url` value.
 A relay operator can choose one out of two options to establish a proof (proofs can not be combined), they are also the two possible field values:
 
-* uri-rsa
-* dns-rsa
+* uri-familyid-ed25519
+* dns-familyid-ed25519
 
-The "uri-rsa" method is preferred over "dns-rsa" because it is easier to setup if a webserver
-is available and faster when performing proof verfications. The DNS based option SHOULD only be used
-when no webserver is available. All relays using a given `url` value MUST have the same consistent `proof` value.
-You can not use multiple distinct `proof` values within a single group of relays using a certain `url` value.
+Tools performing proof checks SHOULD re-verify the proof at least every 6 months.
 
-Tools performing proof checks SHOULD re-verify the availability of the proof at least every 6 months.
+#### uri-familyid-ed25519
 
-#### uri-rsa
+The "uri-familyid-25519" proof method uses the well-known "tor-relay" URI
+[/.well-known/tor-relay/ed25519-family-id.txt](https://gitlab.torproject.org/tpo/core/torspec/-/blob/main/proposals/326-tor-relay-well-known-uri-rfc8615.md?ref_type=heads&plain=0#well-knowntor-relayed25519-family-idtxt)
+to publish the public family ID on a fixed location on the domain given in the `url` field for verification.
+The public family ID is written to a file ending with `.public_family_id` as a result of the `tor --keygen-family filename` command when generating the happy family key.
+The public family ID is a 43 characters long case sensitive string.
 
-The "uri-rsa" proof method uses the well-known "tor-relay" URI to fetch the RSA SHA1 Tor relay fingerprints
-from a fixed location on the `url` domain for verification.
+Example: If the `url` points to "https://example.com", the verification process fetches the ed25519 public family ID from:
 
-Example: If the `url` points to "https://example.com", the verification process fetches the relay fingerprints from:
+https://example.com/.well-known/tor-relay/ed25519-family-id.txt
 
-https://example.com/.well-known/tor-relay/rsa-fingerprint.txt
-
-The text file contains the RSA SHA1 relay fingerprints from that entity - one per line. 
-
-For bridges the file is named:
-
-https://example.com/.well-known/tor-relay/hashed-bridge-rsa-fingerprint.txt
-
-In case of bridges the file contains [hashed fingerprints](https://metrics.torproject.org/onionoo.html#details_bridge_hashed_fingerprint)
-instead of fingerprints.
+The text file must contain the public ed25519 family ID of the operator. During key rollover more than one public family ID might be present in the file.
 
 The path and filename is static and defined in 
 [Tor proposal 326](https://gitlab.torproject.org/tpo/core/torspec/-/blob/main/proposals/326-tor-relay-well-known-uri-rfc8615.md).
-It is not required that all listed relay fingerprints point to running relays, but all running relays contained in the file
-MUST have the same `url` field value.
+
+The text file MUST NOT contain the secret_family_key content!
 
 Note: This URI MUST be accessible via HTTPS regardless whether the `url` uses HTTPS or not. The URI MUST NOT redirect to another domain.
 
-#### dns-rsa
+#### dns-familyid-ed25519
 
-The "dns-rsa" proof method uses DNS instead of HTTPS and places the RSA SHA1 relay fingerprint or the hashed fingerprint in
-case of a bridge in DNS TXT records.
+The "dns-familyid-ed25519" proof method uses DNS instead of HTTPS.
 DNSSEC MUST be enabled on the domain located in the `url` field to ensure the integrity of DNS records.
 
-When choosing this method (for example because no webserver is available) the operator creates a DNS TXT record for each relay/bridge
+When choosing this method (for example because no webserver is available) the operator creates a single DNS TXT record
 to proof it's `url` field.
 
 These DNS TXT records look as follows (example: `url:example.com`):
 
-*relay-fingerprint*.example.com
+`we-run-this-tor-ed25519-family-id.example.com`
+
 value:
-"we-run-this-tor-relay"
+"put your public ed25519 family ID here" (a 43 character long case sensitive string)
 
-*relay-fingerprint* is the 40 character RSA SHA1 fingerprint of the Tor relay.
+During key rollover two DNS TXT records might exist at the same time.
 
-For bridges:
-
-*hashed-fingerprint*.example.com
-value:
-"we-run-this-tor-bridge"
-
-*hashed-fingerprint* is the 40 character SHA1 hash of the bridge's fingerprint.
-
-Each relay/bridge has its own DNS record, a single TXT record MUST be returned per relay/bridge only.
+It MUST NOT contain the secret_family_key content!
 
 ### pgp
 40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
@@ -266,9 +254,9 @@ nusenu
 ```
 
 ### twitter
-The entity's twitter username without the leading "@" (non-technical contact). The user MUST be usable
-to create a valid twitter profile url. If the responsible organization or person has no twitter account, the technical contact's twitter handle can be used
-instead.
+The entity's twitter/X username without the leading "@" (non-technical contact). The username MUST be usable
+to create a valid twitter/X profile url. If the responsible organization or person has no twitter/X account, 
+the technical contact's twitter/X handle can be used instead.
 
 length: MUST be 1-15 characters long
 
@@ -278,6 +266,18 @@ valid characters: [a-zA-Z0-9_]
  
 ```
 torproject
+```
+
+### bluesky
+
+The entity's bluesky username without the leading "@" and trailing ".bsky.social".
+
+length: MUST be 1-50 characters long
+
+example value:
+
+```
+torproject.org
 ```
 
 ### mastodon
@@ -302,6 +302,27 @@ example value:
 @user:example.com
 ```
 
+### signal
+
+This field contains a [Signal username](https://support.signal.org/hc/en-us/articles/6712070553754-Phone-Number-Privacy-and-Usernames#username_req).
+
+Signal usernames are case insensitive.
+
+length: <40 characters
+
+valid characters: [a-z0-9_.]
+
+### irc
+
+This field contains an IRC network/nickname. The nickname MUST be registered.
+
+length: <100
+
+example value:
+
+```
+irc.oftc.net/exampleusername
+```
 
 ### xmpp
 [XMPP](https://en.wikipedia.org/wiki/XMPP) handle for the technical contact of this Tor relay. The "@" sign SHOULD be replaced with "[]".
@@ -533,16 +554,15 @@ valid characters: [A-Za-z0-9/.]
 
  examples:
 ``` 
-OpenBSD/6.7
-FreeBSD/13
-ubuntu/20.04
-debian/10
-centos/8
+OpenBSD/7.9
+FreeBSD/17
+ubuntu/26.04
+debian/13
 arch
 ```	
 
 ### tls
-String stating which tls library is used by the tor daemon. 
+String stating which tls library is used by the tor daemon.
 
 length: < 15 character
 
@@ -663,8 +683,8 @@ length: <4 digits
 example values:
 
 ```
-1
 2
+3
 ```
 
 
