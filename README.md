@@ -127,6 +127,7 @@ contact[]example.com
 
 ### url
 This field contains an URL (or hostname) pointing to the website of the entity (organization or person) responsible for this Tor relay.
+If the `url` field is set, the `proof` field MUST also be set.
 In most cases the responsible entity will be the same as the technical contact mentioned in the `email` field.
 This field MUST be consistent across all relays where this entity is responsible.
 It MUST point to a specific (non-shared) domain/hostname. Two organizations/persons can not have the same field content.
@@ -151,8 +152,9 @@ https://example.com
 
 ### proof
 
-The `proof` field is only relevant when the `url` field is set. It is ignored when `url` is not set.
-The `proof` field gives the operator the option to authenticate the `url` field.
+The `proof` field is mandatory when the `url` field is set. It is ignored when `url` is not set.
+The `proof` field gives the operator the option to tell interested entities how they can verify the domain in the `url` field.
+This prevents operators from claiming arbitrary domains.
 
 Since the `url` can be set to an arbitrary value - without consent of the entity it points to -
 the `proof` field tells interested parties how they can verify the `url` value.
@@ -162,11 +164,6 @@ A relay operator can choose one out of two options to establish a proof (proofs 
 
 * uri-familyid-ed25519
 * dns-familyid-ed25519
-
-Previously used in CIISS version 2 and deprecated in version 3 proof values:
-
-* uri-rsa
-* dns-rsa
 
 Tools performing proof checks SHOULD re-verify the proof at least every 6 months.
 
