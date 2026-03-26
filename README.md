@@ -1,4 +1,4 @@
-**Version 3-dev**
+**Version 3**
 
 # Overview
 
