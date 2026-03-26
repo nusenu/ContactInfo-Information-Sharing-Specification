@@ -2,7 +2,7 @@
 
 # Overview
 
-The Tor relay [ContactInfo](https://www.torproject.org/docs/tor-manual.html.en#ContactInfo) string was primarily
+The Tor relay `ContactInfo` string was primarily
 intended to contain an email address and PGP key fingerprint but since this field accepts an arbitrary string
 it has been used for multiple other purposes (website urls, donation information, bitcoin addresses, ...).
 Making use of provided information in an automated way is hard since there is no specification on how 
@@ -304,6 +304,12 @@ example value:
 ### signal
 
 This field contains a [Signal username](https://support.signal.org/hc/en-us/articles/6712070553754-Phone-Number-Privacy-and-Usernames#username_req).
+
+Signal usernames are case insensitive.
+
+length: <40 characters
+
+valid characters: [a-z0-9_.]
 
 ### xmpp
 [XMPP](https://en.wikipedia.org/wiki/XMPP) handle for the technical contact of this Tor relay. The "@" sign SHOULD be replaced with "[]".
@@ -664,8 +670,8 @@ length: <4 digits
 example values:
 
 ```
-1
 2
+3
 ```
 
 
