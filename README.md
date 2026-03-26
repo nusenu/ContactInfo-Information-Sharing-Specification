@@ -9,8 +9,6 @@ Making use of provided information in an automated way is hard since there is no
 this string should look like. This is a specification to formalize the ContactInfo string.
 This specification is optional (opt-in), operators can choose to implement it or not.
 
-A simple to use ContactInfo generator for this specification can be found at [https://torcontactinfogenerator.netlify.app/](https://torcontactinfogenerator.netlify.app/)
-
 # Example
 
 An example ContactInfo string as defined by this specification could look like this:
