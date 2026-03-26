@@ -80,6 +80,7 @@ The version field (`ciissversion`) and at least one additional field (any) is ma
   * [mastodon](#mastodon)
   * [matrix](#matrix)
   * [signal](#signal)
+  * [irc](#irc)
   * [xmpp](#xmpp)
   * [otr3](#otr3)
   * [hoster](#hoster)
@@ -310,6 +311,18 @@ Signal usernames are case insensitive.
 length: <40 characters
 
 valid characters: [a-z0-9_.]
+
+### irc
+
+This field contains an IRC network/nickname. The nickname MUST be registered.
+
+length: <100
+
+example value:
+
+```
+irc.oftc.net/exampleusername
+```
 
 ### xmpp
 [XMPP](https://en.wikipedia.org/wiki/XMPP) handle for the technical contact of this Tor relay. The "@" sign SHOULD be replaced with "[]".
