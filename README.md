@@ -4,7 +4,7 @@
 
 The Tor relay `ContactInfo` string was primarily
 intended to contain an email address and PGP key fingerprint but since this field accepts an arbitrary string
-it has been used for multiple other purposes (website urls, donation information, bitcoin addresses, ...).
+it has been used for multiple other purposes (website URLs, donation information, bitcoin addresses, ...).
 Making use of provided information in an automated way is hard since there is no specification on how 
 this string should look like. This is a specification to formalize the ContactInfo string.
 This specification is optional (opt-in), operators can choose to implement it or not.
@@ -46,11 +46,11 @@ In words this means:
 
 # Defined Fields 
 
-The fields specified in this document coexists with other arbitrary strings located in 
+The fields specified in this document coexist with other arbitrary strings located in 
 the relay's ContactInfo descriptor field. Defined fields may appear at any position within 
-the contactInfo string. A field identifier (key) MUST only be used once, if it appears multiple times
-in the ContactInfo string only the first occurance is considered. 
-UTF-8 is supported to the extend that Tor supports it ([proposal 285](https://gitweb.torproject.org/torspec.git/tree/proposals/285-utf-8.txt)).
+the ContactInfo string. A field identifier (key) MUST only be used once, if it appears multiple times
+in the ContactInfo string only the first occurence is considered. 
+UTF-8 is supported to the extent that Tor supports it ([proposal 285](https://gitweb.torproject.org/torspec.git/tree/proposals/285-utf-8.txt)).
 Punycode encoding should be used for internationalized domain names.
 
 Information is provided in key-value pairs:
@@ -66,7 +66,7 @@ Specifically the email field SHOULD be the first field.
 
 The version field (`ciissversion`) and at least one additional field (any) is mandatory.
 
-## Overview of definied fields
+## Overview of defined fields
 
   * **[email](#email)**
   * **[url](#url)**
@@ -115,7 +115,7 @@ The given email address SHOULD be the same for all relays this entity manages.
 The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
 the "@" sign SHOULD be replaced with "[]". 
 We are aware that this is trivially defeated anti-spam "protection" but 
-not all email address scrappers are aware of this specification
+not all email address scrapers are aware of this specification
 (not targeted for Tor contact info data).
 
 example value:
@@ -125,12 +125,12 @@ contact[]example.com
 ```
 
 ### url
-This field contains an URL (or hostname) pointing to the website of the entity (organization or person) responsible for this Tor relay.
+This field contains a URL (or hostname) pointing to the website of the entity (organization or person) responsible for this Tor relay.
 If the `url` field is set, the `proof` field MUST also be set.
 In most cases the responsible entity will be the same as the technical contact mentioned in the `email` field.
 This field MUST be consistent across all relays where this entity is responsible.
 It MUST point to a specific (non-shared) domain/hostname. Two organizations/persons can not have the same field content.
-The `url` field is verified using the selected proof method described bellow (`proof` field). 
+The `url` field is verified using the selected proof method described below (`proof` field). 
 
 When displaying the `url` field content on websites and tools implementing this specification:
 * The `url` SHOULD be ignored if verification does not succeed.
@@ -168,7 +168,7 @@ Tools performing proof checks SHOULD re-verify the proof at least every 6 months
 
 #### uri-familyid-ed25519
 
-The "uri-familyid-25519" proof method uses the well-known "tor-relay" URI
+The "uri-familyid-ed25519" proof method uses the well-known "tor-relay" URI
 [/.well-known/tor-relay/ed25519-family-id.txt](https://gitlab.torproject.org/tpo/core/torspec/-/blob/main/proposals/326-tor-relay-well-known-uri-rfc8615.md?ref_type=heads&plain=0#well-knowntor-relayed25519-family-idtxt)
 to publish the public family ID on a fixed location on the domain given in the `url` field for verification.
 The public family ID is written to a file ending with `.public_family_id` as a result of the `tor --keygen-family filename` command when generating the happy family key.
@@ -193,7 +193,7 @@ The "dns-familyid-ed25519" proof method uses DNS instead of HTTPS.
 DNSSEC MUST be enabled on the domain located in the `url` field to ensure the integrity of DNS records.
 
 When choosing this method (for example because no webserver is available) the operator creates a single DNS TXT record
-to proof it's `url` field.
+to prove its `url` field.
 
 These DNS TXT records look as follows (example: `url:example.com`):
 
@@ -208,7 +208,7 @@ It MUST NOT contain the secret_family_key content!
 
 ### pgp
 40 characters PGP key fingerprint (long form) without leading "0x" and without spaces.
-Case in-sensitive. This key relates to the email address given in the `email` field,
+Case insensitive. This key relates to the email address given in the `email` field,
 but providing the `pgp` field without an `email` field is also possible.
 
 This key SHOULD be available on https://keys.openpgp.org
@@ -225,11 +225,11 @@ EF6E286DDA85EA2A4BA7DE684E2C6E8793298290
 
 ### abuse
 Email address of the abuse handling contact for this Tor relay.
-This is primariy relevant for Tor exit relays but can also be used on non-exit relays.
+This is primarily relevant for Tor exit relays but can also be used on non-exit relays.
 The value is an addr-spec as defined in [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.4.1) but
 the "@" sign SHOULD be replaced with "[]". 
 We are aware that this is trivially defeated anti-spam "protection" but 
-not all email address scrappers are aware of this specification
+not all email address scrapers are aware of this specification
 (not targeted for Tor contact info data).
 
 example value:
@@ -241,7 +241,7 @@ abuse[]example.com
 
 ### keybase
 The technical contact's keybase username. This identifier MUST be usable
-to create a valid keybase.io profile url.
+to create a valid keybase.io profile URL.
 
 length: < 50 characters
 
@@ -255,7 +255,7 @@ nusenu
 
 ### twitter
 The entity's twitter/X username without the leading "@" (non-technical contact). The username MUST be usable
-to create a valid twitter/X profile url. If the responsible organization or person has no twitter/X account, 
+to create a valid twitter/X profile URL. If the responsible organization or person has no twitter/X account, 
 the technical contact's twitter/X handle can be used instead.
 
 length: MUST be 1-15 characters long
@@ -281,7 +281,7 @@ torproject.org
 ```
 
 ### mastodon
-url pointing to the entity's mastodon profile (responsible organization/person).
+URL pointing to the entity's mastodon profile (responsible organization/person).
 
 length: < 254 characters
 
@@ -337,7 +337,7 @@ user[]example.com
 
 ### otr3
 OTR version 3 key fingerprint without spaces.
-Case in-sensitive. This key fingerprint relates to the xmpp address given in the `xmpp` field.
+Case insensitive. This key fingerprint relates to the xmpp address given in the `xmpp` field.
 
 length: MUST be exactly 40 characters long
 
@@ -373,7 +373,7 @@ www.example-hoster.com
 ```
 
 ### cost
-Monthly hosting costs the hosting company is charging for the server. This does not include time spend to manage the relay. 
+Monthly hosting costs the hosting company is charging for the server. This does not include time spent managing the relay. 
 The amount MUST be provided with two digits after the decimal separator. The decimal separator MUST be a full stop (not a comma). 
 The value MUST be followed by the currency in [ISO4217 format](https://en.wikipedia.org/wiki/ISO_4217#Active_codes).
 
@@ -398,7 +398,7 @@ example:
 
 
 ### uplinkbw
-Logical network interface speed in Mbit/s (1Mbit/s = 1 000 000 Bit/s) or the value of RelayBandwidthRate in your torrc setting (whatever is smaller). For asymetrical uplinks specify the lower of up- and download bandwidth.
+Logical network interface speed in Mbit/s (1Mbit/s = 1 000 000 Bit/s) or the value of RelayBandwidthRate in your torrc setting (whatever is smaller). For asymmetrical uplinks specify the lower of up- and download bandwidth.
 
 On a server with multiple Tor instances the total available bandwidth of the server **MUST** be divided by the number of Tor relay instances running on it. This is an integer value.
 
@@ -487,7 +487,7 @@ zvm
 ## donation information
 
 ### donationurl
-url pointing to a website that contains donation information to support this Tor relay.
+URL pointing to a website that contains donation information to support this Tor relay.
 This MUST be an HTTPS URL.
 
 length: < 254 characters
@@ -544,11 +544,11 @@ valid characters: [yn]
 ## OS Information
 
 ### os
-String stating which OS distribution and version is used. Distribution and version is separated with a "/" sign.
+String stating which OS distribution and version is used. Distribution and version is separated by a "/" sign.
 On platforms where the file [/etc/os-release](https://www.freedesktop.org/software/systemd/man/os-release.html) is available os is created by taking the `ID` and `VERSION_ID` values. The version identifier is optional and may be omitted.
 The string is case-insensitive.
 
-length: < 21 character
+length: < 21 characters
 
 valid characters: [A-Za-z0-9/.]
 
@@ -564,7 +564,7 @@ arch
 ### tls
 String stating which tls library is used by the tor daemon.
 
-length: < 15 character
+length: < 15 characters
 
 valid characters: [a-z]
 
@@ -590,7 +590,7 @@ length: 1 character
 valid characters: [yn]
 
 ### confmgmt
-States what configuration managment system is used. 
+States what configuration management system is used. 
 Set to "manual" for no configuration management.
 
 
@@ -603,7 +603,7 @@ puppet
 salt
 ```
 
-length: < 16 character
+length: < 16 characters
 
 valid characters: [a-z]
 
@@ -690,7 +690,7 @@ example values:
 
 # Considerations
 
--  increases exposure of relay operators 
+- increases exposure of relay operators 
 
 The machine readable information could be used by spammers and to target
 relay operators. The amount of spam observed has been limited.
@@ -706,7 +706,7 @@ should omit this type of information, but can share other information.
 
 - increased descriptor size and directory traffic
 
-The contactinfo field size could potentially grow because of this specification.
+The ContactInfo field size could potentially grow because of this specification.
 This is mitigated by directory data compression and diffs available since Tor version 0.3.1.
 
 - ContactInfo size constraints
